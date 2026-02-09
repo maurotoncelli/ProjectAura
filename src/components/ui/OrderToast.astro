@@ -1,0 +1,13 @@
+---
+/**
+ * OrderToast — Confirmation toast shown after order placement.
+ * Animated via GSAP. Persists across navigations.
+ */
+import { getSiteData } from '../../lib/data';
+const site = getSiteData();
+---
+
+<div id="order-confirmation-toast" transition:persist>
+  <h4 class="font-serif italic text-2xl mb-1">{site.toast.title}</h4>
+  <p class="text-xs uppercase tracking-widest text-gray-400">{site.toast.subtitle}</p>
+</div>

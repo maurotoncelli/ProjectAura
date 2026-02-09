@@ -1,0 +1,39 @@
+---
+import { getHomeContent } from '../../../lib/data';
+const home = getHomeContent();
+---
+
+<section class="w-full bg-at-stone py-32 overflow-hidden z-curtain">
+  <div class="container mx-auto px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal-on-scroll">
+      <div>
+        <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-4">{home.estetica.label}</p>
+        <h3 class="text-5xl font-light leading-tight fluid-element" set:html={home.estetica.headingHtml}></h3>
+      </div>
+      <p class="max-w-md text-gray-500 text-sm mt-8 md:mt-0 fluid-element">{home.estetica.subtitle}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[120vh]">
+      <div class="md:col-span-5 h-[60vh] md:h-full relative overflow-hidden group img-reveal-wrapper">
+        <img src={home.estetica.grid.mainImage.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000" alt={home.estetica.grid.mainImage.alt} loading="lazy" decoding="async" />
+        <div class="absolute top-8 left-8 writing-vertical text-white text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition duration-500">{home.estetica.grid.mainImage.label}</div>
+      </div>
+      <div class="md:col-span-7 flex flex-col gap-4 h-full">
+        <div class="h-[40vh] md:h-[50%] relative overflow-hidden group img-reveal-wrapper">
+          <img src={home.estetica.grid.topRight.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000" alt={home.estetica.grid.topRight.alt} loading="lazy" decoding="async" />
+          <div class="absolute bottom-8 right-8 text-white text-4xl font-serif italic">{home.estetica.grid.topRight.label}</div>
+        </div>
+        <div class="h-[40vh] md:h-[50%] grid grid-cols-2 gap-4">
+          <div class="relative overflow-hidden group img-reveal-wrapper bg-at-graphite flex items-center justify-center">
+            <div class="text-center p-8">
+              <h4 class="text-white text-xl font-light mb-2">{home.estetica.grid.infoCard.title}</h4>
+              <p class="text-gray-500 text-xs">{home.estetica.grid.infoCard.subtitle}</p>
+            </div>
+          </div>
+          <div class="relative overflow-hidden group img-reveal-wrapper">
+            <img src={home.estetica.grid.bottomRight.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000" alt={home.estetica.grid.bottomRight.alt} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

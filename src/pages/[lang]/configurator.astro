@@ -1,0 +1,60 @@
+---
+import { getConfiguratorContent, getProducts, getMaterials, getSiteData } from '../../lib/data';
+import MainLayout from '../../layouts/MainLayout.astro';
+import FullScreenViewer from '../../components/sections/configurator/FullScreenViewer.astro';
+import FloatingCockpit from '../../components/sections/configurator/FloatingCockpit.astro';
+import CompareModels from '../../components/sections/configurator/CompareModels.astro';
+import MaterialStory from '../../components/sections/configurator/MaterialStory.astro';
+import AnimaDigitale from '../../components/sections/configurator/AnimaDigitale.astro';
+import WoodSoulSection from '../../components/sections/configurator/WoodSoulSection.astro';
+import BrassPlateSection from '../../components/sections/configurator/BrassPlateSection.astro';
+import BespokeSection from '../../components/sections/configurator/BespokeSection.astro';
+import ViaggioTimeline from '../../components/sections/configurator/ViaggioTimeline.astro';
+import OrderSummary from '../../components/sections/configurator/OrderSummary.astro';
+import FaqSection from '../../components/sections/configurator/FaqSection.astro';
+import NextChapterFooter from '../../components/sections/home/NextChapterFooter.astro';
+import { SUPPORTED_LANGS, type Lang } from '../../i18n/index';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const config = getConfiguratorContent();
+---
+
+<MainLayout title="AETHER | Configuratore" description="Configura il tuo tavolo AETHER su misura." page="configurator" lang={lang}>
+
+  <FullScreenViewer />
+  <FloatingCockpit />
+
+  <div id="config-sheet" class="relative z-20 bg-white rounded-t-[3rem] shadow-[0_-50px_100px_rgba(0,0,0,0.1)] pt-32">
+    <CompareModels />
+    <MaterialStory />
+    <AnimaDigitale />
+    <WoodSoulSection />
+    <BrassPlateSection />
+    <BespokeSection />
+    <ViaggioTimeline />
+    <OrderSummary />
+    <FaqSection />
+
+    <NextChapterFooter
+      label={config.nextChapter.label}
+      heading={config.nextChapter.heading}
+      linkText={config.nextChapter.linkText || "Scopri"}
+      href={config.nextChapter.href}
+      image={config.nextChapter.image}
+    />
+  </div>
+
+</MainLayout>
+
+<script>
+  import { initConfigPage } from '../../lib/configurator-animations';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initConfigPage);
+  } else {
+    initConfigPage();
+  }
+</script>

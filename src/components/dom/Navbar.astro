@@ -1,0 +1,31 @@
+---
+/**
+ * Navbar — Fixed navigation bar with brand, links, language selector, and cart button.
+ * Persists across navigations. Uses mix-blend-mode: difference for text readability.
+ */
+import { getSiteData } from '../../lib/data';
+const site = getSiteData();
+---
+
+<nav class="fixed top-0 w-full flex justify-between items-center p-8 fixed-ui blend-nav text-white" transition:persist>
+  <div class="text-xl font-semibold tracking-widest cursor-pointer hover:opacity-50 transition" data-nav-link="home">
+    <a href="/" class="no-underline text-inherit">{site.nav.brand}</a>
+  </div>
+  <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
+    {site.nav.links.map(link => (
+      <a href={link.href} data-astro-prefetch class="hover:opacity-50 transition uppercase no-underline text-inherit">{link.label}</a>
+    ))}
+  </div>
+  
+  <div id="nav-cart-container" class="flex items-center space-x-6 text-sm transition-opacity duration-300">
+    <div class="relative group">
+      <button id="current-lang-display" class="hover:opacity-50 transition font-normal tracking-widest">{site.nav.defaultLang}</button>
+      <div id="lang-dropdown" class="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 bg-at-graphite/90 backdrop-blur-md text-white p-4 hidden flex-col gap-3 min-w-[80px] text-center border border-white/10 shadow-2xl rounded-sm">
+        {site.nav.languages.map(lang => (
+          <button class={`hover:text-at-light transition text-xs font-normal tracking-widest ${lang === site.nav.defaultLang ? 'text-at-oak' : ''}`} data-lang={lang}>{lang}</button>
+        ))}
+      </div>
+    </div>
+    <button id="cart-btn-label" class="hover:opacity-50">{site.nav.cartLabel} (0)</button>
+  </div>
+</nav>

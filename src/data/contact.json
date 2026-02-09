@@ -1,0 +1,63 @@
+{
+  "form": {
+    "label": "Richieste",
+    "heading": "Segnale Ricevuto.",
+    "headingHtml": "Segnale<br/><span class=\"font-serif italic text-gray-400\">Ricevuto.</span>",
+    "subheading": "Linea Diretta.",
+    "responseTime": "Rispondiamo entro 24 ore.",
+    "fields": [
+      { "type": "text", "placeholder": "Il tuo nome", "required": true },
+      { "type": "email", "placeholder": "Email", "required": true },
+      { "type": "text", "placeholder": "Di cosa vuoi parlare?", "required": false },
+      { "type": "textarea", "placeholder": "Racconta la tua visione...", "required": false }
+    ],
+    "privacyCheckbox": "Ho letto e accetto la Privacy Policy.",
+    "submitLabel": "INVIA TRASMISSIONE"
+  },
+  "info": {
+    "email": {
+      "label": "Email Generale",
+      "value": "hello@aura-design.it"
+    },
+    "showroom": {
+      "label": "Showroom Virtuale",
+      "value": "Su appuntamento"
+    },
+    "social": [
+      { "label": "Instagram", "href": "#" },
+      { "label": "LinkedIn", "href": "#" },
+      { "label": "Behance", "href": "#" }
+    ]
+  },
+  "offices": {
+    "label": "Sedi",
+    "items": [
+      { "name": "AT Studio", "address": "Rue En Segni 10, 2016 Cortaillod (NE), Svizzera" },
+      { "name": "Segnobianco S.r.l.", "address": "Via I Maggio 10, 56037 Peccioli (PI), Italia" }
+    ]
+  },
+  "cities": [
+    {
+      "country": "Italia",
+      "city": "Milano",
+      "description": "Dove il design respira da secoli. Qui AETHER incontra la tradizione artigianale.",
+      "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=2670"
+    },
+    {
+      "country": "Giappone",
+      "city": "Tokyo",
+      "description": "La fusione perfetta: tecnologia e wabi-sabi.",
+      "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2636"
+    },
+    {
+      "country": "USA",
+      "city": "New York",
+      "description": "L'attico che aspetta il suo tavolo.",
+      "image": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=2670"
+    }
+  ],
+  "toast": {
+    "title": "Messaggio Inviato",
+    "subtitle": "Ti risponderemo entro 24 ore."
+  }
+}

@@ -1,0 +1,23 @@
+---
+import { getAboutContent } from '../../../lib/data';
+const about = getAboutContent();
+---
+
+<section class="w-full py-32 bg-white relative z-curtain">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-24 reveal-on-scroll">
+      <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{about.cronache.label}</p>
+      <h3 class="text-5xl font-light mb-6 fluid-element text-[#4A3728]" set:html={about.cronache.headingHtml}></h3>
+    </div>
+    <div class="columns-1 md:columns-2 gap-8 space-y-8">
+      {about.cronache.items.map((item) => (
+        <div class="break-inside-avoid relative group rounded-sm overflow-hidden img-reveal-wrapper shadow-xl">
+          <img src={item.image} class="w-full object-cover grayscale hover:grayscale-0 transition duration-1000 transform group-hover:scale-110" alt={item.alt} loading="lazy" decoding="async" />
+          <div class="absolute bottom-0 left-0 p-8 opacity-0 group-hover:opacity-100 transition duration-500">
+            <p class="text-white text-xs uppercase tracking-widest">{item.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

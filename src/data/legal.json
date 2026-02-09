@@ -1,0 +1,56 @@
+{
+  "privacy": {
+    "title": "PRIVACY POLICY",
+    "subtitle": "Informativa sul trattamento dei dati personali",
+    "lastUpdate": "Febbraio 2026",
+    "sections": [
+      {
+        "heading": "1. I Contitolari del Trattamento",
+        "content": "Il progetto Aether nasce da una collaborazione internazionale. Il trattamento dei dati personali è gestito in regime di Contitolarità tra AT Studio di Mauro Toncelli (Rue En Segni 10, 2016 Cortaillod, NE, Svizzera) e Segnobianco S.r.l. (Via I Maggio 10, Peccioli, PI, Italia)."
+      },
+      {
+        "heading": "2. Tipologia di Dati Raccolti",
+        "content": "Dati di navigazione, dati forniti volontariamente, cookie e tracciamento (Google Analytics 4 con IP anonimizzato)."
+      },
+      {
+        "heading": "3. Diritti dell'Interessato",
+        "content": "Accesso, rettifica, cancellazione, revoca consenso, opposizione, portabilità. Per esercitare i diritti: hello@aura-design.it"
+      }
+    ]
+  },
+  "terms": {
+    "title": "CONDIZIONI DI VENDITA",
+    "subtitle": "Beni su misura e Contratto di Fornitura",
+    "lastUpdate": "Febbraio 2026",
+    "sections": [
+      {
+        "heading": "1. Oggetto del Contratto",
+        "content": "Il contratto ha per oggetto la compravendita di tavoli in legno massello e vetro con integrazione tecnologica, realizzati su specifiche indicazioni del Cliente."
+      },
+      {
+        "heading": "2. Ordine e Accettazione",
+        "content": "L'ordine si intende accettato solo dopo la conferma scritta da parte di Aether e il ricevimento dell'acconto."
+      },
+      {
+        "heading": "3. Natura dei Beni ed Esclusione del Diritto di Recesso",
+        "content": "I prodotti Aether sono beni confezionati su misura e chiaramente personalizzati. Ai sensi dell'art. 59, lettera c) del Codice del Consumo, il diritto di recesso è ESCLUSO."
+      },
+      {
+        "heading": "4. Prezzi e Pagamenti",
+        "content": "Acconto del 50% alla conferma dell'ordine. Saldo del restante 50% prima della spedizione (6-8 settimane). Metodi: Bonifico Bancario, Carte di Credito (Stripe/PayPal)."
+      },
+      {
+        "heading": "5. Spedizione e Consegna White Glove",
+        "content": "Consegna al piano, montaggio e ritiro degli imballaggi inclusi nel servizio."
+      },
+      {
+        "heading": "6. Garanzia",
+        "content": "Parti strutturali (Legno/Vetro): 5 anni. Componenti elettronici (LED/Controller): 2 anni."
+      },
+      {
+        "heading": "7. Legge Applicabile",
+        "content": "Legge Italiana. Foro competente: Pisa (Italia)."
+      }
+    ]
+  }
+}

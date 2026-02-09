@@ -1,0 +1,68 @@
+---
+import { getContactContent } from '../../../lib/data';
+const contact = getContactContent();
+const privacyCheckboxHtml = contact.form.privacyCheckbox.replace('Privacy Policy', '<button type="button" onclick="window.openPrivacy && window.openPrivacy()" class="cb-link bg-transparent border-none p-0 text-inherit underline cursor-none">Privacy Policy</button>');
+---
+
+<div class="h-32 w-full bg-at-stone"></div>
+
+<section class="w-full px-8 pt-16 pb-32 relative">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row gap-24 md:gap-48">
+      <div class="w-full md:w-1/2 reveal-on-scroll">
+        <p class="text-xs font-bold uppercase tracking-widest text-at-oak mb-8">{contact.form.label}</p>
+        <h1 class="text-[clamp(3rem,8vw,6rem)] leading-[0.9] font-light text-at-graphite mb-4" set:html={contact.form.headingHtml}></h1>
+        <p class="text-2xl font-serif italic text-gray-400 mb-4">{contact.form.subheading}</p>
+        <p class="text-sm text-gray-500 mb-16">{contact.form.responseTime}</p>
+
+        <form id="contact-form" class="space-y-2">
+          {contact.form.fields.map(field => (
+            <div class="input-group">
+              {field.type === 'textarea' ? (
+                <textarea class="minimal-input resize-none h-32" placeholder={field.placeholder} required={field.required}></textarea>
+              ) : (
+                <>
+                  <input type={field.type as any} class="minimal-input" placeholder={field.placeholder} required={field.required} />
+                  <span class="valid-check">&#10003;</span>
+                </>
+              )}
+            </div>
+          ))}
+          <label class="cb-container mt-6">
+            <input type="checkbox" id="contact-privacy-cb" class="cb-input" required />
+            <span class="cb-checkmark"></span>
+            <span class="cb-label" set:html={privacyCheckboxHtml}></span>
+          </label>
+          <button type="submit" class="w-full py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-gray-800 transition mt-8">{contact.form.submitLabel}</button>
+        </form>
+      </div>
+
+      <div class="w-full md:w-1/2 flex flex-col justify-between reveal-on-scroll">
+        <div class="space-y-16">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{contact.info.email.label}</p>
+            <a href={`mailto:${contact.info.email.value}`} class="text-2xl font-light hover:text-at-oak transition no-underline text-at-text">{contact.info.email.value}</a>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{contact.info.showroom.label}</p>
+            <p class="text-2xl font-light">{contact.info.showroom.value}</p>
+          </div>
+          <div class="flex gap-8 text-xs uppercase tracking-widest">
+            {contact.info.social.map(s => (
+              <a href={s.href} class="hover:text-at-oak transition no-underline text-at-text">{s.label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-24 border-t border-at-graphite/20 pt-12">
+          <p class="text-xs font-bold uppercase tracking-widest text-at-oak mb-4">{contact.offices.label}</p>
+          <div class="flex flex-col gap-2 text-sm text-gray-500">
+            {contact.offices.items.map(office => (
+              <p><strong class="text-at-graphite">{office.name}</strong> &mdash; {office.address}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

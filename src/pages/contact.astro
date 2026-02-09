@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ContactFormSection from '../components/sections/contact/ContactFormSection.astro';
+import CitiesScroll from '../components/sections/contact/CitiesScroll.astro';
+import SimpleFooter from '../components/sections/contact/SimpleFooter.astro';
+---
+
+<MainLayout title="AETHER | Contatti" description="Contatta il team AETHER: Milano, Tokyo, New York. Invia la tua richiesta per un tavolo su misura." page="contact">
+  <ContactFormSection />
+  <CitiesScroll />
+  <SimpleFooter />
+</MainLayout>
+
+<script>
+  import { initContactPage } from '../lib/contact-animations';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactPage);
+  } else {
+    initContactPage();
+  }
+</script>

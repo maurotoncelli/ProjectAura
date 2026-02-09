@@ -1,0 +1,36 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import GallerySection from '../../components/sections/spaces/GallerySection.astro';
+import SpacesCta from '../../components/sections/spaces/SpacesCta.astro';
+import NextChapterFooter from '../../components/sections/home/NextChapterFooter.astro';
+import { getSpacesContent } from '../../lib/data';
+import { SUPPORTED_LANGS, type Lang } from '../../i18n/index';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const spaces = getSpacesContent();
+---
+
+<MainLayout title="AETHER | Ambienti" description="Esplora gli ambienti AETHER." page="spaces" lang={lang}>
+  <GallerySection />
+  <SpacesCta />
+  <NextChapterFooter
+    label={spaces.nextChapter.label}
+    heading={spaces.nextChapter.heading}
+    linkText={spaces.nextChapter.linkText}
+    href={spaces.nextChapter.href}
+    image={spaces.nextChapter.image}
+  />
+</MainLayout>
+
+<script>
+  import { initSpacesPage } from '../../lib/spaces-animations';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSpacesPage);
+  } else {
+    initSpacesPage();
+  }
+</script>

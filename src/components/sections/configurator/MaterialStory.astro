@@ -1,0 +1,35 @@
+---
+import { getConfiguratorContent, getMaterials } from '../../../lib/data';
+const config = getConfiguratorContent();
+const materials = getMaterials();
+---
+
+<section class="container mx-auto px-8 mb-48 reveal-on-scroll">
+  <div class="flex flex-col md:flex-row gap-24 items-center">
+    <div class="w-full md:w-1/2">
+      <div id="materia-zoom-container" class="zoom-container shadow-2xl relative h-[600px]">
+        <div id="zoom-lens" class="zoom-lens"></div>
+        <img id="material-stack-rovere" src={config.materia.materialImages.rovere} class="stack-img active" alt="Rovere" />
+        <img id="material-stack-cipresso" src={config.materia.materialImages.cipresso} class="stack-img behind-1 transform translate-x-4 translate-y-4 rotate-2" alt="Cipresso" loading="lazy" decoding="async" />
+        <img id="material-stack-noce" src={config.materia.materialImages.noce} class="stack-img behind-2 transform -translate-x-4 translate-y-8 -rotate-2" alt="Noce" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <div class="w-full md:w-1/2">
+      <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.materia.label}</p>
+      <div id="wood-storytelling" class="mb-12">
+        <h2 id="mat-detail-name" class="text-6xl font-light mb-8 uppercase tracking-tight text-[#4A3728]">{materials[0].displayName}.</h2>
+        <p id="mat-detail-desc" class="text-xl text-gray-700 leading-relaxed mb-8">{materials[0].description}</p>
+        <div class="grid grid-cols-3 gap-8 border-t border-gray-100 pt-8">
+          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Grana</p><p id="spec-grain" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.grain}</p></div>
+          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Durezza</p><p id="spec-hard" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.hardness}</p></div>
+          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Riflesso</p><p id="spec-reflect" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.reflect}</p></div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <button class="material-btn-bottom active px-8 py-4 border text-xs uppercase tracking-widest font-bold" data-mat="rovere">Rovere</button>
+        <button class="material-btn-bottom px-8 py-4 border text-xs uppercase tracking-widest font-bold" data-mat="cipresso">Cipresso</button>
+        <button class="material-btn-bottom px-8 py-4 border text-xs uppercase tracking-widest font-bold" data-mat="noce">Noce</button>
+      </div>
+    </div>
+  </div>
+</section>

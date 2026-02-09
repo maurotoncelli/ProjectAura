@@ -1,0 +1,44 @@
+---
+import { getAboutContent } from '../../../lib/data';
+const about = getAboutContent();
+---
+
+<section id="chronos-section" class="w-full h-screen bg-at-graphite text-at-stone overflow-hidden relative h-scroll-wrapper" data-scroll-section>
+  <div class="h-scroll-container">
+    <div class="h-scroll-panel relative border-r border-white/10">
+      <div class="absolute top-12 left-12 text-xs uppercase tracking-widest text-white/50">{about.timeline[0].label}</div>
+      {about.timeline[0].year && (
+        <h2 class="text-[10vw] font-serif leading-none opacity-20 absolute left-12 bottom-12">{about.timeline[0].year}</h2>
+      )}
+      <div class="max-w-xl p-12 relative z-10">
+        <h3 class="text-4xl md:text-6xl font-light mb-6">{about.timeline[0].heading}</h3>
+        <p class="text-lg text-gray-400">{about.timeline[0].description}</p>
+      </div>
+    </div>
+    <div class="h-scroll-panel relative border-r border-white/10 bg-at-graphite">
+      <div class="absolute top-12 left-12 text-xs uppercase tracking-widest text-white/50">{about.timeline[1].label}</div>
+      {about.timeline[1].image && (
+        <div class="w-[40vw] h-[60vh] relative overflow-hidden img-reveal-wrapper">
+          <img src={about.timeline[1].image} class="w-full h-full object-cover grayscale opacity-60" alt="Microchip" loading="lazy" decoding="async" />
+        </div>
+      )}
+      <div class="absolute bottom-24 right-24 max-w-md text-right">
+        <h3 class="text-4xl md:text-6xl font-light mb-6">{about.timeline[1].heading}</h3>
+        <p class="text-lg text-gray-400">{about.timeline[1].description}</p>
+      </div>
+    </div>
+    <div class={`h-scroll-panel relative ${about.timeline[2].theme === 'light' ? 'bg-at-stone text-at-graphite' : 'bg-at-graphite text-at-stone'}`}>
+      <div class={`absolute top-12 left-12 text-xs uppercase tracking-widest ${about.timeline[2].theme === 'light' ? 'text-at-oak' : 'text-white/50'}`}>{about.timeline[2].label}</div>
+      {about.timeline[2].year && (
+        <h2 class="text-[15vw] font-serif italic leading-none absolute right-12 bottom-12 opacity-10">{about.timeline[2].year}</h2>
+      )}
+      <div class="text-center">
+        {about.timeline[2].horizonLabel && (
+          <p class="text-sm font-bold uppercase tracking-widest mb-4">{about.timeline[2].horizonLabel}</p>
+        )}
+        <h3 class="text-6xl md:text-8xl font-light tracking-tighter mb-8 text-clip">{about.timeline[2].heading}</h3>
+        <p class="max-w-lg mx-auto text-xl">{about.timeline[2].description}</p>
+      </div>
+    </div>
+  </div>
+</section>

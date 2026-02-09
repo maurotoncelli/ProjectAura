@@ -1,0 +1,200 @@
+{
+  "products": [
+    {
+      "id": "aether-250",
+      "model": "AETHER 250",
+      "modelNumber": "250",
+      "subtitle": "Il Tête-à-Tête",
+      "basePrice": 2800,
+      "displayPrice": "2.800",
+      "currency": "EUR",
+      "seats": "6-8",
+      "weight": "95 kg",
+      "image": "https://images.unsplash.com/photo-1581093458391-9f42e5539973?q=80&w=2670",
+      "dimensions": {
+        "length": 250,
+        "depth": 90,
+        "height": 75,
+        "topThickness": 8,
+        "display": "250 cm"
+      },
+      "specs": {
+        "ledStrips": 1,
+        "ledLength": "200 cm",
+        "battery": "12 Ore",
+        "cable": "USB-C 3m Inc.",
+        "glassThickness": "20 mm",
+        "glassSize": "80 x 75 cm"
+      },
+      "specRows": [
+        { "label": "Lunghezza tavolo", "value": "250 cm" },
+        { "label": "Profondità della tavola", "value": "90 cm" },
+        { "label": "Spessore della tavola", "value": "8 cm" },
+        { "label": "Altezza da terra", "value": "75 cm" },
+        { "label": "Spessore gambe di vetro", "value": "20 mm" },
+        { "label": "Misure gambe di vetro", "value": "80 x 75 cm" },
+        { "label": "Numero strisce LED", "value": "1 (200 cm)" },
+        { "label": "Durata Batteria", "value": "12 Ore" },
+        { "label": "Cavo", "value": "USB-C 3m Inc." }
+      ]
+    },
+    {
+      "id": "aether-270",
+      "model": "AETHER 270",
+      "modelNumber": "270",
+      "subtitle": "L'Equilibrio",
+      "badge": "Bestseller",
+      "basePrice": 3400,
+      "displayPrice": "3.400",
+      "currency": "EUR",
+      "seats": "8-10",
+      "weight": "110 kg",
+      "image": "https://images.unsplash.com/photo-1581093458391-9f42e5539973?q=80&w=2670",
+      "dimensions": {
+        "length": 270,
+        "depth": 100,
+        "height": 75,
+        "topThickness": 8,
+        "display": "270 cm"
+      },
+      "specs": {
+        "ledStrips": 2,
+        "ledLength": "220 cm",
+        "battery": "10 Ore",
+        "cable": "USB-C 3m Inc.",
+        "glassThickness": "20 mm",
+        "glassSize": "90 x 75 cm"
+      },
+      "specRows": [
+        { "label": "Lunghezza tavolo", "value": "270 cm" },
+        { "label": "Profondità della tavola", "value": "100 cm" },
+        { "label": "Spessore della tavola", "value": "8 cm" },
+        { "label": "Altezza da terra", "value": "75 cm" },
+        { "label": "Spessore gambe di vetro", "value": "20 mm" },
+        { "label": "Misure gambe di vetro", "value": "90 x 75 cm" },
+        { "label": "Numero strisce LED", "value": "2 (220 cm)" },
+        { "label": "Durata Batteria", "value": "10 Ore" },
+        { "label": "Cavo", "value": "USB-C 3m Inc." }
+      ]
+    },
+    {
+      "id": "aether-330",
+      "model": "AETHER 330",
+      "modelNumber": "330",
+      "subtitle": "Il Convivio",
+      "basePrice": 4200,
+      "displayPrice": "4.200",
+      "currency": "EUR",
+      "seats": "10-14",
+      "weight": "140 kg",
+      "image": "https://images.unsplash.com/photo-1581093458391-9f42e5539973?q=80&w=2670",
+      "dimensions": {
+        "length": 330,
+        "depth": 110,
+        "height": 76,
+        "topThickness": 10,
+        "display": "330 cm"
+      },
+      "specs": {
+        "ledStrips": 2,
+        "ledLength": "280 cm",
+        "battery": "8 Ore",
+        "cable": "USB-C 3m Inc.",
+        "glassThickness": "25 mm",
+        "glassSize": "100 x 76 cm"
+      },
+      "specRows": [
+        { "label": "Lunghezza tavolo", "value": "330 cm" },
+        { "label": "Profondità della tavola", "value": "110 cm" },
+        { "label": "Spessore della tavola", "value": "10 cm" },
+        { "label": "Altezza da terra", "value": "76 cm" },
+        { "label": "Spessore gambe di vetro", "value": "25 mm" },
+        { "label": "Misure gambe di vetro", "value": "100 x 76 cm" },
+        { "label": "Numero strisce LED", "value": "2 (280 cm)" },
+        { "label": "Durata Batteria", "value": "8 Ore" },
+        { "label": "Cavo", "value": "USB-C 3m Inc." }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "rovere",
+      "name": "Rovere Antico",
+      "displayName": "Rovere Antico",
+      "hex": "#96705B",
+      "threeColor": "0x96705B",
+      "priceModifier": 0,
+      "texturePath": "/textures/wood_oak_color.jpg",
+      "textureNormal": "/textures/wood_oak_normal.jpg",
+      "textureRoughness": "/textures/wood_oak_roughness.jpg",
+      "textureDisplacement": "/textures/wood_oak_displacement.jpg",
+      "thumbnail": "/textures/wood_oak_color.jpg",
+      "description": "La forza della persistenza. Caratterizzato da una venatura fiammata e una tonalità calda che matura con la luce. È un legno che non teme il tempo, ma lo usa per diventare più profondo. Ideale per chi cerca un equilibrio tra design scandinavo e calore mediterraneo. Origine: Foreste certificate, stagionatura naturale 36 mesi.",
+      "shortDescription": "La forza della persistenza. Venatura fiammata.",
+      "specs": {
+        "grain": "Fine",
+        "hardness": "Alta",
+        "reflect": "Opaco",
+        "finish": "Olio naturale",
+        "janka": "1360 N",
+        "seasoning": "24 mesi",
+        "origin": "Europa FSC"
+      }
+    },
+    {
+      "id": "cipresso",
+      "name": "Cipresso Toscano",
+      "displayName": "Cipresso Toscano",
+      "hex": "#C2B280",
+      "threeColor": "0xC2B280",
+      "priceModifier": 400,
+      "texturePath": "/textures/Wood013_1K-JPG_Color.jpg",
+      "textureNormal": "/textures/Wood013_1K-JPG_NormalGL.jpg",
+      "textureRoughness": "/textures/Wood013_1K-JPG_Roughness.jpg",
+      "textureDisplacement": "/textures/Wood013_1K-JPG_Displacement.jpg",
+      "thumbnail": "/textures/Wood013_1K-JPG_Color.jpg",
+      "description": "L'eleganza dell'unicità. Ogni nodo è una costellazione irripetibile, un segno del carattere di un albero che ha sfidato il vento toscano per decenni. La sua resina naturale lo rende resistente all'umidità, perfetto per chi vive gli spazi senza precauzioni. Origine: Toscana, stagionatura naturale 18 mesi.",
+      "shortDescription": "L'eleganza dell'unicità. Nodi come costellazioni.",
+      "specs": {
+        "grain": "Nodosa",
+        "hardness": "Media",
+        "reflect": "Satinato",
+        "finish": "Cera d'api",
+        "janka": "510 N",
+        "seasoning": "18 mesi",
+        "origin": "Toscana"
+      }
+    },
+    {
+      "id": "noce",
+      "name": "Noce Canaletto",
+      "displayName": "Noce Canaletto",
+      "hex": "#4A3728",
+      "threeColor": "0x4A3728",
+      "priceModifier": 800,
+      "texturePath": "/textures/wood_oak_color.jpg",
+      "textureNormal": "/textures/wood_oak_normal.jpg",
+      "textureRoughness": "/textures/wood_oak_roughness.jpg",
+      "textureDisplacement": "/textures/wood_oak_normal.jpg",
+      "thumbnail": "/textures/wood_oak_color.jpg",
+      "description": "Il prestigio dell'ombra. Venatura scura e profonda che si nobilita con il tempo, riflessi cioccolato che cambiano con la luce. È il legno che sceglie chi sa aspettare, perché ogni anno che passa lo rende più prezioso. Origine: Nord America, stagionatura naturale 36 mesi.",
+      "shortDescription": "Il prestigio dell'ombra. Riflessi cioccolato.",
+      "specs": {
+        "grain": "Lineare",
+        "hardness": "Alta",
+        "reflect": "Lucido",
+        "finish": "Olio-cera",
+        "janka": "1010 N",
+        "seasoning": "36 mesi",
+        "origin": "Nord America"
+      }
+    }
+  ],
+  "shipping": [
+    { "code": "IT", "name": "Italia (Inclusa)", "cost": 0 },
+    { "code": "EU", "name": "Europa", "cost": 450 },
+    { "code": "CH", "name": "Svizzera", "cost": 600 },
+    { "code": "UK", "name": "Regno Unito", "cost": 500 },
+    { "code": "US", "name": "USA", "cost": 1200 }
+  ]
+}

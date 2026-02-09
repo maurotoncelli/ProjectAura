@@ -1,0 +1,151 @@
+{
+  "hero": {
+    "title": "AETHER",
+    "subtitle": "Legno Massello / Vetro / Smart Core",
+    "branding": "Manifattura Italiana",
+    "workshop": "Workshop Segnobianco"
+  },
+  "philosophy": {
+    "label": "Design Philosophy 2026",
+    "number": "01",
+    "heading": "Il silenzio della forma.",
+    "headingHtml": "Il silenzio <br/><span class=\"font-serif italic text-at-oak\">della forma.</span>",
+    "description": "In un mondo che urla, AETHER sussurra. Abbiamo rimosso il superfluo per rivelare l'essenziale.",
+    "image": "https://images.unsplash.com/photo-1543459176-475240c872f7?q=80&w=2670&auto=format&fit=crop",
+    "bgImage": "https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2600&auto=format&fit=crop"
+  },
+  "tech": {
+    "label": "Integrazione Smart",
+    "heading": "La luce prende vita.",
+    "headingHtml": "La luce<br/>prende vita.",
+    "description": "Quando il sole tramonta, AETHER si sveglia. Led invisibili incastonati nel legno massello illuminano il pavimento, creando un'atmosfera sospesa. Controllalo con un tocco o con la tua voce.",
+    "integrations": ["Apple Home", "Alexa", "Google"],
+    "ledSpecs": [
+      {
+        "color": "at-light",
+        "shadow": "rgba(245, 208, 169, 0.4)",
+        "items": [
+          { "value": "2700K", "label": "Bianco Dinamico" },
+          { "value": "98 CRI", "label": "Alta Fedeltà" },
+          { "value": "4200LM", "label": "Output Max" }
+        ]
+      },
+      {
+        "color": "emerald-300",
+        "shadow": "rgba(52, 211, 153, 0.4)",
+        "items": [
+          { "value": "A++", "label": "Efficienza" },
+          { "value": "50k H", "label": "Durata LED" },
+          { "value": "24V DC", "label": "Bassa Tensione" }
+        ]
+      },
+      {
+        "color": "cyan-300",
+        "shadow": "rgba(34, 211, 238, 0.4)",
+        "items": [
+          { "value": "ZIGBEE", "label": "Protocollo" },
+          { "value": "MATTER", "label": "Core Nativo" },
+          { "value": "<5ms", "label": "Latenza" }
+        ]
+      }
+    ]
+  },
+  "material": {
+    "label": "Materia Viva",
+    "heading": "Non è solo legno.",
+    "headingHtml": "Non è solo<br/>legno.",
+    "description": "Ogni venatura racconta una tempesta. Rovere massello selezionato a mano, stagionato lentamente.",
+    "bgImage": "https://images.unsplash.com/photo-1620037302061-419b6265691e?q=80&w=2600&auto=format&fit=crop"
+  },
+  "genesis": {
+    "label": "Genesi",
+    "heading": "Disegnato per sparire.",
+    "headingHtml": "Disegnato<br/>per sparire.",
+    "description": "L'idea era semplice: un piano che levita.",
+    "description2": "Volevamo che la struttura portante svanisse, lasciando il legno protagonista assoluto.",
+    "image": "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2670&auto=format&fit=crop",
+    "caption": "ORIGINAL SKETCH // V.1.0"
+  },
+  "smartContext": {
+    "label": "Controllo Fluido",
+    "heading": "Il potere in un gesto.",
+    "headingHtml": "Il potere<br/>in un gesto.",
+    "description": "Non serve un interruttore. Usa l'app Casa, Alexa o semplicemente la tua voce.",
+    "bgImage": "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2670&auto=format&fit=crop"
+  },
+  "elementalFlow": [
+    {
+      "label": "Livello 01",
+      "heading": "Il Nucleo.",
+      "description": "Dove il silicio incontra l'intenzione. <br/>L'intelligenza non si vede.",
+      "bgImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670",
+      "theme": "dark"
+    },
+    {
+      "heading": "Forza Invisibile.",
+      "headingHtml": "Forza<br/>Invisibile.",
+      "image": "https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=2670",
+      "theme": "light"
+    },
+    {
+      "label": "Livello 03",
+      "heading": "L'Atmosfera.",
+      "description": "Luce diffusa a 2700K. <br/>Calore che avvolge lo spazio.",
+      "theme": "warm"
+    }
+  ],
+  "lifestyle": {
+    "label": "Lifestyle",
+    "heading": "Abitare Aether.",
+    "headingHtml": "Abitare<br/>Aether.",
+    "scrollHint": "Scorri per esplorare ->",
+    "items": [
+      { "image": "https://images.unsplash.com/photo-1529124263156-4c9c148f32fb?q=80&w=2670&auto=format&fit=crop", "title": "Rituali Mattutini" },
+      { "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670&auto=format&fit=crop", "title": "Focus & Chiarezza" },
+      { "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2574&auto=format&fit=crop", "title": "Atmosfera Serale" }
+    ]
+  },
+  "estetica": {
+    "label": "Estetica",
+    "heading": "Dettagli che respirano.",
+    "headingHtml": "Dettagli che<br/>respirano.",
+    "subtitle": "La bellezza risiede nell'imperfezione controllata.",
+    "grid": {
+      "mainImage": { "src": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop", "alt": "Texture", "label": "Rovere Grezzo" },
+      "topRight": { "src": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2670&auto=format&fit=crop", "alt": "Living", "label": "Living" },
+      "infoCard": { "title": "Superficie Touch", "subtitle": "Legno Capacitivo" },
+      "bottomRight": { "src": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669&auto=format&fit=crop", "alt": "Detail" }
+    }
+  },
+  "heritage": {
+    "heading": "Mano & Macchina.",
+    "headingHtml": "Mano<br/>& Macchina.",
+    "description": "Dove la mano dell'artigiano incontra la precisione digitale.",
+    "bgImage": "https://images.unsplash.com/photo-1617326815526-976219195454?q=80&w=2670&auto=format&fit=crop",
+    "badge": "Manifattura Italiana — Workshop Segnobianco"
+  },
+  "details": {
+    "heading": "Specifiche",
+    "description": "Un design senza tempo che nasconde un cuore tecnologico. Ogni tavolo è un pezzo unico, lavorato a mano.",
+    "longDescription": "La struttura portante svanisce per lasciare spazio alla materia pura. Un equilibrio perfetto tra la solidità del rovere secolare e la trasparenza del vetro temperato, uniti da una tecnologia luminosa che non si impone, ma accoglie.",
+    "image": "https://images.unsplash.com/photo-1544413164-6c8ce3638245?q=80&w=2600",
+    "cta": { "label": "Configura il tuo AETHER", "href": "/configurator" },
+    "downloads": {
+      "label": "Area Download",
+      "buttons": ["Scarica 3D (.obj)", "Scheda Tecnica"]
+    },
+    "b2b": {
+      "label": "B2B & Trade",
+      "heading": "Sei un Architetto?",
+      "description": "Richiedi il kit 3D in alta definizione.",
+      "buttonLabel": "Richiedi"
+    }
+  },
+  "nextChapter": {
+    "label": "Prossimo Capitolo",
+    "heading": "Scopri la Visione",
+    "linkText": "Esplora About",
+    "href": "/about",
+    "image": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=2670"
+  }
+}

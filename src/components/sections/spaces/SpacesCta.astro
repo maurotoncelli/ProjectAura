@@ -1,0 +1,12 @@
+---
+import { getSpacesContent } from '../../../lib/data';
+const spaces = getSpacesContent();
+---
+
+<section class="w-full py-24 bg-white border-t border-gray-200">
+  <div class="container mx-auto px-8 text-center">
+    <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">{spaces.cta.label}</p>
+    <h2 class="text-4xl md:text-6xl font-light text-at-graphite mb-12" set:html={spaces.cta.headingHtml}></h2>
+    <a href={spaces.cta.href} class="inline-block px-12 py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-gray-800 transition no-underline">{spaces.cta.buttonLabel}</a>
+  </div>
+</section>

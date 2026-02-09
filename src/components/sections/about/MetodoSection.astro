@@ -1,0 +1,41 @@
+---
+import { getAboutContent } from '../../../lib/data';
+const about = getAboutContent();
+---
+
+<section class="w-full bg-at-stone py-32 relative">
+  <div class="container mx-auto px-8 reveal-on-scroll">
+    <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-12 text-center">{about.metodo.label}</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-4 h-auto md:h-[800px]">
+      <div class="row-span-2 col-span-1 md:col-span-1 bg-[#E8E6E0] p-8 flex flex-col justify-between group hover:bg-white transition duration-500 bento-card">
+        <div class="text-6xl font-serif text-at-graphite/20 group-hover:text-at-oak transition">{about.metodo.steps[0].number}</div>
+        <div>
+          <h3 class="text-2xl font-light mb-4">{about.metodo.steps[0].heading}</h3>
+          {about.metodo.steps[0].description && (
+            <p class="text-sm text-gray-500">{about.metodo.steps[0].description}</p>
+          )}
+        </div>
+        {about.metodo.steps[0].bgImage && (
+          <div class="w-full h-48 bg-cover grayscale opacity-50 mt-8 rounded-sm" style={`background-image: url('${about.metodo.steps[0].bgImage}');`}></div>
+        )}
+      </div>
+      <div class="col-span-1 md:col-span-2 bg-at-graphite text-white p-8 flex flex-col md:flex-row items-center justify-between group bento-card relative overflow-hidden">
+        <div class="relative z-10 w-full md:w-1/2">
+          <div class="text-6xl font-serif text-white/20 mb-4">{about.metodo.steps[1].number}</div>
+          <h3 class="text-3xl font-light mb-4">{about.metodo.steps[1].heading}</h3>
+        </div>
+        {about.metodo.steps[1].bgImage && (
+          <div class="absolute right-0 top-0 w-1/2 h-full bg-cover opacity-20 mix-blend-overlay" style={`background-image: url('${about.metodo.steps[1].bgImage}');`}></div>
+        )}
+      </div>
+      <div class="col-span-1 bg-white p-8 flex flex-col justify-center group bento-card">
+        <div class="text-6xl font-serif text-at-graphite/20 mb-4">{about.metodo.steps[2].number}</div>
+        <h3 class="text-xl font-bold uppercase tracking-widest mb-2">{about.metodo.steps[2].heading}</h3>
+      </div>
+      <div class="col-span-1 bg-white p-8 flex flex-col justify-center group bento-card">
+        <div class="text-6xl font-serif text-at-graphite/20 mb-4">{about.metodo.steps[3].number}</div>
+        <h3 class="text-xl font-bold uppercase tracking-widest mb-2">{about.metodo.steps[3].heading}</h3>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import { getConfiguratorContent } from '../../../lib/data';
+const config = getConfiguratorContent();
+---
+
+<section class="container mx-auto px-8 pb-32">
+  <div class="border-t border-gray-200 pt-16 max-w-3xl mx-auto reveal-on-scroll text-[#4A3728]">
+    <p class="text-xs font-bold uppercase tracking-widest mb-8 text-gray-400">{config.faq.label}</p>
+    {config.faq.items.map((item) => (
+      <details class="text-[#4A3728]"><summary class="text-[#4A3728]">{item.question}</summary><p class="text-[#4A3728]">{item.answer}</p></details>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+/**
+ * Preloader — Full-screen preloader shown on first visit (home page).
+ * Persists across navigations. Animation logic in src/lib/preloader.ts
+ */
+import { getSiteData } from '../../lib/data';
+const site = getSiteData();
+---
+
+<div id="preloader" transition:persist>
+  <p id="preloader-text-1" class="absolute text-2xl md:text-4xl font-serif italic tracking-widest opacity-0 text-center z-10">{site.preloader.line1}</p>
+  <h1 id="preloader-text-2" class="absolute text-6xl md:text-9xl font-light tracking-tighter opacity-0 scale-90 font-serif z-10">{site.preloader.line2}</h1>
+</div>

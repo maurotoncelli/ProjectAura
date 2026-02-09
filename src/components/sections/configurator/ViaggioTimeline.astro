@@ -1,0 +1,56 @@
+---
+import { getConfiguratorContent } from '../../../lib/data';
+const config = getConfiguratorContent();
+---
+
+<section class="w-full py-32 relative overflow-hidden">
+  <div class="container mx-auto px-8 relative h-auto">
+    <div class="absolute top-0 left-8 md:left-1/2 w-[1px] h-full bg-at-graphite/10 hidden md:block"></div>
+
+    <div class="text-center mb-24 reveal-on-scroll relative z-10 bg-white md:bg-transparent py-4">
+      <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.viaggio.label}</p>
+      <h2 class="text-5xl font-light uppercase tracking-tight text-[#4A3728]">{config.viaggio.heading}</h2>
+    </div>
+
+    <div class="flex flex-col gap-24">
+      {config.viaggio.steps.map((step, index) => {
+        const stepNumber = index + 1;
+        const isFilled = step.style === 'filled' || step.style === 'filled-oak';
+        const circleBg = step.style === 'filled' ? '#1C1B1A' : step.style === 'filled-oak' ? '#96705B' : '#ffffff';
+        const circleColor = isFilled ? '#ffffff' : '#1C1B1A';
+        const circleBorder = isFilled ? 'none' : '1px solid #1C1B1A';
+        const circleShadow = isFilled ? '0 10px 25px rgba(0,0,0,0.2)' : '0 10px 20px rgba(0,0,0,0.08)';
+        
+        return (
+          <div class="flex flex-col md:flex-row items-center justify-between w-full reveal-on-scroll">
+            {step.side === 'left' ? (
+              <>
+                <div class="w-full md:w-5/12 text-right pr-0 md:pr-16 order-2 md:order-1">
+                  <span class="block text-at-oak text-xs font-bold mb-2 uppercase tracking-widest">{step.week}</span>
+                  <h4 class="text-3xl font-light mb-2 uppercase tracking-tight text-[#4A3728]">{step.heading}</h4>
+                  <p class="text-sm text-gray-500 leading-relaxed font-medium">{step.description}</p>
+                </div>
+                <div class="w-20 h-20 flex items-center justify-center rounded-full z-10 font-serif italic text-xl order-1 md:order-2 mb-8 md:mb-0" style={`background-color:${circleBg};color:${circleColor};border:${circleBorder};box-shadow:${circleShadow};`}>{stepNumber}</div>
+                <div class="w-full md:w-5/12 pl-0 md:pl-16 order-3">
+                  <div class="h-[1px] w-full bg-at-graphite/20 hidden md:block"></div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="w-full md:w-5/12 text-right pr-0 md:pr-16 order-2 md:order-1">
+                  <div class="h-[1px] w-full bg-at-graphite/20 hidden md:block"></div>
+                </div>
+                <div class="w-20 h-20 flex items-center justify-center rounded-full z-10 font-serif italic text-xl order-1 md:order-2 mb-8 md:mb-0" style={`background-color:${circleBg};color:${circleColor};border:${circleBorder};box-shadow:${circleShadow};`}>{stepNumber}</div>
+                <div class="w-full md:w-5/12 pl-0 md:pl-16 order-3">
+                  <span class="block text-at-oak text-xs font-bold mb-2 uppercase tracking-widest">{step.week}</span>
+                  <h4 class="text-3xl font-light mb-2 uppercase tracking-tight text-[#4A3728]">{step.heading}</h4>
+                  <p class="text-sm text-gray-500 leading-relaxed font-medium">{step.description}</p>
+                </div>
+              </>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

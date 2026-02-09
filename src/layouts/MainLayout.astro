@@ -1,0 +1,247 @@
+---
+/**
+ * MainLayout — The persistent shell of the AETHER site.
+ * Contains: SEO head, global overlays, Canvas (R3F), Navbar, and page slot.
+ * All heavy logic lives in imported modules (smooth-scroll, cursor, preloader, page-transitions).
+ */
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+// DOM Components
+import CustomCursor from '../components/dom/CustomCursor.astro';
+import Preloader from '../components/dom/Preloader.astro';
+import TransitionOverlay from '../components/dom/TransitionOverlay.astro';
+import NoiseOverlay from '../components/dom/NoiseOverlay.astro';
+import Navbar from '../components/dom/Navbar.astro';
+
+// UI Components (Astro)
+import OrderToast from '../components/ui/OrderToast.astro';
+import CookieConsent from '../components/ui/CookieConsent.astro';
+
+// UI Components (React — client:load)
+import CartSidebar from '../components/ui/CartSidebar.tsx';
+import Lightbox from '../components/ui/Lightbox.tsx';
+import LegalModal from '../components/ui/LegalModal.tsx';
+
+// Canvas (React Three Fiber — persistent single canvas)
+import CanvasWrapper from '../components/canvas/CanvasWrapper.tsx';
+
+// Mobile Menu (React)
+import MobileMenu from '../components/dom/MobileMenu.tsx';
+
+// Data
+import { getSiteData } from '../lib/data';
+const site = getSiteData();
+
+interface Props {
+  title?: string;
+  description?: string;
+  page?: string;
+  ogImage?: string;
+  lang?: string;
+}
+
+const { 
+  title = 'AETHER | Smart Wood Design', 
+  description = 'Tavoli in legno massello con anima smart. Design sospeso nell\'aria by AT Studio.',
+  page = 'home',
+  ogImage = '/og-image.jpg',
+  lang = 'it'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://aether-design.it');
+const siteOrigin = canonicalURL.origin;
+
+// Build hreflang alternates for every supported language
+import { SUPPORTED_LANGS } from '../i18n/index';
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+// Remove current lang prefix if present
+const langIndex = SUPPORTED_LANGS.includes(pathSegments[0] as any) ? 1 : 0;
+const basePath = '/' + pathSegments.slice(langIndex).join('/');
+const hreflangs = SUPPORTED_LANGS.map(l => ({
+  lang: l,
+  href: `${siteOrigin}/${l}${basePath === '/' ? '' : basePath}`,
+}));
+
+// JSON-LD Structured Data — Organization
+const organizationJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AETHER by AT Studio',
+  url: siteOrigin,
+  logo: `${siteOrigin}/logo.svg`,
+  description: 'Tavoli in legno massello con anima smart. Design sospeso nell\'aria.',
+  foundingDate: '2024',
+  sameAs: [],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@aether-design.it',
+    contactType: 'customer service',
+    availableLanguage: ['Italian', 'English'],
+  },
+  brand: {
+    '@type': 'Brand',
+    name: 'AETHER',
+  },
+});
+
+// JSON-LD — Product (only on home or configurator)
+const showProductSchema = page === 'home' || page === 'configurator';
+const productJsonLd = showProductSchema ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AETHER Smart Table',
+  description: 'Tavolo in legno massello con gambe in vetro strutturale e tecnologia LED integrata.',
+  brand: { '@type': 'Brand', name: 'AETHER' },
+  manufacturer: { '@type': 'Organization', name: 'Segnobianco S.r.l.' },
+  image: `${siteOrigin}/og-image.jpg`,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    price: '2800',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/MadeToOrder',
+    url: `${siteOrigin}/configurator`,
+  },
+  material: 'Solid Wood, Structural Glass, LED Technology',
+}) : null;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Fonts (self-hosted WOFF2) -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Preload critical 3D model (GLB) for hero/configurator scenes -->
+    <link rel="preload" href="/models/Tavolo_lowpoly.glb" as="fetch" type="model/gltf-binary" crossorigin />
+    
+    <title>{title}</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Hreflang alternates for i18n -->
+    {hreflangs.map(({ lang: hLang, href }) => (
+      <link rel="alternate" hreflang={hLang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteOrigin}/it${basePath === '/' ? '' : basePath}`} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={organizationJsonLd} />
+    {showProductSchema && productJsonLd && (
+      <script type="application/ld+json" set:html={productJsonLd} />
+    )}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, canonicalURL.origin).href} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'it_IT'} />
+    <meta property="og:site_name" content="AETHER by AT Studio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, canonicalURL.origin).href} />
+
+    <ViewTransitions />
+  </head>
+  <body id="main-body" class="overflow-hidden" data-page={page}>
+
+    <!-- Global Overlays (persistent across navigations) -->
+    <CustomCursor />
+    <Preloader />
+    <TransitionOverlay />
+    <OrderToast />
+    <NoiseOverlay />
+
+    <!-- 3D Canvas — Single persistent R3F Canvas (transition:persist keeps WebGL context alive) -->
+    <CanvasWrapper client:load transition:persist />
+
+    <!-- Navigation -->
+    <Navbar />
+    <MobileMenu client:load transition:persist />
+
+    <!-- Page Content -->
+    <main class="ui-layer">
+      <slot />
+    </main>
+
+    <!-- React UI Components (client-side hydration, persist across navigations) -->
+    <CartSidebar client:load transition:persist />
+    <Lightbox client:load transition:persist />
+    <CookieConsent />
+    <LegalModal client:load transition:persist type="privacy" />
+    <LegalModal client:load transition:persist type="terms" />
+
+    <!-- Global Script Orchestrator -->
+    <script>
+      import { initSmoothScroll } from '../lib/smooth-scroll';
+      import { initCursor, initCursorInteractions } from '../lib/cursor';
+      import { initPreloader } from '../lib/preloader';
+      import { initPageTransitions } from '../lib/page-transitions';
+      import { initScrollAnimations } from '../lib/scroll-animations';
+
+      // 1. Initialize smooth scroll (Lenis + GSAP)
+      const lenis = initSmoothScroll();
+
+      // 2. Initialize custom cursor
+      initCursor();
+
+      // 3. Initialize preloader (first visit sequence)
+      initPreloader(lenis);
+
+      // 4. Initialize page transitions (curtain effect)
+      initPageTransitions(lenis);
+
+      // 5. Initialize scroll animations
+      initScrollAnimations();
+      initCursorInteractions();
+
+      // Language dropdown (simple toggle — will be React component in Phase 5)
+      function toggleLangMenu() {
+        const menu = document.getElementById('lang-dropdown');
+        if (!menu) return;
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+          menu.classList.add('flex');
+          (window as any).gsap?.fromTo(menu, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
+        } else {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+        }
+      }
+
+      document.getElementById('current-lang-display')?.addEventListener('click', toggleLangMenu);
+
+      document.querySelectorAll('[data-lang]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = (btn as HTMLElement).dataset.lang;
+          const display = document.getElementById('current-lang-display');
+          if (display && lang) display.innerText = lang;
+          toggleLangMenu();
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        const menu = document.getElementById('lang-dropdown');
+        const btn = document.getElementById('current-lang-display');
+        if (menu && btn && !menu.contains(e.target as Node) && !btn.contains(e.target as Node)) {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+        }
+      });
+    </script>
+  </body>
+</html>

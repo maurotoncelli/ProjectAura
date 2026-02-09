@@ -1,0 +1,36 @@
+---
+import { getSpacesContent } from '../../../lib/data';
+const spaces = getSpacesContent();
+---
+
+<div class="h-32 w-full bg-at-stone"></div>
+
+<section class="w-full px-8 pt-16 pb-12 relative">
+  <div class="container mx-auto reveal-on-scroll">
+    <div class="flex flex-col md:flex-row justify-between items-end border-b border-at-graphite/20 pb-12 mb-12">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-at-oak mb-4">{spaces.header.label}</p>
+        <h1 class="text-[clamp(3rem,8vw,6rem)] leading-[0.9] font-light text-at-graphite" set:html={spaces.header.headingHtml}></h1>
+      </div>
+      <div class="flex gap-8 text-xs uppercase tracking-widest mt-8 md:mt-0">
+        {spaces.filters.map((filter, index) => (
+          <button class={`filter-btn ${index === 0 ? 'active hover:text-at-oak transition border-b border-black pb-1' : 'hover:text-at-oak transition text-gray-400 pb-1'}`} data-filter={filter.value}>{filter.label}</button>
+        ))}
+      </div>
+    </div>
+
+    <!-- MASONRY GALLERY -->
+    <div id="gallery-grid" class="columns-1 md:columns-2 gap-8 space-y-8 min-h-screen">
+      {spaces.items.map((item) => (
+        <div class={`gallery-item ${item.category} break-inside-avoid relative group cursor-pointer overflow-hidden rounded-sm`}>
+          <img src={item.image} class={`w-full object-cover transition duration-[1.5s] group-hover:scale-105 ${item.grayscale ? 'grayscale group-hover:grayscale-0' : ''}`} alt={`${item.category} ${item.title}`} loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="absolute bottom-0 left-0 p-8 opacity-0 group-hover:opacity-100 transition duration-500 translate-y-4 group-hover:translate-y-0">
+            <p class="text-white text-xs uppercase tracking-widest mb-2">{item.location}</p>
+            <h3 class="text-white text-2xl font-serif italic">{item.title}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+import { getAboutContent } from '../../../lib/data';
+const about = getAboutContent();
+---
+
+<section class="w-full py-32 bg-[#EAE8E3] overflow-hidden relative">
+  <div class="container mx-auto px-8 relative h-[120vh]">
+    <div class="relative z-30 text-center pt-12 mb-24">
+      <p class="text-sm font-bold uppercase tracking-widest mb-4 text-[#4A3728]">{about.elements.label}</p>
+      <h3 class="text-[clamp(4rem,10vw,8rem)] font-serif leading-none text-[#4A3728] mb-6">{about.elements.heading}</h3>
+      <h4 class="text-4xl md:text-5xl font-light leading-tight fluid-element text-gray-600">{about.elements.subtitle}</h4>
+    </div>
+    {about.elements.polaroids.map((polaroid) => (
+      <div class={`absolute ${polaroid.position} ${polaroid.size} bg-white shadow-2xl p-4 transform rotate-[${polaroid.rotation}] ${polaroid.zIndex} parallax-bg`} data-speed={polaroid.speed}>
+        <img src={polaroid.image} class="w-full h-full object-cover grayscale" alt={polaroid.alt} loading="lazy" decoding="async" />
+      </div>
+    ))}
+  </div>
+</section>

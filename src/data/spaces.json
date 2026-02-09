@@ -1,0 +1,36 @@
+{
+  "header": {
+    "label": "Galleria Ispirazioni",
+    "heading": "Living Spazi da Vivere.",
+    "headingHtml": "Living <span class=\"font-serif italic text-gray-400\">Spazi da Vivere.</span>"
+  },
+  "filters": [
+    { "label": "Tutti", "value": "all" },
+    { "label": "Living", "value": "living" },
+    { "label": "Ufficio", "value": "office" },
+    { "label": "Creativo", "value": "creative" }
+  ],
+  "items": [
+    { "category": "living", "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574", "location": "Residenza Privata, Milano", "title": "The Silent Living" },
+    { "category": "office", "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669", "location": "Studio Legale, Roma", "title": "Executive Suite" },
+    { "category": "creative", "image": "https://images.unsplash.com/photo-1598300056393-8dd33ec148c1?q=80&w=2676", "location": "AT Studio, Torino", "title": "Raw Creativity", "grayscale": true },
+    { "category": "living", "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2653", "location": "Attico, New York", "title": "Glass & Wood" },
+    { "category": "office", "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670", "location": "Coworking, Berlin", "title": "Shared Vision" },
+    { "category": "creative", "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2600", "location": "Galleria d'Arte, London", "title": "Minimal Display" },
+    { "category": "living", "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=2670", "location": "Villa sul Lago, Como", "title": "Natural Light" }
+  ],
+  "cta": {
+    "label": "Pronto a creare il tuo?",
+    "heading": "Ogni spazio merita il suo Aether.",
+    "headingHtml": "Ogni spazio merita <br/>il suo <span class=\"font-serif italic text-at-oak\">Aether.</span>",
+    "buttonLabel": "Configura Ora",
+    "href": "/configurator"
+  },
+  "nextChapter": {
+    "label": "Prossimo Capitolo",
+    "heading": "Crea il tuo Aether",
+    "linkText": "Vai al Configuratore",
+    "href": "/configurator",
+    "image": "https://images.unsplash.com/photo-1543459176-475240c872f7?q=80&w=2670"
+  }
+}

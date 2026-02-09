@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "heading": "Atelier\nAether."
+  },
+  "cockpit": {
+    "defaultLabel": "Rovere Antico",
+    "ledLabel": "LED Mood"
+  },
+  "confronta": {
+    "label": "Confronta i Modelli",
+    "heading": "Scegli la tua misura.",
+    "taxNote": "IVA 22% inclusa"
+  },
+  "materia": {
+    "label": "La Materia",
+    "materialImages": {
+      "rovere": "https://images.unsplash.com/photo-1543459176-475240c872f7?q=80&w=2670",
+      "cipresso": "https://images.unsplash.com/photo-1518461749842-887754d909c0?q=80&w=1000",
+      "noce": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669"
+    }
+  },
+  "animaDigitale": {
+    "label": "L'Anima Digitale",
+    "heading": "Scomparire nel buio.\nApparire nella luce.",
+    "headingHtml": "Scomparire nel buio.<br>Apparire nella luce.",
+    "description": "AETHER non illumina la stanza, ne definisce i confini. Abbiamo integrato un'anima di LED COB ad alta fedeltà cromatica (98 CRI) che accarezza il pavimento senza mai abbagliare. La luce non viene dal tavolo, sembra nascere dal legno stesso. Controllabile tramite Apple HomeKit, Alexa e Google Home.",
+    "toggleLabelOff": "Luce Naturale",
+    "toggleLabelOn": "Smart Glow",
+    "dayImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2600",
+    "nightImage": "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2670"
+  },
+  "sezione01": {
+    "label": "01 — L'Anima",
+    "heading": "Non compri un\ncodice prodotto.",
+    "headingHtml": "Non compri un<br>codice prodotto.",
+    "description": "Il legno è vivo e irripetibile. Dopo l'ordine, ti contatteremo su WhatsApp o Mail inviandoti le foto ad alta risoluzione delle tre migliori lastre \"Anima\" disponibili nel nostro atelier. Sarai tu a scegliere quella che diventerà il tuo AETHER.",
+    "image": "https://images.unsplash.com/photo-1544413164-6c8ce3638245?q=80&w=2600"
+  },
+  "sezione02": {
+    "label": "02 — La Firma",
+    "heading": "Mark it\nForever.",
+    "headingHtml": "Mark it<br>Forever.",
+    "description": "Una placca in ottone brunito, incassata a filo nel legno, porta le tue iniziali. Un dettaglio invisibile agli ospiti, essenziale per il proprietario.",
+    "image": "https://images.unsplash.com/photo-1610219666087-9b26792679e9?q=80&w=1000",
+    "inputPlaceholder": "A.T.",
+    "inputMaxLength": 2,
+    "inputHint": "Inserisci le tue iniziali"
+  },
+  "oltreLo": {
+    "label": "Servizio Su Misura",
+    "heading": "Oltre lo\nStandard.",
+    "headingHtml": "Oltre lo<br>Standard.",
+    "description": "Poiché ogni singolo pezzo è prodotto interamente in-house nel nostro laboratorio di Torino, siamo a completa disposizione per valutare modifiche strutturali, finiture fuori catalogo o integrazioni tecnologiche specifiche.",
+    "disclaimer": "*Le richieste di personalizzazione avanzata saranno oggetto di un preventivo dedicato e potrebbero comportare una variazione del prezzo finale e dei tempi di consegna.",
+    "image": "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?q=80&w=2670"
+  },
+  "viaggio": {
+    "label": "Il Processo",
+    "heading": "Il Viaggio.",
+    "steps": [
+      {
+        "week": "SETTIMANA 1",
+        "heading": "L'Inizio.",
+        "description": "Conferma l'ordine e versa l'acconto del 50%. Questo blocca immediatamente la lastra di legno grezzo nel nostro atelier.",
+        "style": "filled",
+        "side": "left"
+      },
+      {
+        "week": "SETTIMANA 2",
+        "heading": "La Sintonia.",
+        "description": "Una call dedicata di 30 minuti con il nostro Head of Design per definire le sfumature della finitura e la posizione esatta della tua firma.",
+        "style": "outlined",
+        "side": "right"
+      },
+      {
+        "week": "SETTIMANA 3-4",
+        "heading": "Il Divenire.",
+        "description": "Riceverai aggiornamenti visivi settimanali via WhatsApp o Mail. Vedrai il tuo AETHER prendere forma, dalla sgrossatura alla lucidatura.",
+        "style": "outlined",
+        "side": "left"
+      },
+      {
+        "week": "SETTIMANA 6",
+        "heading": "L'Arrivo.",
+        "description": "Saldo finale del restante 50%. Spedizione assicurata \"White Glove\" con installazione inclusa direttamente nel tuo spazio.",
+        "style": "filled-oak",
+        "side": "right"
+      }
+    ]
+  },
+  "summary": {
+    "title": "Riepilogo Configurazione",
+    "fields": ["Modello", "Finitura", "Incisione", "Logistica", "Totale Provvisorio"],
+    "disclaimer": "*Prezzo indicativo salvo personalizzazioni extra richieste in fase di colloquio.",
+    "legalDisclaimer": {
+      "label": "Stima Preliminare:",
+      "text": "Il prezzo indicato copre la configurazione attuale. Ulteriori personalizzazioni richieste in fase di Brief Tecnico potrebbero variare l'investimento."
+    }
+  },
+  "shippingOptions": [
+    { "code": "IT", "label": "Italia (Incl.)", "cost": 0 },
+    { "code": "DE", "label": "Germania (+€350)", "cost": 350 },
+    { "code": "FR", "label": "Francia (+€350)", "cost": 350 },
+    { "code": "AT", "label": "Austria (+€350)", "cost": 350 },
+    { "code": "CH", "label": "Svizzera (+€600)", "cost": 600 },
+    { "code": "ES", "label": "Spagna (+€400)", "cost": 400 },
+    { "code": "UK", "label": "Regno Unito (+€500)", "cost": 500 },
+    { "code": "EU", "label": "Altri UE (+€450)", "cost": 450 }
+  ],
+  "legal": {
+    "termsCheckbox": "Accetto i Termini e Condizioni di Vendita.",
+    "withdrawalCheckbox": "Dichiaro di essere consapevole che, trattandosi di beni confezionati su misura, il diritto di recesso è escluso ai sensi dell'art. 59 del Codice del Consumo."
+  },
+  "buttons": {
+    "acconto": "50% Acconto",
+    "saldo": "100% Saldo",
+    "order": "ORDINA IL TUO AETHER",
+    "designer": "Parla con il Progettista"
+  },
+  "faq": {
+    "label": "Supporto Tecnico",
+    "items": [
+      { "question": "La luce è dimmerabile?", "answer": "Assolutamente sì. Supporta Matter e Zigbee." },
+      { "question": "Quanto regge il vetro?", "answer": "Certificato fino a 120kg distribuiti." },
+      { "question": "Garanzia?", "answer": "5 anni sulla struttura, 2 anni sull'elettronica." }
+    ]
+  },
+  "nextChapter": {
+    "label": "Prossimo Capitolo",
+    "heading": "Contattaci",
+    "href": "/contact",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2670"
+  }
+}

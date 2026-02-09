@@ -1,0 +1,12 @@
+---
+import { getAboutContent } from '../../../lib/data';
+const about = getAboutContent();
+---
+
+<section class="w-full py-48 bg-at-graphite text-at-stone overflow-hidden relative flex flex-col justify-center items-center">
+  <div class="text-center space-y-4">
+    {about.manifesto.map((line) => (
+      <h2 class={`text-[5vw] leading-[0.8] font-bold uppercase tracking-tighter text-clip reveal-on-scroll ${line.highlight && line.color ? line.color : ''}`}>{line.text}</h2>
+    ))}
+  </div>
+</section>

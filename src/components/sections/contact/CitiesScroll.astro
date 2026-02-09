@@ -1,0 +1,20 @@
+---
+import { getContactContent } from '../../../lib/data';
+const contact = getContactContent();
+---
+
+<section id="global-grid" class="w-full h-screen bg-at-graphite text-white overflow-hidden relative h-scroll-wrapper" data-scroll-section>
+  <div class="h-scroll-container-contact">
+    {contact.cities.map(city => (
+      <div class="h-scroll-panel relative">
+        <img src={city.image} class="absolute inset-0 w-full h-full object-cover grayscale opacity-30" alt={city.city} loading="lazy" decoding="async" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full">
+          <p class="text-xs uppercase tracking-widest mb-4 text-gray-400">{city.country}</p>
+          <h3 class="text-8xl md:text-[12rem] font-serif italic leading-none">{city.city}</h3>
+          <p class="text-sm text-gray-400 mt-8 max-w-sm text-center">{city.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { getConfiguratorContent } from '../../../lib/data';
+const config = getConfiguratorContent();
+---
+
+<section class="w-full py-48 bg-at-stone relative overflow-hidden">
+  <div class="container mx-auto px-8">
+    <div class="flex flex-col items-center mb-24 reveal-on-scroll">
+      <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.animaDigitale.label}</p>
+      <h2 class="text-5xl font-light text-center mb-8 uppercase tracking-tight text-[#4A3728]" set:html={config.animaDigitale.headingHtml}></h2>
+      <p class="text-xl text-gray-500 text-center max-w-3xl leading-relaxed mb-12">{config.animaDigitale.description}</p>
+      <div class="flex items-center gap-6">
+        <span class="text-xs uppercase tracking-widest text-gray-400">{config.animaDigitale.toggleLabelOff}</span>
+        <div id="atmos-toggle" class="toggle-track">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-gray-400">{config.animaDigitale.toggleLabelOn}</span>
+      </div>
+    </div>
+    <div class="atmos-container mx-auto reveal-on-scroll shadow-2xl">
+      <img id="atmos-day" src={config.animaDigitale.dayImage} class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 z-10" alt="Giorno" loading="lazy" decoding="async" />
+      <img id="atmos-night" src={config.animaDigitale.nightImage} class="absolute inset-0 w-full h-full object-cover z-0 grayscale" alt="Notte" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "brand": "AETHER",
+    "links": [
+      { "label": "About", "href": "/about" },
+      { "label": "AETHER", "href": "/" },
+      { "label": "Ambienti", "href": "/spaces" },
+      { "label": "Configura", "href": "/configurator" },
+      { "label": "Contatti", "href": "/contact" }
+    ],
+    "languages": ["EN", "FR", "DE", "ES", "ZH", "RU", "AR", "IT"],
+    "defaultLang": "IT",
+    "cartLabel": "Carrello"
+  },
+  "footer": {
+    "credits": {
+      "design": "AT STUDIO",
+      "craftsmanship": "SEGNO BIANCO"
+    },
+    "copyright": "© 2026 AETHER by AT Studio & Segnobianco",
+    "legalLinks": [
+      { "label": "Privacy", "action": "openPrivacy" },
+      { "label": "Termini", "action": "openTerms" }
+    ]
+  },
+  "cookie": {
+    "title": "Cookie Policy",
+    "text": "Questo sito utilizza cookie per garantire che l'esperienza digitale sia fluida come il nostro legno. Nessun tracciamento invasivo, solo pura funzionalità.",
+    "acceptLabel": "Accetta",
+    "essentialLabel": "Solo Essenziali"
+  },
+  "cart": {
+    "title": "IL TUO ORDINE",
+    "productName": "AETHER",
+    "defaultDesc": "Rovere / 240cm",
+    "defaultInitials": "Sigla: -- | Dest: --",
+    "defaultPrice": "€ 2.800",
+    "disclaimers": [
+      {
+        "label": "Opera Su Misura:",
+        "text": "Trattandosi di un pezzo unico realizzato su specifica commissione, l'ordine non è soggetto a diritto di recesso standard una volta avviata la lavorazione."
+      },
+      {
+        "label": "Stima Preliminare:",
+        "text": "Il prezzo indicato copre la configurazione attuale. Ulteriori personalizzazioni richieste in fase di Brief Tecnico potrebbero variare l'investimento."
+      }
+    ],
+    "roadmap": {
+      "title": "Roadmap di Produzione",
+      "steps": [
+        { "title": "Ordine Confermato", "description": "Blocco immediato della materia prima.", "style": "filled" },
+        { "title": "Brief Design & Firma", "description": "Definizione dettagli tecnici e posizione incisione.", "style": "outlined" },
+        { "title": "Selezione Lastra", "description": "Scegli la tavola \"viva\" tramite video call.", "style": "outlined" },
+        { "title": "Produzione Artigianale", "description": "Lavorazione CNC, finitura a mano e QC.", "style": "outlined" }
+      ]
+    },
+    "checkoutLabel": "CHECKOUT SICURO"
+  },
+  "legal": {
+    "privacy": {
+      "title": "PRIVACY POLICY",
+      "subtitle": "Informativa sul trattamento dei dati personali",
+      "lastUpdate": "Febbraio 2026"
+    },
+    "terms": {
+      "title": "CONDIZIONI DI VENDITA",
+      "subtitle": "Beni su misura e Contratto di Fornitura",
+      "lastUpdate": "Febbraio 2026"
+    }
+  },
+  "preloader": {
+    "line1": "AT Studio Presenta",
+    "line2": "AETHER"
+  },
+  "toast": {
+    "title": "Unico. Come te.",
+    "subtitle": "Configurazione Salvata"
+  }
+}

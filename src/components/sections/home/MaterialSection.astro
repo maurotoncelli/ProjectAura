@@ -1,0 +1,22 @@
+---
+import { getHomeContent } from '../../../lib/data';
+const home = getHomeContent();
+---
+
+<section id="material-section" class="min-h-screen w-full relative flex items-center overflow-hidden bg-at-graphite z-curtain">
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="parallax-bg w-full h-[120%] bg-cover bg-center grayscale opacity-30 mix-blend-overlay -translate-y-10" style={`background-image: url('${home.material.bgImage}');`}></div>
+  </div>
+  <div class="container mx-auto px-8 relative z-10 flex flex-col md:flex-row items-center h-full">
+    <div class="w-full md:w-1/2 h-full flex items-center justify-center min-h-[400px]">
+      <div class="play-button-overlay">
+        <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 text-white pl-0 md:pl-24 reveal-on-scroll py-24">
+      <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{home.material.label}</p>
+      <h2 class="section-title font-light mb-8 leading-none fluid-element" set:html={home.material.headingHtml}></h2>
+      <p class="text-gray-400 text-2xl leading-relaxed mb-8 font-light fluid-element">{home.material.description}</p>
+    </div>
+  </div>
+</section>

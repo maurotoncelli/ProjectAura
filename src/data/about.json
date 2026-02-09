@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "heading": "Artigiani dell'invisibile.",
+    "headingHtml": "Artigiani dell'<br/><span class=\"italic text-gray-400\">invisibile.</span>",
+    "founded": "Fondato nel 2026",
+    "description": "Una collisione deliberata tra la tradizione ebanista italiana e l'architettura digitale."
+  },
+  "dualIdentity": {
+    "atStudio": {
+      "logo": "AT",
+      "heading": "Alchimisti Digitali.",
+      "headingHtml": "Alchimisti<br/>Digitali.",
+      "description": "<strong>AT Studio</strong> è la mente. Visual design e fotografia.",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670"
+    },
+    "segnobianco": {
+      "logo": "S",
+      "heading": "Polvere & Passione.",
+      "headingHtml": "Polvere &<br/>Passione.",
+      "description": "<strong>Segnobianco.it</strong> è il cuore. Cinquant'anni tra i trucioli.",
+      "image": "https://images.unsplash.com/photo-1622396636133-74323d9a8e93?q=80&w=2600"
+    }
+  },
+  "timeline": [
+    {
+      "label": "Timeline .01",
+      "year": "1974",
+      "heading": "Il Seme.",
+      "description": "L'anno in cui il fondatore di Segnobianco ha toccato la sua prima pialla."
+    },
+    {
+      "label": "Timeline .02",
+      "heading": "La Scintilla.",
+      "description": "2026. AT Studio inietta l'intelligenza nella materia.",
+      "image": "https://images.unsplash.com/photo-1598300056393-8dd33ec148c1?q=80&w=2676"
+    },
+    {
+      "label": "Timeline .03",
+      "year": "2026",
+      "horizonLabel": "Orizzonte Futuro",
+      "heading": "Simbiosi.",
+      "description": "Quando l'oggetto smette di essere strumento e diventa estensione.",
+      "theme": "light"
+    }
+  ],
+  "metodo": {
+    "label": "Il Metodo",
+    "steps": [
+      { "number": "01", "heading": "Selezione Pura", "description": "Viaggio nelle foreste certificate.", "bgImage": "https://images.unsplash.com/photo-1518461749842-887754d909c0?q=80&w=1000" },
+      { "number": "02", "heading": "Precisione & Tocco", "bgImage": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670" },
+      { "number": "03", "heading": "Anima Intelligente" },
+      { "number": "04", "heading": "Controllo Assoluto" }
+    ]
+  },
+  "elements": {
+    "label": "Sinfonia Materica",
+    "heading": "Elements.",
+    "subtitle": "Il caos che si fa silenzio.",
+    "polaroids": [
+      { "image": "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2680", "alt": "Copper", "position": "top-[25%] left-[10%]", "size": "w-64 h-80", "rotation": "-6deg", "speed": "0.2", "zIndex": "z-10" },
+      { "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670", "alt": "Blueprint", "position": "top-[40%] right-[15%]", "size": "w-80 h-64", "rotation": "3deg", "speed": "0.05", "zIndex": "z-20" },
+      { "image": "https://images.unsplash.com/photo-1520188741366-0777e5bb6274?q=80&w=2670", "alt": "Leather Texture", "position": "top-[60%] left-[20%]", "size": "w-56 h-72", "rotation": "4deg", "speed": "0.15", "zIndex": "z-[15]" },
+      { "image": "https://images.unsplash.com/photo-1621261313386-a79782559593?q=80&w=2670", "alt": "Stone Texture", "position": "top-[15%] right-[25%]", "size": "w-48 h-48", "rotation": "-3deg", "speed": "0.1", "zIndex": "z-10" },
+      { "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669", "alt": "Detail Metal", "position": "top-[75%] right-[10%]", "size": "w-64 h-64", "rotation": "2deg", "speed": "0.25", "zIndex": "z-10" }
+    ]
+  },
+  "ethos": {
+    "label": "Ethos",
+    "heading": "Rispetto Radicale.",
+    "headingHtml": "Rispetto<br/>Radicale.",
+    "bgImage": "https://images.unsplash.com/photo-1448375240586-dfd8d395ea6c?q=80&w=2670",
+    "image": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2626"
+  },
+  "cronache": {
+    "label": "Dietro le Quinte",
+    "heading": "Cronache d'Atelier.",
+    "headingHtml": "Cronache <span class=\"font-serif italic text-gray-400\">d'Atelier.</span>",
+    "items": [
+      { "image": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=2670", "alt": "Woodworking Hands", "caption": "Finitura Manuale" },
+      { "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670", "alt": "CNC Machine", "caption": "Precisione Digitale" },
+      { "image": "https://images.unsplash.com/photo-1517059224940-d4af9eec41b4?q=80&w=2674", "alt": "Smart Core Assembly", "caption": "Integrazione Smart" },
+      { "image": "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=2669", "alt": "Atelier Atmosphere", "caption": "Controllo Qualità" }
+    ]
+  },
+  "manifesto": [
+    { "text": "Il design non è", "highlight": false },
+    { "text": "Ciò che vedi.", "highlight": true, "color": "text-at-oak" },
+    { "text": "Il design è", "highlight": false },
+    { "text": "Come funziona.", "highlight": true, "color": "text-white/50" }
+  ],
+  "vision": {
+    "label": "Visione 2030",
+    "marquee": "Oltre l'Oggetto — Oltre l'Oggetto — Oltre l'Oggetto —",
+    "quote": "\"Non stiamo progettando per oggi. Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
+    "quoteHtml": "\"Non stiamo progettando per oggi.<br/>Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
+    "image": "https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=2676"
+  },
+  "cta": {
+    "heading": "Abita il futuro.",
+    "buttonLabel": "Plasma il tuo Aether",
+    "href": "/configurator"
+  },
+  "nextChapter": {
+    "label": "Prossimo Capitolo",
+    "heading": "Esplora gli Spazi",
+    "linkText": "Gallery Ambienti",
+    "href": "/spaces",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574"
+  }
+}

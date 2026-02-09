@@ -1,0 +1,35 @@
+---
+/**
+ * NextChapterFooter — Reusable CTA section at the bottom of each page.
+ * Links to the "next" page with dramatic image background.
+ */
+interface Props {
+  label: string;
+  heading: string;
+  linkText: string;
+  href: string;
+  image: string;
+}
+
+import { getSiteData } from '../../../lib/data';
+const site = getSiteData();
+
+const { label, heading, linkText, href, image } = Astro.props;
+---
+
+<section class="next-chapter-footer relative h-[60vh] flex flex-col items-center justify-center overflow-hidden cursor-pointer group z-curtain">
+  <a href={href} class="absolute inset-0 z-30 no-underline"></a>
+  <img src={image} class="absolute inset-0 w-full h-full object-cover transition duration-[1.5s] transform group-hover:scale-110" alt={`Next Chapter ${heading}`} loading="lazy" decoding="async" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 z-10 pointer-events-none"></div>
+  <div class="relative z-20 text-center text-white pointer-events-none">
+    <p class="text-xs font-bold uppercase tracking-[0.3em] mb-4 opacity-70 group-hover:opacity-100 transition duration-500">{label}</p>
+    <h2 class="text-6xl md:text-8xl font-serif italic transition duration-500 transform group-hover:translate-y-[-10px] drop-shadow-lg">{heading}</h2>
+    <div class="mt-8 opacity-0 group-hover:opacity-100 transition duration-500 transform translate-y-4 group-hover:translate-y-0">
+      <span class="border-b border-white pb-2 text-xs uppercase tracking-widest">{linkText}</span>
+    </div>
+  </div>
+  <div class="absolute bottom-8 w-full px-8 md:px-16 z-20 flex flex-col md:flex-row justify-between items-end text-white/60 text-[10px] uppercase tracking-widest font-medium pointer-events-none">
+    <div class="mb-2 md:mb-0">Sito creato da <span class="text-white">{site.footer.credits.design}</span></div>
+    <div>Lavorazioni artigianali di <span class="text-white">{site.footer.credits.craftsmanship}</span></div>
+  </div>
+</section>

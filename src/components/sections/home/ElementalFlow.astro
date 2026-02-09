@@ -1,0 +1,46 @@
+---
+import { getHomeContent } from '../../../lib/data';
+const home = getHomeContent();
+---
+
+<section id="elemental-flow" class="w-full h-screen bg-white relative overflow-hidden h-scroll-wrapper z-curtain" data-scroll-section>
+  <div class="h-scroll-container-home">
+    {home.elementalFlow.map((panel) => (
+      <div class={`h-scroll-panel ${panel.theme === 'dark' ? 'bg-at-graphite text-white' : panel.theme === 'warm' ? 'bg-at-stone text-at-oak' : 'bg-white text-at-graphite'} relative`}>
+        {panel.bgImage && (
+          <div class="absolute inset-0 bg-cover bg-center opacity-20 grayscale" style={`background-image: url('${panel.bgImage}');`}></div>
+        )}
+        {panel.theme === 'dark' && (
+          <div class="relative z-10 text-center">
+            {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] text-gray-400 mb-6">{panel.label}</p>}
+            <h3 class="text-6xl md:text-9xl font-light mb-8">{panel.heading}</h3>
+            {panel.description && <p class="text-xl max-w-xl mx-auto text-gray-300" set:html={panel.description}></p>}
+          </div>
+        )}
+        {panel.theme === 'light' && (
+          <>
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-50 mix-blend-multiply"></div>
+            <div class="relative z-10 flex items-center gap-16 px-12">
+              <h3 class="text-6xl md:text-9xl font-serif italic z-20" set:html={panel.headingHtml || panel.heading}></h3>
+              {panel.image && (
+                <div class="w-64 h-96 bg-gray-200 img-reveal-wrapper shadow-2xl z-10">
+                  <img src={panel.image} class="w-full h-full object-cover grayscale" alt="Glass Detail" loading="lazy" decoding="async" />
+                </div>
+              )}
+            </div>
+          </>
+        )}
+        {panel.theme === 'warm' && (
+          <>
+            <h3 class="text-[12vw] font-bold leading-none absolute left-0 opacity-10">AETHER</h3>
+            <div class="relative z-10 text-center">
+              {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] mb-6">{panel.label}</p>}
+              <h3 class="text-6xl md:text-8xl font-light mb-8">{panel.heading}</h3>
+              {panel.description && <p class="text-xl max-w-xl mx-auto text-at-text" set:html={panel.description}></p>}
+            </div>
+          </>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
