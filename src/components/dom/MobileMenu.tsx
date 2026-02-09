@@ -8,9 +8,14 @@ import { useStore } from '@nanostores/react';
 import { isMenuOpen, openMenu, closeMenu } from '../../store/configStore';
 import { Z_INDEX } from '../../lib/constants';
 import siteData from '../../data/site.json';
+import { DEFAULT_LANG, getLangFromPath, localizeHref } from '../../i18n/index';
 
 export default function MobileMenu() {
   const open = useStore(isMenuOpen);
+  const [lang, setLang] = useState(DEFAULT_LANG);
+  useEffect(() => {
+    setLang(getLangFromPath(window.location.pathname));
+  }, []);
 
   const toggle = useCallback(() => {
     if (open) closeMenu();
@@ -65,7 +70,7 @@ export default function MobileMenu() {
           {siteData.nav.links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={localizeHref(link.href, lang)}
               className="text-white text-3xl font-light uppercase tracking-widest hover:text-at-oak transition no-underline"
               onClick={() => closeMenu()}
             >

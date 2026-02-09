@@ -1,6 +1,8 @@
 ---
 import { getHomeContent } from '../../../lib/data';
+import { getLangFromPath, localizeHref } from '../../../i18n/index';
 const home = getHomeContent();
+const currentLang = getLangFromPath(Astro.url.pathname);
 ---
 
 <section id="details-section" class="min-h-screen bg-at-stone text-at-text relative pt-24 pb-24 z-curtain">
@@ -22,7 +24,7 @@ const home = getHomeContent();
 
   <div class="container mx-auto px-8 max-w-5xl flex flex-col items-center gap-16 mb-24 text-center">
     <div class="w-full max-w-xl">
-      <a href={home.details.cta.href} class="block w-full py-6 bg-at-graphite text-white hover:bg-at-graphite/90 transition font-bold tracking-[0.2em] text-sm uppercase shadow-2xl text-center no-underline">{home.details.cta.label}</a>
+      <a href={localizeHref(home.details.cta.href, currentLang)} class="block w-full py-6 bg-at-graphite text-white hover:bg-at-graphite/90 transition font-bold tracking-[0.2em] text-sm uppercase shadow-2xl text-center no-underline">{home.details.cta.label}</a>
     </div>
   </div>
 

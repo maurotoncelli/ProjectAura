@@ -12,9 +12,12 @@ interface Props {
 }
 
 import { getSiteData } from '../../../lib/data';
+import { getLangFromPath, localizeHref } from '../../../i18n/index';
 const site = getSiteData();
+const currentLang = getLangFromPath(Astro.url.pathname);
 
-const { label, heading, linkText, href, image } = Astro.props;
+const { label, heading, linkText, href: rawHref, image } = Astro.props;
+const href = localizeHref(rawHref, currentLang);
 ---
 
 <section class="next-chapter-footer relative h-[60vh] flex flex-col items-center justify-center overflow-hidden cursor-pointer group z-curtain">

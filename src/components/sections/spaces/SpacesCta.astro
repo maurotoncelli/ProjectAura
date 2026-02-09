@@ -1,12 +1,14 @@
 ---
 import { getSpacesContent } from '../../../lib/data';
+import { getLangFromPath, localizeHref } from '../../../i18n/index';
 const spaces = getSpacesContent();
+const currentLang = getLangFromPath(Astro.url.pathname);
 ---
 
 <section class="w-full py-24 bg-at-surface border-t border-at-border">
   <div class="container mx-auto px-8 text-center">
     <p class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-6">{spaces.cta.label}</p>
     <h2 class="text-4xl md:text-6xl font-light text-at-graphite mb-12" set:html={spaces.cta.headingHtml}></h2>
-    <a href={spaces.cta.href} class="inline-block px-12 py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-at-graphite/90 transition no-underline">{spaces.cta.buttonLabel}</a>
+    <a href={localizeHref(spaces.cta.href, currentLang)} class="inline-block px-12 py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-at-graphite/90 transition no-underline">{spaces.cta.buttonLabel}</a>
   </div>
 </section>

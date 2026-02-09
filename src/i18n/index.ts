@@ -37,3 +37,21 @@ export function getLangFromPath(pathname: string): Lang {
   const first = segments[0];
   return isValidLang(first) ? first : DEFAULT_LANG;
 }
+
+/**
+ * Prepend the current language prefix to a path.
+ * Handles paths that already have a lang prefix (no-op) and root '/'.
+ * E.g. localizeHref('/about', 'it') -> '/it/about'
+ *      localizeHref('/', 'it')      -> '/it/'
+ *      localizeHref('/it/about', 'it') -> '/it/about' (already localized)
+ */
+export function localizeHref(href: string, lang: Lang): string {
+  // Already has a valid lang prefix — return as-is
+  const segments = href.split('/').filter(Boolean);
+  if (segments.length > 0 && isValidLang(segments[0])) {
+    return href;
+  }
+  // Prepend lang: '/about' -> '/it/about', '/' -> '/it/'
+  const clean = href.startsWith('/') ? href : `/${href}`;
+  return `/${lang}${clean}`;
+}

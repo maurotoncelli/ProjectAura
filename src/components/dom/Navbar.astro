@@ -4,7 +4,7 @@
  * Persists across navigations. Uses mix-blend-mode: difference for text readability.
  */
 import { getSiteData } from '../../lib/data';
-import { getLangFromPath, type Lang } from '../../i18n/index';
+import { getLangFromPath, localizeHref, type Lang } from '../../i18n/index';
 import LanguageSelector from '../ui/LanguageSelector.tsx';
 
 const site = getSiteData();
@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
   </div>
   <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
     {site.nav.links.map(link => (
-      <a href={link.href} data-astro-prefetch class="hover:opacity-50 transition uppercase no-underline text-inherit">{link.label}</a>
+      <a href={localizeHref(link.href, currentLang)} data-astro-prefetch class="hover:opacity-50 transition uppercase no-underline text-inherit">{link.label}</a>
     ))}
   </div>
   

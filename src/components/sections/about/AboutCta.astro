@@ -1,11 +1,13 @@
 ---
 import { getAboutContent } from '../../../lib/data';
+import { getLangFromPath, localizeHref } from '../../../i18n/index';
 const about = getAboutContent();
+const currentLang = getLangFromPath(Astro.url.pathname);
 ---
 
 <section class="w-full py-48 bg-at-stone flex items-center justify-center text-center">
   <div class="reveal-on-scroll">
     <h3 class="text-6xl font-light mb-8 text-at-walnut">{about.cta.heading}</h3>
-    <a href={about.cta.href} class="inline-block px-12 py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-at-graphite/90 transition no-underline">{about.cta.buttonLabel}</a>
+    <a href={localizeHref(about.cta.href, currentLang)} class="inline-block px-12 py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-at-graphite/90 transition no-underline">{about.cta.buttonLabel}</a>
   </div>
 </section>
