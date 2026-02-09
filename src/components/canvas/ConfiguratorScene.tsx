@@ -43,10 +43,16 @@ export default function ConfiguratorScene() {
         <TableModel castShadow receiveShadow />
       </group>
 
-      {/* Floor for shadows */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow position={[0, 0, 0]}>
-        <planeGeometry args={[20, 20]} />
-        <shadowMaterial opacity={0.15} />
+      {/* Seamless floor — matches scene background so it's invisible,
+          but catches both directional shadows (day) and LED point light glow (night).
+          ShadowMaterial can't do this because it ignores non-shadow-casting lights. */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow position={[0, -0.01, 0]}>
+        <planeGeometry args={[30, 30]} />
+        <meshStandardMaterial
+          color={dayMode ? 0xF2F0EB : 0x1C1B1A}
+          roughness={1}
+          metalness={0}
+        />
       </mesh>
 
       <LightingController variant="configurator" shadows />

@@ -59,6 +59,10 @@ export default function HeroScene() {
       <group ref={groupRef}>
         <TableModel />
       </group>
+
+      {/* No floor in Hero — the table animates freely during scroll (zoom, rotation,
+          belly-view). A floor would clip through the model during these transforms.
+          Shadows and LED bounce are handled only in the Configurator scene. */}
       <LightingController variant="hero" />
     </>
   );

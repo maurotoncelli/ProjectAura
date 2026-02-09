@@ -9,14 +9,16 @@ import { useRef, useMemo, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import { useStore } from '@nanostores/react';
-import { selectedMaterial, isDayMode } from '../../store/configStore';
+import { selectedMaterial, isDayMode, ledColorHue } from '../../store/configStore';
 import { TABLE_PARTS, MODEL_PATHS } from '../../lib/constants';
 
-// Color tints per wood type (applied on top of texture for differentiation)
+// Color tints per wood type (multiplied on top of texture).
+// 0xffffff = no tint, texture renders at full brightness.
+// Lower values darken the texture — use sparingly.
 const WOOD_COLORS: Record<string, number> = {
-  rovere: 0xcccccc,   // neutral — texture does the work
-  cipresso: 0xddd8c8, // warm light tint
-  noce: 0x4A3728,     // dark walnut tint
+  rovere: 0xffffff,   // neutral — texture at full brightness
+  cipresso: 0xf5efe0, // subtle warm tint, still bright
+  noce: 0x8B7355,     // walnut tint — darker but not crushed
 };
 
 // Shared texture loader (reused across loads)
@@ -40,6 +42,7 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
   const groupRef = useRef<THREE.Group>(null);
   const material = useStore(selectedMaterial);
   const dayMode = useStore(isDayMode);
+  const hue = useStore(ledColorHue);
 
   // Track loaded textures for cleanup
   const loadedTexturesRef = useRef<THREE.Texture[]>([]);
@@ -55,29 +58,36 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
       wood: new THREE.MeshStandardMaterial({
         map: defaultColor,
         normalMap: defaultNormal,
+        normalScale: new THREE.Vector2(1.5, 1.5), // Accentuate wood grain relief
         roughnessMap: defaultRough,
-        roughness: 0.8,
-        color: 0xcccccc,
+        roughness: 0.95,       // Very matte — real wood, not lacquered
+        metalness: 0.0,        // Zero metalness — no plastic sheen
+        color: 0xffffff,
+        envMapIntensity: 0.3,  // Minimal environment reflections
       }),
       glass: new THREE.MeshPhysicalMaterial({
         color: 0xffffff,
         metalness: 0.0,
-        roughness: 0.05,
-        transmission: 0.92,
+        roughness: 0.02,
+        transmission: 0.98,
         transparent: true,
-        opacity: 0.3,
-        thickness: 0.5,
-        ior: 1.5,
+        opacity: 0.15,
+        thickness: 1.5,
+        ior: 1.52,
+        envMapIntensity: 1.0,
       }),
       led: new THREE.MeshStandardMaterial({
         color: 0x111111,
         emissive: 0x000000,
         emissiveIntensity: 0,
+        toneMapped: false,  // Pure colors, not compressed by ACES — enables bloom trigger
+        roughness: 1,       // Max diffusion for soft glow
       }),
-      tech: new THREE.MeshStandardMaterial({
-        color: 0x333333,
-        roughness: 0.5,
-        metalness: 0.8,
+      blocker: new THREE.MeshStandardMaterial({
+        color: 0x6B5B4B,   // Warm dark wood tone — fills gaps seamlessly
+        roughness: 0.95,    // Very matte like the wood
+        metalness: 0.0,
+        envMapIntensity: 0.1,
       }),
     };
   }, []);
@@ -104,22 +114,21 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         if (castShadow) mesh.castShadow = true;
         if (receiveShadow) mesh.receiveShadow = true;
 
-        if (TABLE_PARTS.woodTop.some(n => name.includes(n)) ||
-            name.toLowerCase().includes('top') || name.toLowerCase().includes('wood') || name.toLowerCase().includes('tavolo')) {
+        if (TABLE_PARTS.woodPlanks.some(n => name.includes(n)) ||
+            name.toLowerCase().includes('asselegno') || name.toLowerCase().includes('legno') || name.toLowerCase().includes('tavolo')) {
           mesh.material = materials.wood;
         } else if (TABLE_PARTS.glassLegs.some(n => name.includes(n)) ||
                    name.toLowerCase().includes('vetro') || name.toLowerCase().includes('glass') || name.toLowerCase().includes('gamba')) {
           mesh.material = materials.glass;
         } else if (TABLE_PARTS.ledStrips.some(n => name.includes(n)) ||
-                   name.toLowerCase().includes('led') || name.toLowerCase().includes('strip') || name.toLowerCase().includes('light')) {
+                   name.toLowerCase().includes('led') || name.toLowerCase().includes('strip')) {
           mesh.material = materials.led.clone();
-        } else if (TABLE_PARTS.techBox.some(n => name.includes(n)) ||
-                   name.toLowerCase().includes('tech') || name.toLowerCase().includes('box')) {
-          mesh.material = materials.tech;
         } else if (TABLE_PARTS.blockers.some(n => name.includes(n)) ||
                    name.toLowerCase().includes('tappa')) {
-          mesh.visible = false;
+          mesh.material = materials.blocker;
+          mesh.visible = true;
         } else {
+          // Fallback: assign wood material to unknown meshes
           mesh.material = materials.wood;
         }
       }
@@ -143,7 +152,8 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         if ((child as THREE.Mesh).isMesh) {
           const mesh = child as THREE.Mesh;
           if (mesh.material && mesh.material !== materials.wood &&
-              mesh.material !== materials.glass && mesh.material !== materials.tech) {
+              mesh.material !== materials.glass && mesh.material !== materials.led &&
+              mesh.material !== materials.blocker) {
             (mesh.material as THREE.Material).dispose();
           }
         }
@@ -156,7 +166,7 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
     if (!material) return;
 
     // Apply color tint
-    const color = WOOD_COLORS[material.id] || 0xcccccc;
+    const color = WOOD_COLORS[material.id] || 0xffffff;
     materials.wood.color.set(color);
 
     // Load textures defined in the material data (products.json)
@@ -195,8 +205,11 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
     };
   }, [material, materials]);
 
-  // React to day/night mode changes (LED emissive)
+  // React to day/night + LED hue changes (LED emissive color)
   useEffect(() => {
+    // Convert hue (0-360) to THREE.Color — saturation 0.9, lightness 0.6 for vivid glow
+    const ledColor = new THREE.Color().setHSL(hue / 360, 0.9, 0.6);
+
     clonedScene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
@@ -207,17 +220,20 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
           mesh.name.toLowerCase().includes('led') || mesh.name.toLowerCase().includes('strip');
 
         if (isLed) {
+          mat.toneMapped = false; // Always keep LED colors pure
           if (dayMode) {
             mat.emissive.set(0x000000);
             mat.emissiveIntensity = 0;
+            mat.color.set(0x111111);
           } else {
-            mat.emissive.set(0xF5D0A9);
+            mat.emissive.copy(ledColor);
             mat.emissiveIntensity = 5;
+            mat.color.copy(ledColor);
           }
         }
       }
     });
-  }, [dayMode, clonedScene]);
+  }, [dayMode, hue, clonedScene]);
 
   return (
     <group ref={groupRef}>

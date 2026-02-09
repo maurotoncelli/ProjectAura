@@ -4,7 +4,7 @@
  *
  * Uses gsap.context() for proper cleanup during page transitions.
  */
-import { setProduct, setMaterial, setShipping, setDayMode, isDayMode } from '../store/configStore';
+import { setProduct, setMaterial, setShipping, setDayMode, isDayMode, setLedColorHue } from '../store/configStore';
 import { setCanvasVisible } from '../store/sceneStore';
 import { addToCart } from '../store/cartStore';
 import productsData from '../data/products.json';
@@ -248,11 +248,13 @@ export function initConfigPage() {
     });
   }
 
-  // LED Mood slider
+  // LED Mood slider — writes hue (0-360) to nanostore.
+  // LightingController and TableModel read it reactively to update LED color in real time.
   const moodSlider = document.getElementById('mood-slider') as HTMLInputElement;
   if (moodSlider) {
     moodSlider.addEventListener('input', () => {
-      const _hue = parseInt(moodSlider.value);
+      const hue = parseInt(moodSlider.value);
+      setLedColorHue(hue);
     });
   }
 

@@ -3,12 +3,17 @@
  * Single Source of Truth for hardcoded values
  */
 
-// 3D Model Configuration
+// 3D Model Configuration — names extracted from Tavolo_lowpoly.glb
 export const TABLE_PARTS = {
-  glassLegs: ['Gamba_Vetro_DX', 'Gamba_Vetro_SX'],
-  woodTop: ['Tavolo_Top_01', 'Tavolo_Top_02'],
-  ledStrips: ['Led_Strip_01', 'Led_Strip_02'],
-  techBox: ['Tech_Box_Under'],
+  glassLegs: ['Gamba _vetro_1', 'Gamba _vetro_2'],
+  woodPlanks: [
+    'Tavolo_asselegno_01', 'Tavolo_asselegno_02', 'Tavolo_asselegno_03',
+    'Tavolo_asselegno_04', 'Tavolo_asselegno_05', 'Tavolo_asselegno_06',
+    'Tavolo_asselegno_07', 'Tavolo_asselegno_08', 'Tavolo_asselegno_09',
+    'Tavolo_asselegno_10', 'Tavolo_asselegno_11', 'Tavolo_asselegno_12',
+    'Tavolo_asselegno_13', 'Tavolo_asselegno_14', 'Tavolo_asselegno_15',
+  ],
+  ledStrips: ['Led_strip_1', 'Led_strip_2'],
   blockers: ['tappabuchi'],
 };
 
@@ -20,9 +25,9 @@ export const CAMERA_PRESETS = {
     fov: 45,
   },
   CONFIGURATOR: {
-    position: [0, 2.5, 4.5] as [number, number, number],
-    target: [0, 0, 0] as [number, number, number],
-    fov: 35,
+    position: [0, 2.0, 3.5] as [number, number, number],
+    target: [0, 0.3, 0] as [number, number, number],
+    fov: 38,
   },
 };
 

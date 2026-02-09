@@ -8,6 +8,9 @@ export const selectedShipping = atom<ShippingZone | null>(productsData.shipping[
 export const isDayMode = atom<boolean>(true);
 export const isMenuOpen = atom<boolean>(false);
 export const isPageTransitioning = atom<boolean>(false);
+// LED color hue (0-360). Default ~30 = warm amber (#F5D0A9).
+// Updated by the mood-slider in the configurator cockpit.
+export const ledColorHue = atom<number>(30);
 
 export function setProduct(product: Product) {
   selectedProduct.set(product);
@@ -47,4 +50,8 @@ export function startPageTransition() {
 
 export function endPageTransition() {
   isPageTransitioning.set(false);
+}
+
+export function setLedColorHue(hue: number) {
+  ledColorHue.set(hue);
 }

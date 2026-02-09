@@ -55,12 +55,13 @@ export default function CanvasWrapper() {
       }}
     >
       <Canvas
+        shadows
         dpr={dpr}
         gl={{
           antialias: true,
           alpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.0,
+          toneMappingExposure: 1.6,
         }}
         camera={{
           fov: CAMERA_PRESETS.HERO_INITIAL.fov,
