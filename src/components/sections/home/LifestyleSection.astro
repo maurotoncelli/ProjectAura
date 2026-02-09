@@ -5,15 +5,15 @@ const home = getHomeContent();
 
 <section id="lifestyle-section" class="h-screen w-full relative flex flex-col md:flex-row bg-at-stone text-at-text overflow-hidden z-curtain" data-scroll-section>
   <div class="w-full md:w-[35vw] h-full flex flex-col justify-center px-8 md:px-16 z-20 shrink-0 border-r border-at-graphite/10 bg-at-stone relative">
-    <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mb-6">{home.lifestyle.label}</p>
+    <p class="text-xs text-at-text-muted font-bold uppercase tracking-widest mb-6">{home.lifestyle.label}</p>
     <h2 class="section-title font-light leading-none" set:html={home.lifestyle.headingHtml}></h2>
-    <div class="hidden md:block text-xs uppercase tracking-widest text-gray-400 mt-8">{home.lifestyle.scrollHint}</div>
+    <div class="hidden md:block text-xs uppercase tracking-widest text-at-text-muted mt-8">{home.lifestyle.scrollHint}</div>
   </div>
   <div class="w-full md:w-[65vw] h-full relative overflow-hidden flex items-center">
     <div class="lifestyle-track flex gap-16 items-center h-full">
       {home.lifestyle.items.map((item) => (
-        <div class="shrink-0 w-[85vw] md:w-[75vw] h-[70vh] md:h-[80vh] relative bg-gray-100 group overflow-hidden img-reveal-wrapper shadow-xl">
-          <img src={item.image} class="w-full h-full object-cover transition duration-[1.5s] group-hover:scale-105" alt={item.title} loading="lazy" decoding="async" />
+        <div class="shrink-0 w-[85vw] md:w-[75vw] h-[70vh] md:h-[80vh] relative bg-at-stone group overflow-hidden img-reveal-wrapper shadow-xl">
+          <img src={item.image} class="w-full h-full object-cover transition-[filter] duration-[1.5s]" alt={item.title} loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 p-12 bg-gradient-to-t from-black/50 to-transparent w-full"><p class="text-white text-4xl font-light">{item.title}</p></div>
         </div>
       ))}

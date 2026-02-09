@@ -1,5 +1,6 @@
 /**
  * Preloader — First-visit preloader sequence and direct-load fallback.
+ * Uses custom events instead of window globals for inter-component communication.
  */
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -31,9 +32,8 @@ export function initPreloader(lenis: Lenis) {
           document.body.style.overflow = '';
           window.dispatchEvent(new CustomEvent('preloader-complete'));
           ScrollTrigger.refresh();
-          // Init cookie banner after delay
-          const initCookie = (window as any).__initCookieBanner;
-          if (initCookie) setTimeout(initCookie, 3500);
+          // Fire cookie banner event after delay (clean event-based communication)
+          setTimeout(() => window.dispatchEvent(new CustomEvent('cookie-banner:show')), 3500);
         }, '-=0.5');
 
     } else {
@@ -45,8 +45,7 @@ export function initPreloader(lenis: Lenis) {
       lenis.start();
       window.dispatchEvent(new CustomEvent('preloader-complete'));
       ScrollTrigger.refresh();
-      const initCookie = (window as any).__initCookieBanner;
-      if (initCookie) setTimeout(initCookie, 2000);
+      setTimeout(() => window.dispatchEvent(new CustomEvent('cookie-banner:show')), 2000);
     }
   });
 }

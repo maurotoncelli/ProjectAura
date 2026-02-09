@@ -5,8 +5,8 @@ const home = getHomeContent();
 
 <section id="heritage-section" class="min-h-screen w-full relative flex items-center bg-at-stone text-at-text overflow-hidden py-32 z-curtain">
   <div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-24">
-    <div class="w-full md:w-1/2 h-[800px] bg-gray-200 relative overflow-hidden reveal-on-scroll group cursor-pointer flex items-center justify-center img-reveal-wrapper">
-      <div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 transition duration-1000 group-hover:scale-105" style={`background-image: url('${home.heritage.bgImage}');`}></div>
+    <div class="w-full md:w-1/2 h-[800px] bg-at-border relative overflow-hidden reveal-on-scroll group cursor-pointer flex items-center justify-center img-reveal-wrapper">
+      <div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 transition-[filter] duration-1000 group-hover:grayscale-0" style={`background-image: url('${home.heritage.bgImage}');`}></div>
       <div class="play-button-overlay z-10">
         <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>

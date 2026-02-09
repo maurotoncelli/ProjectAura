@@ -1,46 +1,7 @@
 ---
-import { getAboutContent } from '../lib/data';
-import MainLayout from '../layouts/MainLayout.astro';
-import HeroManifesto from '../components/sections/about/HeroManifesto.astro';
-import DualIdentity from '../components/sections/about/DualIdentity.astro';
-import ChronosTimeline from '../components/sections/about/ChronosTimeline.astro';
-import MetodoSection from '../components/sections/about/MetodoSection.astro';
-import ElementsSection from '../components/sections/about/ElementsSection.astro';
-import EthosSection from '../components/sections/about/EthosSection.astro';
-import CronacheSection from '../components/sections/about/CronacheSection.astro';
-import ManifestoSection from '../components/sections/about/ManifestoSection.astro';
-import VisionSection from '../components/sections/about/VisionSection.astro';
-import AboutCta from '../components/sections/about/AboutCta.astro';
-import NextChapterFooter from '../components/sections/home/NextChapterFooter.astro';
-
-const about = getAboutContent();
+/**
+ * Root about — 301 redirect to default language.
+ */
+import { DEFAULT_LANG } from '../i18n/index';
+return Astro.redirect(`/${DEFAULT_LANG}/about`, 301);
 ---
-
-<MainLayout title="AETHER | About" description="Scopri AT Studio e la filosofia dietro AETHER: dove artigianalità e tecnologia si fondono." page="about">
-  <HeroManifesto />
-  <DualIdentity />
-  <ChronosTimeline />
-  <MetodoSection />
-  <ElementsSection />
-  <EthosSection />
-  <CronacheSection />
-  <ManifestoSection />
-  <VisionSection />
-  <AboutCta />
-  <NextChapterFooter
-    label={about.nextChapter.label}
-    heading={about.nextChapter.heading}
-    linkText={about.nextChapter.linkText}
-    href={about.nextChapter.href}
-    image={about.nextChapter.image}
-  />
-</MainLayout>
-
-<script>
-  import { initAboutPage } from '../lib/about-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAboutPage);
-  } else {
-    initAboutPage();
-  }
-</script>

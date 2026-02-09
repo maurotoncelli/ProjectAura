@@ -7,12 +7,12 @@ const config = getConfiguratorContent();
   <div class="flex flex-col md:flex-row gap-24 items-center">
     <div class="w-full md:w-1/2 order-2 md:order-1">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.oltreLo.label}</p>
-      <h2 class="text-5xl font-light mb-8 fluid-element uppercase tracking-tight text-[#4A3728]" set:html={config.oltreLo.headingHtml}></h2>
-      <p class="text-xl text-gray-500 leading-relaxed mb-6">{config.oltreLo.description}</p>
-      <p class="text-sm text-gray-400 italic">{config.oltreLo.disclaimer}</p>
+      <h2 class="text-5xl font-light mb-8 fluid-element uppercase tracking-tight text-at-walnut" set:html={config.oltreLo.headingHtml}></h2>
+      <p class="text-xl text-at-text-muted leading-relaxed mb-6">{config.oltreLo.description}</p>
+      <p class="text-sm text-at-text-muted italic">{config.oltreLo.disclaimer}</p>
     </div>
     <div class="w-full md:w-1/2 h-[500px] overflow-hidden relative group img-reveal-wrapper order-1 md:order-2">
-      <img src={config.oltreLo.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000" alt="Bespoke Customization" loading="lazy" decoding="async" />
+      <img src={config.oltreLo.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt="Bespoke Customization" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

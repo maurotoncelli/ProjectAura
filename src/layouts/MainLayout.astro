@@ -188,10 +188,24 @@ const productJsonLd = showProductSchema ? JSON.stringify({
     <!-- Global Script Orchestrator -->
     <script>
       import { initSmoothScroll } from '../lib/smooth-scroll';
-      import { initCursor, initCursorInteractions } from '../lib/cursor';
+      import { initCursor } from '../lib/cursor';
       import { initPreloader } from '../lib/preloader';
       import { initPageTransitions } from '../lib/page-transitions';
-      import { initScrollAnimations } from '../lib/scroll-animations';
+      import { setActiveScene, resetTableState, setCanvasVisible } from '../store/sceneStore';
+
+      // 0. Set initial scene based on current page (fixes 3D showing on wrong pages on first load)
+      const currentPage = document.body.dataset.page;
+      if (currentPage === 'home') {
+        setActiveScene('HERO');
+        setCanvasVisible(true);
+        resetTableState();
+      } else if (currentPage === 'configurator') {
+        setActiveScene('CONFIGURATOR');
+        setCanvasVisible(true);
+      } else {
+        // About, Spaces, Contact — no 3D
+        setActiveScene('NONE');
+      }
 
       // 1. Initialize smooth scroll (Lenis + GSAP)
       const lenis = initSmoothScroll();
@@ -205,43 +219,11 @@ const productJsonLd = showProductSchema ? JSON.stringify({
       // 4. Initialize page transitions (curtain effect)
       initPageTransitions(lenis);
 
-      // 5. Initialize scroll animations
-      initScrollAnimations();
-      initCursorInteractions();
-
-      // Language dropdown (simple toggle — will be React component in Phase 5)
-      function toggleLangMenu() {
-        const menu = document.getElementById('lang-dropdown');
-        if (!menu) return;
-        if (menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden');
-          menu.classList.add('flex');
-          (window as any).gsap?.fromTo(menu, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
-        } else {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex');
-        }
-      }
-
-      document.getElementById('current-lang-display')?.addEventListener('click', toggleLangMenu);
-
-      document.querySelectorAll('[data-lang]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const lang = (btn as HTMLElement).dataset.lang;
-          const display = document.getElementById('current-lang-display');
-          if (display && lang) display.innerText = lang;
-          toggleLangMenu();
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        const menu = document.getElementById('lang-dropdown');
-        const btn = document.getElementById('current-lang-display');
-        if (menu && btn && !menu.contains(e.target as Node) && !btn.contains(e.target as Node)) {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex');
-        }
-      });
+      // 5. Scroll animations + cursor interactions are initialized by
+      //    astro:page-load (in page-transitions.ts) — NOT here.
+      //    Calling them here would create a double-init: MainLayout runs BEFORE
+      //    page scripts create PINs, so positions would be wrong.
+      //    Then astro:page-load reverts + recreates, causing flicker/broken anims.
     </script>
   </body>
 </html>

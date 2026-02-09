@@ -1,9 +1,10 @@
 ---
 import { getConfiguratorContent } from '../../../lib/data';
+import { Z_INDEX } from '../../../lib/constants';
 const config = getConfiguratorContent();
 ---
 
-<div id="config-cockpit" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-[100] pointer-events-auto transition-all duration-500">
+<div id="config-cockpit" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 pointer-events-auto transition-all duration-500" style={{ zIndex: Z_INDEX.COCKPIT_INTERACTIVE }}>
 
   <div id="cockpit-label" class="absolute bottom-full left-1/2 -translate-x-1/2 mb-6 text-xs font-bold uppercase tracking-[0.2em] text-at-graphite transition-colors duration-500 whitespace-nowrap">
     {config.cockpit.defaultLabel}

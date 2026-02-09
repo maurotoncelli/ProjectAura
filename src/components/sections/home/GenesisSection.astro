@@ -6,15 +6,15 @@ const home = getHomeContent();
 <section id="genesis-section" class="min-h-screen w-full relative flex items-center bg-at-stone text-at-text overflow-hidden py-32 z-curtain">
   <div class="container mx-auto px-8 flex flex-col-reverse md:flex-row items-center gap-24">
     <div class="w-full md:w-1/2 reveal-on-scroll">
-      <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mb-6">{home.genesis.label}</p>
+      <p class="text-xs text-at-text-muted font-bold uppercase tracking-widest mb-6">{home.genesis.label}</p>
       <h2 class="section-title font-light mb-8 leading-none fluid-element" set:html={home.genesis.headingHtml}></h2>
       <p class="text-2xl font-light leading-relaxed mb-6">{home.genesis.description}</p>
-      <p class="text-gray-600 text-xl leading-relaxed">{home.genesis.description2}</p>
+      <p class="text-at-text/70 text-xl leading-relaxed">{home.genesis.description2}</p>
     </div>
-    <div class="w-full md:w-1/2 h-[800px] bg-white relative overflow-hidden reveal-on-scroll border border-gray-200 p-8 flex items-center justify-center group img-reveal-wrapper">
-      <img src={home.genesis.image} class="w-full h-full object-cover opacity-80 transition duration-1000 group-hover:scale-105 grayscale" alt="Design Sketch" loading="lazy" decoding="async" />
+    <div class="w-full md:w-1/2 h-[800px] bg-at-surface relative overflow-hidden border border-at-border p-8 flex items-center justify-center group img-reveal-wrapper">
+      <img src={home.genesis.image} class="w-full h-full object-cover opacity-80 transition-[filter] duration-1000 grayscale group-hover:grayscale-0" alt="Design Sketch" loading="lazy" decoding="async" />
       <div class="absolute inset-0 bg-at-stone/20 mix-blend-multiply"></div>
-      <p class="absolute bottom-6 right-6 text-xs text-gray-500 font-mono">{home.genesis.caption}</p>
+      <p class="absolute bottom-6 right-6 text-xs text-at-text-muted font-mono">{home.genesis.caption}</p>
     </div>
   </div>
 </section>

@@ -12,8 +12,8 @@ const privacyCheckboxHtml = contact.form.privacyCheckbox.replace('Privacy Policy
       <div class="w-full md:w-1/2 reveal-on-scroll">
         <p class="text-xs font-bold uppercase tracking-widest text-at-oak mb-8">{contact.form.label}</p>
         <h1 class="text-[clamp(3rem,8vw,6rem)] leading-[0.9] font-light text-at-graphite mb-4" set:html={contact.form.headingHtml}></h1>
-        <p class="text-2xl font-serif italic text-gray-400 mb-4">{contact.form.subheading}</p>
-        <p class="text-sm text-gray-500 mb-16">{contact.form.responseTime}</p>
+        <p class="text-2xl font-serif italic text-at-text-muted mb-4">{contact.form.subheading}</p>
+        <p class="text-sm text-at-text-muted mb-16">{contact.form.responseTime}</p>
 
         <form id="contact-form" class="space-y-2">
           {contact.form.fields.map(field => (
@@ -33,18 +33,18 @@ const privacyCheckboxHtml = contact.form.privacyCheckbox.replace('Privacy Policy
             <span class="cb-checkmark"></span>
             <span class="cb-label" set:html={privacyCheckboxHtml}></span>
           </label>
-          <button type="submit" class="w-full py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-gray-800 transition mt-8">{contact.form.submitLabel}</button>
+          <button type="submit" class="w-full py-6 bg-at-graphite text-white font-bold tracking-[0.2em] text-sm uppercase hover:bg-at-graphite/90 transition mt-8">{contact.form.submitLabel}</button>
         </form>
       </div>
 
       <div class="w-full md:w-1/2 flex flex-col justify-between reveal-on-scroll">
         <div class="space-y-16">
           <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{contact.info.email.label}</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-4">{contact.info.email.label}</p>
             <a href={`mailto:${contact.info.email.value}`} class="text-2xl font-light hover:text-at-oak transition no-underline text-at-text">{contact.info.email.value}</a>
           </div>
           <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{contact.info.showroom.label}</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-4">{contact.info.showroom.label}</p>
             <p class="text-2xl font-light">{contact.info.showroom.value}</p>
           </div>
           <div class="flex gap-8 text-xs uppercase tracking-widest">
@@ -56,7 +56,7 @@ const privacyCheckboxHtml = contact.form.privacyCheckbox.replace('Privacy Policy
 
         <div class="mt-24 border-t border-at-graphite/20 pt-12">
           <p class="text-xs font-bold uppercase tracking-widest text-at-oak mb-4">{contact.offices.label}</p>
-          <div class="flex flex-col gap-2 text-sm text-gray-500">
+          <div class="flex flex-col gap-2 text-sm text-at-text-muted">
             {contact.offices.items.map(office => (
               <p><strong class="text-at-graphite">{office.name}</strong> &mdash; {office.address}</p>
             ))}

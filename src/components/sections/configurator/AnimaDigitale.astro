@@ -7,14 +7,14 @@ const config = getConfiguratorContent();
   <div class="container mx-auto px-8">
     <div class="flex flex-col items-center mb-24 reveal-on-scroll">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.animaDigitale.label}</p>
-      <h2 class="text-5xl font-light text-center mb-8 uppercase tracking-tight text-[#4A3728]" set:html={config.animaDigitale.headingHtml}></h2>
-      <p class="text-xl text-gray-500 text-center max-w-3xl leading-relaxed mb-12">{config.animaDigitale.description}</p>
+      <h2 class="text-5xl font-light text-center mb-8 uppercase tracking-tight text-at-walnut" set:html={config.animaDigitale.headingHtml}></h2>
+      <p class="text-xl text-at-text-muted text-center max-w-3xl leading-relaxed mb-12">{config.animaDigitale.description}</p>
       <div class="flex items-center gap-6">
-        <span class="text-xs uppercase tracking-widest text-gray-400">{config.animaDigitale.toggleLabelOff}</span>
+        <span class="text-xs uppercase tracking-widest text-at-text-muted">{config.animaDigitale.toggleLabelOff}</span>
         <div id="atmos-toggle" class="toggle-track">
           <div class="toggle-thumb"></div>
         </div>
-        <span class="text-xs uppercase tracking-widest text-gray-400">{config.animaDigitale.toggleLabelOn}</span>
+        <span class="text-xs uppercase tracking-widest text-at-text-muted">{config.animaDigitale.toggleLabelOn}</span>
       </div>
     </div>
     <div class="atmos-container mx-auto reveal-on-scroll shadow-2xl">

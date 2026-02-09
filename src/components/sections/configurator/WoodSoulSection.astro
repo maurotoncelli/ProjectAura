@@ -7,11 +7,11 @@ const config = getConfiguratorContent();
   <div class="flex flex-col md:flex-row gap-24 items-center">
     <div class="w-full md:w-1/2">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.sezione01.label}</p>
-      <h2 class="text-6xl font-light mb-8 fluid-element uppercase tracking-tight text-[#4A3728]" set:html={config.sezione01.headingHtml}></h2>
-      <p class="text-xl text-gray-500 leading-relaxed">{config.sezione01.description}</p>
+      <h2 class="text-6xl font-light mb-8 fluid-element uppercase tracking-tight text-at-walnut" set:html={config.sezione01.headingHtml}></h2>
+      <p class="text-xl text-at-text-muted leading-relaxed">{config.sezione01.description}</p>
     </div>
     <div class="w-full md:w-1/2 h-[600px] overflow-hidden relative group img-reveal-wrapper">
-      <img src={config.sezione01.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000" alt="Wood Soul" loading="lazy" decoding="async" />
+      <img src={config.sezione01.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt="Wood Soul" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

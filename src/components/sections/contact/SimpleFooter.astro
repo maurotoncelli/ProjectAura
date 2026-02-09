@@ -3,12 +3,12 @@ import { getSiteData } from '../../../lib/data';
 const site = getSiteData();
 ---
 
-<section class="w-full bg-at-stone text-at-graphite py-16 px-8 border-t border-gray-200">
+<section class="w-full bg-at-stone text-at-graphite py-16 px-8 border-t border-at-border">
   <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-    <div class="text-xs uppercase tracking-widest text-gray-400" set:html={site.footer.copyright}></div>
-    <div class="flex gap-8 text-xs uppercase tracking-widest text-gray-400 mt-4 md:mt-0">
+    <div class="text-xs uppercase tracking-widest text-at-text-muted" set:html={site.footer.copyright}></div>
+    <div class="flex gap-8 text-xs uppercase tracking-widest text-at-text-muted mt-4 md:mt-0">
       {site.footer.legalLinks.map(link => (
-        <button onclick={`window.${link.action} && window.${link.action}()`} class="hover:text-at-graphite transition bg-transparent border-none text-gray-400 cursor-none">{link.label}</button>
+        <button onclick={`window.${link.action} && window.${link.action}()`} class="hover:text-at-graphite transition bg-transparent border-none text-at-text-muted cursor-none">{link.label}</button>
       ))}
     </div>
   </div>

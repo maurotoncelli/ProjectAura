@@ -1,9 +1,11 @@
 /**
  * Configurator Page Animations — UI interactions + nanostores writes.
  * Extracted from configurator.astro to eliminate duplication between root and [lang] pages.
- * Uses root version as master (most complete).
+ *
+ * Uses gsap.context() for proper cleanup during page transitions.
  */
 import { setProduct, setMaterial, setShipping, setDayMode, isDayMode } from '../store/configStore';
+import { setCanvasVisible } from '../store/sceneStore';
 import { addToCart } from '../store/cartStore';
 import productsData from '../data/products.json';
 import type { Product, Material, ShippingZone } from '../types/product';
@@ -17,35 +19,18 @@ const storeProducts = productsData.products as Product[];
 const storeMaterials = productsData.materials as Material[];
 const storeShipping = productsData.shipping as ShippingZone[];
 
+// Module-level GSAP context for proper garbage collection
+let ctx: ReturnType<typeof gsap.context> | null = null;
+
+export function cleanupConfigPage() {
+  if (ctx) {
+    ctx.revert();
+    ctx = null;
+  }
+}
+
 export function initConfigPage() {
-  // ==========================================
-  // 3D is now handled by R3F ConfiguratorScene
-  // This script only handles UI interactions + nanostores writes
-  // ==========================================
-
-  // COCKPIT VISIBILITY
-  const cockpit = document.getElementById('config-cockpit');
-  ScrollTrigger.create({
-    trigger: 'body',
-    start: '200px top',
-    onEnter: () => { if (cockpit) { cockpit.style.opacity = '1'; cockpit.style.pointerEvents = 'auto'; } },
-    onLeaveBack: () => { if (cockpit) { cockpit.style.opacity = '0'; cockpit.style.pointerEvents = 'none'; } },
-  });
-
-  ScrollTrigger.create({
-    trigger: '#config-sheet',
-    start: 'top 60%',
-    onEnter: () => { if (cockpit) gsap.to(cockpit, { opacity: 0, pointerEvents: 'none', duration: 0.3 }); },
-    onLeaveBack: () => { if (cockpit) gsap.to(cockpit, { opacity: 1, pointerEvents: 'auto', duration: 0.3 }); },
-  });
-
-  // R3F canvas fade when sheet covers 3D viewer
-  ScrollTrigger.create({
-    trigger: '#config-sheet',
-    start: 'top 15%',
-    onEnter: () => gsap.to('#r3f-canvas-root', { opacity: 0, duration: 0.3 }),
-    onLeaveBack: () => gsap.to('#r3f-canvas-root', { opacity: 1, duration: 0.3 }),
-  });
+  cleanupConfigPage();
 
   // ==========================================
   // STATE — synced with nanostores
@@ -154,7 +139,42 @@ export function initConfigPage() {
   }
 
   // ==========================================
-  // EVENT LISTENERS
+  // GSAP CONTEXT — ScrollTriggers only (cleaned up on page transition)
+  // ==========================================
+  ctx = gsap.context(() => {
+    // COCKPIT VISIBILITY
+    const cockpit = document.getElementById('config-cockpit');
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: '200px top',
+      onEnter: () => { if (cockpit) { cockpit.style.opacity = '1'; cockpit.style.pointerEvents = 'auto'; } },
+      onLeaveBack: () => { if (cockpit) { cockpit.style.opacity = '0'; cockpit.style.pointerEvents = 'none'; } },
+    });
+
+    ScrollTrigger.create({
+      trigger: '#config-sheet',
+      start: 'top 60%',
+      onEnter: () => { if (cockpit) gsap.to(cockpit, { opacity: 0, pointerEvents: 'none', duration: 0.3 }); },
+      onLeaveBack: () => { if (cockpit) gsap.to(cockpit, { opacity: 1, pointerEvents: 'auto', duration: 0.3 }); },
+    });
+
+    // R3F canvas fade when sheet covers 3D viewer.
+    // ONLY use setCanvasVisible — React controls opacity via nanostore.
+    // NEVER use gsap.to('#r3f-canvas-root') for opacity.
+    ScrollTrigger.create({
+      trigger: '#config-sheet',
+      start: 'top 15%',
+      onEnter: () => {
+        setCanvasVisible(false);
+      },
+      onLeaveBack: () => {
+        setCanvasVisible(true);
+      },
+    });
+  });
+
+  // ==========================================
+  // EVENT LISTENERS (outside gsap.context — they're DOM events, not GSAP tweens)
   // ==========================================
 
   document.querySelectorAll('.mat-btn').forEach(btn => {

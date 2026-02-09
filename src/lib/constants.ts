@@ -27,41 +27,51 @@ export const CAMERA_PRESETS = {
 };
 
 // Table States (from Blueprint Tecnico - Sezione 2.2)
+// Y rotation = π/2 → long side faces camera. Slight X tilt (0.1) for perspective.
 export const TABLE_STATES = {
   PRELOADER: {
     scale: [0.9, 0.9, 0.9] as [number, number, number],
-    rotation: [0.1, 0, 0] as [number, number, number],
+    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   HERO_IDLE: {
     scale: [1.0, 1.0, 1.0] as [number, number, number],
-    rotation: [0.1, 0, 0] as [number, number, number],
+    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   PHILOSOPHY_ZOOM: {
     scale: [1.5, 1.5, 1.5] as [number, number, number],
-    rotation: [0.1, 0, 0] as [number, number, number],
+    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   TECH_DARK: {
     scale: [2.5, 2.5, 2.5] as [number, number, number],
-    rotation: [-Math.PI / 2, 0, 0] as [number, number, number],
+    rotation: [-Math.PI / 2, Math.PI / 2, 0] as [number, number, number],
     position: [0, 0.5, 0] as [number, number, number],
   },
 };
 
-// Z-Index Stratigraphy (from Blueprint Tecnico - Sezione 5)
+// Z-Index Stratigraphy (revised for correct layering)
+// Canvas is ALWAYS behind page content so HTML scrolls OVER the 3D.
+// Hero section is transparent → 3D shows through.
+// Opaque sections (Tech, Material) naturally cover the canvas.
 export const Z_INDEX = {
-  CANVAS_CONFIG: 0,
+  CANVAS_CONFIG: 1,
+  CANVAS_HERO: 1,
   CONTENT_STANDARD: 10,
-  CANVAS_HERO: 15,
   GLASS_ELEMENTS: 20,
   OVERLAY_SECTIONS: 30,
   COCKPIT_INTERACTIVE: 100,
   NOISE_OVERLAY: 9990,
+  FIXED_UI: 9999,
   TRANSITION_CURTAIN: 10000,
   PRELOADER: 10001,
+  CART_BACKDROP: 10001,
   CART_LIGHTBOX: 10002,
+  MOBILE_MENU: 10003,
+  ORDER_TOAST: 10005,
+  LEGAL_MODAL: 11000,
+  COOKIE_CONSENT: 15000,
   CUSTOM_CURSOR: 20005,
 };
 

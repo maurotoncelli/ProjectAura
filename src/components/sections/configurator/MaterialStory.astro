@@ -17,12 +17,12 @@ const materials = getMaterials();
     <div class="w-full md:w-1/2">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.materia.label}</p>
       <div id="wood-storytelling" class="mb-12">
-        <h2 id="mat-detail-name" class="text-6xl font-light mb-8 uppercase tracking-tight text-[#4A3728]">{materials[0].displayName}.</h2>
-        <p id="mat-detail-desc" class="text-xl text-gray-700 leading-relaxed mb-8">{materials[0].description}</p>
-        <div class="grid grid-cols-3 gap-8 border-t border-gray-100 pt-8">
-          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Grana</p><p id="spec-grain" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.grain}</p></div>
-          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Durezza</p><p id="spec-hard" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.hardness}</p></div>
-          <div><p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Riflesso</p><p id="spec-reflect" class="text-sm font-normal uppercase text-[#4A3728]">{materials[0].specs.reflect}</p></div>
+        <h2 id="mat-detail-name" class="text-6xl font-light mb-8 uppercase tracking-tight text-at-walnut">{materials[0].displayName}.</h2>
+        <p id="mat-detail-desc" class="text-xl text-at-text/80 leading-relaxed mb-8">{materials[0].description}</p>
+        <div class="grid grid-cols-3 gap-8 border-t border-at-border-light pt-8">
+          <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Grana</p><p id="spec-grain" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.grain}</p></div>
+          <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Durezza</p><p id="spec-hard" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.hardness}</p></div>
+          <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Riflesso</p><p id="spec-reflect" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.reflect}</p></div>
         </div>
       </div>
       <div class="flex gap-4">

@@ -1,14 +1,37 @@
 /**
  * Page Transitions — Astro View Transitions + Curtain Effect.
  * Handles before-preparation, before-swap, after-swap, and page-load lifecycle.
+ *
+ * Orchestrates cleanup of page-specific gsap.context() instances
+ * alongside the global scroll-animations context.
  */
 import { gsap } from 'gsap';
 import { EASINGS } from './constants';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type Lenis from 'lenis';
-import { setActiveScene } from '../store/sceneStore';
+import { setActiveScene, setCanvasVisible, resetTableState } from '../store/sceneStore';
 import { initScrollAnimations, cleanupScrollAnimations } from './scroll-animations';
+import { cleanupHomePage } from './home-animations';
+import { cleanupAboutPage } from './about-animations';
+import { cleanupConfigPage } from './configurator-animations';
+import { cleanupContactPage } from './contact-animations';
+import { cleanupSpacesPage } from './spaces-animations';
 import { initCursorInteractions } from './cursor';
+
+/**
+ * Cleanup all page-specific GSAP contexts + global scroll context.
+ * Called during astro:before-swap to ensure a clean slate.
+ */
+function cleanupAllPageAnimations() {
+  cleanupScrollAnimations();
+  cleanupHomePage();
+  cleanupAboutPage();
+  cleanupConfigPage();
+  cleanupContactPage();
+  cleanupSpacesPage();
+  // Kill any remaining orphaned ScrollTriggers
+  ScrollTrigger.getAll().forEach(t => t.kill());
+}
 
 export function initPageTransitions(lenis: Lenis) {
   // Step 1: BEFORE navigation — Curtain RISES from bottom
@@ -27,11 +50,9 @@ export function initPageTransitions(lenis: Lenis) {
     };
   });
 
-  // Step 2: BEFORE swap — Clean up old page
+  // Step 2: BEFORE swap — Clean up old page (all gsap.context + ScrollTriggers)
   document.addEventListener('astro:before-swap', () => {
-    // Revert gsap.context (module-level cleanup, no window global)
-    cleanupScrollAnimations();
-    ScrollTrigger.getAll().forEach(t => t.kill());
+    cleanupAllPageAnimations();
     document.body.style.backgroundColor = '';
     document.body.style.color = '';
     document.body.classList.remove('active-night');
@@ -45,12 +66,15 @@ export function initPageTransitions(lenis: Lenis) {
     window.scrollTo(0, 0);
     lenis.scrollTo(0, { immediate: true });
 
-    // Set active scene based on new page
+    // Set active scene based on new page + reset table to initial state
     const newPage = document.body.dataset.page;
     if (newPage === 'home') {
       setActiveScene('HERO');
+      setCanvasVisible(true);
+      resetTableState(); // Reset rotation/scale to hero idle defaults
     } else if (newPage === 'configurator') {
       setActiveScene('CONFIGURATOR');
+      setCanvasVisible(true);
     } else {
       setActiveScene('NONE');
     }
@@ -77,9 +101,16 @@ export function initPageTransitions(lenis: Lenis) {
     }
   });
 
-  // Step 4: PAGE LOAD — Re-init per-page animations
+  // Step 4: PAGE LOAD — Re-init per-page animations.
+  // Pages with pins (home, about, contact) manage their own initScrollAnimations()
+  // inside their boot functions — called AFTER pins are created so trigger positions
+  // account for pin spacers. For pinless pages (spaces, configurator) we init here.
   document.addEventListener('astro:page-load', () => {
-    initScrollAnimations();
+    const currentPage = document.body.dataset.page;
+    const pagesWithPins = ['home', 'about', 'contact'];
+    if (!pagesWithPins.includes(currentPage ?? '')) {
+      initScrollAnimations();
+    }
     initCursorInteractions();
   });
 }

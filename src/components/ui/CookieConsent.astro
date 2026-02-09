@@ -2,19 +2,21 @@
 /**
  * CookieConsent — GDPR cookie banner with accept/essential options.
  * Self-contained with its own script. Persists across navigations.
+ * Listens for 'cookie-banner:show' custom event (fired by preloader after delay).
  */
 import { getSiteData } from '../../lib/data';
+import { Z_INDEX } from '../../lib/constants';
 const site = getSiteData();
 ---
 
-<div id="cookie-consent" class="fixed bottom-8 left-8 z-[20000] max-w-sm bg-at-graphite text-at-stone p-8 shadow-2xl opacity-0 pointer-events-none transition-opacity duration-1000 border border-white/10 hidden" transition:persist>
+<div id="cookie-consent" class="fixed bottom-8 left-8 max-w-sm bg-at-graphite text-at-stone p-8 shadow-2xl opacity-0 pointer-events-none transition-opacity duration-1000 border border-white/10 hidden" style={{ zIndex: Z_INDEX.COOKIE_CONSENT }} transition:persist>
   <h5 class="font-serif italic text-xl mb-4 text-white">{site.cookie.title}</h5>
-  <p class="text-xs text-gray-400 leading-relaxed mb-6 font-light">
+  <p class="text-xs text-at-text-muted leading-relaxed mb-6 font-light">
     {site.cookie.text}
   </p>
   <div class="flex gap-4">
     <button id="cookie-accept" class="text-xs font-bold uppercase tracking-widest text-white hover:text-at-oak transition border-b border-white pb-1">{site.cookie.acceptLabel}</button>
-    <button id="cookie-essential" class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition">{site.cookie.essentialLabel}</button>
+    <button id="cookie-essential" class="text-xs font-bold uppercase tracking-widest text-at-text-muted hover:text-white transition">{site.cookie.essentialLabel}</button>
   </div>
 </div>
 
@@ -40,8 +42,8 @@ const site = getSiteData();
     }
   }
 
-  // Expose for preloader to call after delay
-  (window as any).__initCookieBanner = initCookieBanner;
+  // Listen for custom event from preloader (no window global pollution)
+  window.addEventListener('cookie-banner:show', () => initCookieBanner());
 
   document.getElementById('cookie-accept')?.addEventListener('click', acceptCookies);
   document.getElementById('cookie-essential')?.addEventListener('click', acceptCookies);

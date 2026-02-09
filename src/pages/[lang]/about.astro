@@ -44,9 +44,18 @@ const about = getAboutContent();
 
 <script>
   import { initAboutPage } from '../../lib/about-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAboutPage);
-  } else {
+  import { initScrollAnimations } from '../../lib/scroll-animations';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function bootAboutPage() {
     initAboutPage();
+    initScrollAnimations();
+    ScrollTrigger.refresh();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootAboutPage);
+  } else {
+    bootAboutPage();
   }
 </script>

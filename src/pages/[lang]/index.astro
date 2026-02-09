@@ -50,9 +50,22 @@ const home = getHomeContent();
 
 <script>
   import { initHomePage } from '../../lib/home-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHomePage);
-  } else {
+  import { initScrollAnimations } from '../../lib/scroll-animations';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function bootHomePage() {
+    // 1. Create all page-specific pins (TechSection, ElementalFlow, Lifestyle)
     initHomePage();
+    // 2. Create global scroll-driven animations (img-reveal, parallax, text-clip)
+    //    MUST run AFTER all pins are created so trigger positions account for pin spacers.
+    initScrollAnimations();
+    // 3. Single refresh AFTER all pins + scroll animations are in place.
+    ScrollTrigger.refresh();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootHomePage);
+  } else {
+    bootHomePage();
   }
 </script>

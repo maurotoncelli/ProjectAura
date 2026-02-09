@@ -12,18 +12,18 @@ const home = getHomeContent();
         )}
         {panel.theme === 'dark' && (
           <div class="relative z-10 text-center">
-            {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] text-gray-400 mb-6">{panel.label}</p>}
+            {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] text-at-text-muted mb-6">{panel.label}</p>}
             <h3 class="text-6xl md:text-9xl font-light mb-8">{panel.heading}</h3>
-            {panel.description && <p class="text-xl max-w-xl mx-auto text-gray-300" set:html={panel.description}></p>}
+            {panel.description && <p class="text-xl max-w-xl mx-auto text-at-stone/70" set:html={panel.description}></p>}
           </div>
         )}
         {panel.theme === 'light' && (
           <>
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-50 mix-blend-multiply"></div>
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-at-stone mix-blend-multiply"></div>
             <div class="relative z-10 flex items-center gap-16 px-12">
               <h3 class="text-6xl md:text-9xl font-serif italic z-20" set:html={panel.headingHtml || panel.heading}></h3>
               {panel.image && (
-                <div class="w-64 h-96 bg-gray-200 img-reveal-wrapper shadow-2xl z-10">
+                <div class="w-64 h-96 bg-at-border img-reveal-wrapper shadow-2xl z-10">
                   <img src={panel.image} class="w-full h-full object-cover grayscale" alt="Glass Detail" loading="lazy" decoding="async" />
                 </div>
               )}

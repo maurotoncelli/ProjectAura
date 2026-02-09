@@ -20,9 +20,18 @@ const { lang } = Astro.params as { lang: Lang };
 
 <script>
   import { initContactPage } from '../../lib/contact-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactPage);
-  } else {
+  import { initScrollAnimations } from '../../lib/scroll-animations';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function bootContactPage() {
     initContactPage();
+    initScrollAnimations();
+    ScrollTrigger.refresh();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootContactPage);
+  } else {
+    bootContactPage();
   }
 </script>

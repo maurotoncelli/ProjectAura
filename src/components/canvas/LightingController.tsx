@@ -1,16 +1,18 @@
 /**
  * LightingController — Manages scene lighting based on isDayMode.
  * Animates transitions between day (ambient sun) and night (LED glow) using useFrame + lerp.
+ * THREE.Color objects are cached outside the frame loop to avoid per-frame allocations.
  */
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useStore } from '@nanostores/react';
 import { isDayMode } from '../../store/configStore';
+import { lerp } from '../../lib/3d-helpers';
 
-function lerp(a: number, b: number, t: number) {
-  return a + (b - a) * t;
-}
+// Cached colors — NEVER allocate inside useFrame
+const LED_WARM_COLOR = new THREE.Color(0xF5D0A9);
+const NEUTRAL_COLOR = new THREE.Color(0xffffff);
 
 interface LightingControllerProps {
   /** Whether to enable shadows on directional light */
@@ -42,9 +44,11 @@ export default function LightingController({ shadows = false, variant = 'hero' }
     }
     if (pointRef.current) {
       pointRef.current.intensity = lerp(pointRef.current.intensity, targetLed, speed);
-      // Warm LED color
+      // Warm LED color — uses cached THREE.Color (no allocation per frame)
       if (!dayMode) {
-        pointRef.current.color.lerp(new THREE.Color(0xF5D0A9), speed);
+        pointRef.current.color.lerp(LED_WARM_COLOR, speed);
+      } else {
+        pointRef.current.color.lerp(NEUTRAL_COLOR, speed);
       }
     }
   });

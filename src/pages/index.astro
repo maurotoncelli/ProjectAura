@@ -1,52 +1,8 @@
 ---
-import { getHomeContent } from '../lib/data';
-const home = getHomeContent();
-import MainLayout from '../layouts/MainLayout.astro';
-
-// Section Components
-import HeroSection from '../components/sections/home/HeroSection.astro';
-import PhilosophySection from '../components/sections/home/PhilosophySection.astro';
-import TechSection from '../components/sections/home/TechSection.astro';
-import DarkVoidSection from '../components/sections/home/DarkVoidSection.astro';
-import MaterialSection from '../components/sections/home/MaterialSection.astro';
-import GenesisSection from '../components/sections/home/GenesisSection.astro';
-import SmartContextSection from '../components/sections/home/SmartContextSection.astro';
-import ElementalFlow from '../components/sections/home/ElementalFlow.astro';
-import LifestyleSection from '../components/sections/home/LifestyleSection.astro';
-import EsteticaGrid from '../components/sections/home/EsteticaGrid.astro';
-import HeritageSection from '../components/sections/home/HeritageSection.astro';
-import DetailsSection from '../components/sections/home/DetailsSection.astro';
-import NextChapterFooter from '../components/sections/home/NextChapterFooter.astro';
+/**
+ * Root index — 301 redirect to default language (/it/).
+ * All content lives under /[lang]/ routes for proper SEO.
+ */
+import { DEFAULT_LANG } from '../i18n/index';
+return Astro.redirect(`/${DEFAULT_LANG}/`, 301);
 ---
-
-<MainLayout title="AETHER | Smart Wood Design" page="home">
-  <HeroSection />
-  <PhilosophySection />
-  <TechSection />
-  <DarkVoidSection />
-  <MaterialSection />
-  <GenesisSection />
-  <SmartContextSection />
-  <ElementalFlow />
-  <LifestyleSection />
-  <EsteticaGrid />
-  <HeritageSection />
-  <DetailsSection />
-  <NextChapterFooter
-    label={home.nextChapter.label}
-    heading={home.nextChapter.heading}
-    linkText={home.nextChapter.linkText}
-    href={home.nextChapter.href}
-    image={home.nextChapter.image}
-  />
-</MainLayout>
-
-<!-- ========== HOME PAGE SCRIPT — GSAP <-> R3F Bridge ========== -->
-<script>
-  import { initHomePage } from '../lib/home-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHomePage);
-  } else {
-    initHomePage();
-  }
-</script>

@@ -5,6 +5,21 @@
 import * as THREE from 'three';
 
 /**
+ * Linear interpolation between two values.
+ * Shared across all 3D components to avoid duplication.
+ */
+export function lerp(a: number, b: number, t: number): number {
+  return a + (b - a) * t;
+}
+
+/**
+ * Clamp a value between min and max.
+ */
+export function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+/**
  * Load texture with error handling
  */
 export function loadTexture(path: string, loader: THREE.TextureLoader): Promise<THREE.Texture> {

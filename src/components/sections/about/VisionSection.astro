@@ -3,14 +3,14 @@ import { getAboutContent } from '../../../lib/data';
 const about = getAboutContent();
 ---
 
-<section class="w-full bg-white py-32 overflow-hidden border-t border-gray-100">
+<section class="w-full bg-at-surface py-32 overflow-hidden border-t border-at-border-light">
   <div class="w-full whitespace-nowrap overflow-hidden mb-12 opacity-10 pointer-events-none select-none">
     <h2 class="text-[12rem] font-bold uppercase leading-none inline-block animate-marquee text-at-graphite">{about.vision.marquee}</h2>
   </div>
   <div class="container mx-auto px-8 flex flex-col md:flex-row gap-16 items-end reveal-on-scroll">
     <div class="w-full md:w-2/3">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{about.vision.label}</p>
-      <p class="text-4xl md:text-5xl font-light leading-tight fluid-element text-[#4A3728]" set:html={about.vision.quoteHtml}></p>
+      <p class="text-4xl md:text-5xl font-light leading-tight fluid-element text-at-walnut" set:html={about.vision.quoteHtml}></p>
     </div>
     <div class="w-full md:w-1/3 text-right">
       <img src={about.vision.image} class="w-full h-64 object-cover grayscale mb-4" alt="Lab" loading="lazy" decoding="async" />

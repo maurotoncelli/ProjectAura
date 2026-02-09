@@ -4,6 +4,7 @@
  * z-index: 11000
  */
 import { useState, useEffect, useCallback } from 'react';
+import { Z_INDEX } from '../../lib/constants';
 import siteData from '../../data/site.json';
 
 interface Props {
@@ -59,8 +60,9 @@ export default function LegalModal({ type }: Props) {
   return (
     <div
       id={`${type}-modal`}
-      className="fixed inset-0 z-[11000] bg-at-stone/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 transition-opacity duration-500"
+      className="fixed inset-0 bg-at-stone/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 transition-opacity duration-500"
       style={{
+        zIndex: Z_INDEX.LEGAL_MODAL,
         opacity: isOpen ? 1 : 0,
         pointerEvents: isOpen ? 'auto' : 'none',
       }}
@@ -74,18 +76,18 @@ export default function LegalModal({ type }: Props) {
       </button>
       <div
         data-lenis-prevent
-        className="bg-white max-w-4xl w-full h-full max-h-[80vh] overflow-y-auto p-8 md:p-16 shadow-2xl rounded-sm border border-gray-200 relative"
+        className="bg-at-surface max-w-4xl w-full h-full max-h-[80vh] overflow-y-auto p-8 md:p-16 shadow-2xl rounded-sm border border-at-border relative"
       >
         <div className="max-w-3xl mx-auto text-at-graphite">
           <h2 className="text-4xl font-light mb-2">{meta.title}</h2>
-          <h3 className="font-serif italic text-xl text-gray-500 mb-8">{meta.subtitle}</h3>
+          <h3 className="font-serif italic text-xl text-at-text-muted mb-8">{meta.subtitle}</h3>
           <p className="text-sm mb-8 leading-relaxed">
             <strong>Ultimo aggiornamento: {meta.lastUpdate}</strong>
           </p>
 
           {type === 'privacy' ? <PrivacyContent /> : <TermsContent />}
 
-          <div className="text-center pt-8 border-t border-gray-200">
+          <div className="text-center pt-8 border-t border-at-border">
             <button
               onClick={close}
               className="px-8 py-3 bg-at-graphite text-white text-xs font-bold uppercase tracking-widest hover:bg-black transition"
@@ -134,7 +136,7 @@ function TermsContent() {
       <h4 className="font-bold uppercase tracking-widest text-xs mb-4">2. Ordine e Accettazione</h4>
       <p className="mb-4 text-sm leading-relaxed">L'ordine si intende accettato solo dopo la conferma scritta da parte di Aether e il ricevimento dell'acconto. La produzione è strettamente artigianale e on-demand; non manteniamo scorte di prodotti finiti.</p>
       <h4 className="font-bold uppercase tracking-widest text-xs mb-4">3. Natura dei Beni ed Esclusione del Diritto di Recesso</h4>
-      <p className="mb-8 text-sm leading-relaxed bg-gray-50 p-4 border border-gray-200">
+      <p className="mb-8 text-sm leading-relaxed bg-at-stone p-4 border border-at-border">
         <strong>IMPORTANTE:</strong> I prodotti Aether sono beni confezionati su misura e chiaramente personalizzati. Ai sensi dell'<strong>art. 59, lettera c) del Codice del Consumo</strong> (D.Lgs. 206/2005), il diritto di recesso è <strong>ESCLUSO</strong>. Una volta confermato l'ordine e avviata la produzione (selezione della lastra), non è possibile annullare l'ordine né richiedere il rimborso dell'acconto.
       </p>
       <h4 className="font-bold uppercase tracking-widest text-xs mb-4">4. Prezzi e Pagamenti</h4>

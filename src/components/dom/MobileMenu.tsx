@@ -6,6 +6,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
 import { isMenuOpen, openMenu, closeMenu } from '../../store/configStore';
+import { Z_INDEX } from '../../lib/constants';
 import siteData from '../../data/site.json';
 
 export default function MobileMenu() {
@@ -37,7 +38,8 @@ export default function MobileMenu() {
     <>
       {/* Hamburger Button — visible only on mobile */}
       <button
-        className="md:hidden fixed top-8 right-8 z-[10003] flex flex-col gap-1.5 p-2"
+        className="md:hidden fixed top-8 right-8 flex flex-col gap-1.5 p-2"
+        style={{ zIndex: Z_INDEX.MOBILE_MENU }}
         onClick={toggle}
         aria-label="Menu"
       >
@@ -54,9 +56,10 @@ export default function MobileMenu() {
 
       {/* Fullscreen Overlay */}
       <div
-        className={`fixed inset-0 z-[10002] bg-at-graphite flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 bg-at-graphite flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
+        style={{ zIndex: Z_INDEX.CART_LIGHTBOX }}
       >
         <nav className="flex flex-col items-center gap-8">
           {siteData.nav.links.map((link) => (

@@ -12,9 +12,9 @@ const home = getHomeContent();
     <div class="w-full md:w-1/2 relative z-10 text-center md:text-left md:pl-24">
       <h2 class="text-[clamp(3rem,6vw,5rem)] font-light leading-none mb-12 reveal-on-scroll fluid-element" set:html={home.philosophy.headingHtml}></h2>
       <div class="flex flex-col md:flex-row gap-12 items-start">
-        <p class="text-xl text-gray-500 font-light leading-relaxed max-w-sm reveal-on-scroll fluid-element">{home.philosophy.description}</p>
-        <div class="w-full md:w-80 h-80 img-reveal-wrapper reveal-on-scroll shadow-2xl">
-          <img src={home.philosophy.image} class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000" alt="Wood Texture" loading="lazy" decoding="async" />
+        <p class="text-xl text-at-text-muted font-light leading-relaxed max-w-sm reveal-on-scroll fluid-element">{home.philosophy.description}</p>
+        <div class="w-full md:w-80 h-80 img-reveal-wrapper shadow-2xl">
+          <img src={home.philosophy.image} class="w-full h-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-1000" alt="Wood Texture" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const spaces = getSpacesContent();
       </div>
       <div class="flex gap-8 text-xs uppercase tracking-widest mt-8 md:mt-0">
         {spaces.filters.map((filter, index) => (
-          <button class={`filter-btn ${index === 0 ? 'active hover:text-at-oak transition border-b border-black pb-1' : 'hover:text-at-oak transition text-gray-400 pb-1'}`} data-filter={filter.value}>{filter.label}</button>
+          <button class={`filter-btn ${index === 0 ? 'active hover:text-at-oak transition border-b border-black pb-1' : 'hover:text-at-oak transition text-at-text-muted pb-1'}`} data-filter={filter.value}>{filter.label}</button>
         ))}
       </div>
     </div>

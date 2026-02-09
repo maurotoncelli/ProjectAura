@@ -93,7 +93,7 @@ export default function Lightbox() {
         <div className="lightbox-caption" style={{ opacity: 1, transform: 'none' }}>
           <p className="text-xs text-at-oak uppercase tracking-widest mb-2 font-bold">{category}</p>
           <h3 className="text-4xl text-white font-serif italic">{title}</h3>
-          <p className="text-sm text-gray-400 mt-2 uppercase tracking-wide">{location}</p>
+          <p className="text-sm text-at-text-muted mt-2 uppercase tracking-wide">{location}</p>
         </div>
       </div>
     </div>
