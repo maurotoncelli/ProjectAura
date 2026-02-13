@@ -3,38 +3,19 @@ import { getHomeContent } from '../../../lib/data';
 const home = getHomeContent();
 ---
 
-<section id="heritage-section" class="min-h-screen w-full relative flex items-center overflow-hidden bg-black z-curtain">
-  <!-- Video Background -->
-  <div class="absolute inset-0 z-0">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      class="w-full h-full object-cover"
-      ontimeupdate="if(this.duration&&this.currentTime>this.duration-0.3){this.currentTime=0}"
-    >
-      <source src="/videos/mano-macchina.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- Content -->
-  <div class="container mx-auto px-8 relative z-10 flex flex-col items-end justify-center min-h-screen py-24">
-    <div class="w-full md:w-1/2 text-white reveal-on-scroll">
-      <h2 class="section-title font-light mb-8 leading-none tracking-tight fluid-element" set:html={home.heritage.headingHtml}></h2>
-      <div class="w-24 h-1 bg-white/50 mb-12"></div>
-      <p class="text-2xl font-light leading-relaxed mb-8 text-white/80">{home.heritage.description}</p>
+<section id="heritage-section" class="min-h-screen w-full relative flex items-center bg-at-stone text-at-text overflow-hidden py-32 z-curtain">
+  <div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-24">
+    <div class="w-full md:w-1/2 h-[800px] bg-at-border relative overflow-hidden reveal-on-scroll group cursor-pointer flex items-center justify-center img-reveal-wrapper">
+      <div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 transition-[filter] duration-1000 group-hover:grayscale-0" style={`background-image: url('${home.heritage.bgImage}');`}></div>
+      <div class="play-button-overlay z-10">
+        <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="absolute bottom-6 left-6 text-white bg-at-graphite/50 backdrop-blur-sm px-4 py-2 text-xs uppercase tracking-widest z-10">{home.heritage.badge}</div>
     </div>
-  </div>
-
-  <!-- Bottom-center fullscreen button -->
-  <div class="absolute bottom-24 left-0 right-0 z-10 flex justify-center">
-    <button
-      class="px-10 py-4 bg-white text-at-graphite text-sm uppercase tracking-[0.2em] font-medium hover:bg-white/80 transition-all duration-500 border-none"
-      onclick="window.openVideoModal && window.openVideoModal('/videos/mano-macchina.mp4')"
-    >
-      Guarda il Video
-    </button>
+    <div class="w-full md:w-1/2 reveal-on-scroll">
+      <h2 class="section-title font-light mb-8 leading-none tracking-tight fluid-element" set:html={home.heritage.headingHtml}></h2>
+      <div class="w-24 h-1 bg-at-text mb-12"></div>
+      <p class="text-2xl font-light leading-relaxed mb-8">{home.heritage.description}</p>
+    </div>
   </div>
 </section>
