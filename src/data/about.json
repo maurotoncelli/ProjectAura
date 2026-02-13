@@ -8,16 +8,16 @@
   "dualIdentity": {
     "atStudio": {
       "logo": "AT",
-      "heading": "Alchimisti Digitali.",
-      "headingHtml": "Alchimisti<br/>Digitali.",
-      "description": "<strong>AT Studio</strong> è la mente. Visual design e fotografia.",
+      "heading": "Alchimisti della luce.",
+      "headingHtml": "Alchimisti<br/>della luce.",
+      "description": "<strong>AT STUDIO</strong> affonda le sue radici in fotografia e visual design. Qui nasce l'idea di progettare la luce come protagonista degli interni.",
       "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670"
     },
     "segnobianco": {
       "logo": "S",
-      "heading": "Polvere & Passione.",
-      "headingHtml": "Polvere &<br/>Passione.",
-      "description": "<strong>Segnobianco.it</strong> è il cuore. Cinquant'anni tra i trucioli.",
+      "heading": "Artigianato Italiano & Passione per il legno.",
+      "headingHtml": "Artigianato Italiano &<br/>Passione per il legno.",
+      "description": "La firma di <strong>Segno Bianco</strong> è la sua esperienza.",
       "image": "https://images.unsplash.com/photo-1622396636133-74323d9a8e93?q=80&w=2600"
     }
   },
@@ -77,15 +77,15 @@
     "items": [
       { "image": "/textures/cronache-01.png", "alt": "Vetro e Legno", "caption": "Finitura Manuale" },
       { "image": "/textures/cronache-00.png", "alt": "Levigatura", "caption": "Precisione Digitale" },
-      { "image": "/textures/cronache-03.png", "alt": "Incasso Smart Core", "caption": "Integrazione Smart" },
-      { "image": "/textures/cronache-02.png", "alt": "Soffio Polvere", "caption": "Controllo Qualità" }
+      { "image": "/textures/cronache-02.png", "alt": "Soffio Polvere", "caption": "Integrazione Smart" },
+      { "image": "/textures/cronache-03.png", "alt": "Incasso Smart Core", "caption": "Controllo Qualità" }
     ]
   },
   "manifesto": [
-    { "text": "Il design non è", "highlight": false },
-    { "text": "Ciò che vedi.", "highlight": true, "color": "text-at-oak" },
-    { "text": "Il design è", "highlight": false },
-    { "text": "Come funziona.", "highlight": true, "color": "text-white/50" }
+    { "text": "Cambiare luce.", "highlight": false },
+    { "text": "Cambiare forma.", "highlight": true, "color": "text-at-oak" },
+    { "text": "Il design non è statico.", "highlight": false },
+    { "text": "Si adatta.", "highlight": true, "color": "text-white/50" }
   ],
   "vision": {
     "label": "Visione 2030",

@@ -1,10 +1,10 @@
 {
   "form": {
     "label": "Richieste",
-    "heading": "Segnale Ricevuto.",
-    "headingHtml": "Segnale<br/><span class=\"font-serif italic text-gray-400\">Ricevuto.</span>",
-    "subheading": "Linea Diretta.",
-    "description": "Progetti, collaborazioni o supporto tecnico. Rispondiamo entro 24 ore.",
+    "heading": "Siamo sempre disponibili.",
+    "headingHtml": "Siamo sempre<br/><span class=\"font-serif italic text-gray-400\">disponibili.</span>",
+    "subheading": "Linea diretta.",
+    "description": "Progetti, collaborazioni o supporto tecnico. Rispondiamo entro 24 ore dal lunedì al venerdì.",
     "fields": [
       { "type": "text", "placeholder": "Nome", "required": true },
       { "type": "email", "placeholder": "Email", "required": true }
@@ -50,22 +50,22 @@
   },
   "cities": [
     {
+      "country": "Svizzera",
+      "city": "Neuchâtel",
+      "description": "Dove il design respira da secoli. Qui AT Studio progetta Aether.",
+      "image": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2670"
+    },
+    {
       "country": "Italia",
-      "city": "Milano",
-      "description": "Dove il design respira da secoli. Qui AETHER incontra la tradizione artigianale.",
-      "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=2670"
+      "city": "Firenze",
+      "description": "Dove il design respira da secoli. Qui AETHER incontra la tradizione artigianale Italiana e viene prodotto direttamente dai maestri del legno.",
+      "image": "https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?q=80&w=2670"
     },
     {
-      "country": "Giappone",
-      "city": "Tokyo",
-      "description": "La fusione perfetta: tecnologia e wabi-sabi.",
-      "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2636"
-    },
-    {
-      "country": "USA",
-      "city": "New York",
-      "description": "L'attico che aspetta il suo tavolo.",
-      "image": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=2670"
+      "country": "Worldwide",
+      "city": "Disponibile in tutto il mondo",
+      "description": "Ordina adesso.",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672"
     }
   ],
   "toast": {
