@@ -5,7 +5,7 @@ const about = getAboutContent();
 
 <div class="h-32 w-full bg-at-stone"></div>
 
-<section class="w-full min-h-[70vh] relative flex items-end overflow-hidden">
+<section class="w-full min-h-[70vh] relative flex items-end overflow-hidden bg-[#1a1610]">
   <!-- Video Background -->
   <div class="absolute inset-0 z-0">
     <video
@@ -15,6 +15,7 @@ const about = getAboutContent();
       playsinline
       preload="auto"
       class="w-full h-full object-cover"
+      ontimeupdate="if(this.duration&&this.currentTime>this.duration-0.3){this.currentTime=0}"
     >
       <source src="/videos/invisibile-loop.mp4" type="video/mp4" />
     </video>
