@@ -38,15 +38,20 @@ export default function LegalModal({ type }: Props) {
     };
   }, [type, open, close]);
 
-  // Manage Lenis scroll lock
+  // Manage Lenis + native scroll lock
   useEffect(() => {
     const lenis = (window as any).lenis;
-    if (!lenis) return;
     if (isOpen) {
-      lenis.stop();
+      lenis?.stop();
+      document.body.style.overflow = 'hidden';
     } else {
-      lenis.start();
+      lenis?.start();
+      document.body.style.overflow = '';
     }
+    return () => {
+      lenis?.start();
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {

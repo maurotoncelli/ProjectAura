@@ -4,20 +4,32 @@
     "heading": "Segnale Ricevuto.",
     "headingHtml": "Segnale<br/><span class=\"font-serif italic text-gray-400\">Ricevuto.</span>",
     "subheading": "Linea Diretta.",
-    "responseTime": "Rispondiamo entro 24 ore.",
+    "description": "Progetti, collaborazioni o supporto tecnico. Rispondiamo entro 24 ore.",
     "fields": [
-      { "type": "text", "placeholder": "Il tuo nome", "required": true },
-      { "type": "email", "placeholder": "Email", "required": true },
-      { "type": "text", "placeholder": "Di cosa vuoi parlare?", "required": false },
-      { "type": "textarea", "placeholder": "Racconta la tua visione...", "required": false }
+      { "type": "text", "placeholder": "Nome", "required": true },
+      { "type": "email", "placeholder": "Email", "required": true }
     ],
-    "privacyCheckbox": "Ho letto e accetto la Privacy Policy.",
-    "submitLabel": "INVIA TRASMISSIONE"
+    "requestTypes": [
+      "Informazioni Generali",
+      "Configurazione Su Misura",
+      "Collaborazioni / B2B",
+      "Supporto Tecnico",
+      "Altro"
+    ],
+    "requestTypeLabel": "Tipo di Richiesta",
+    "messageField": { "type": "textarea", "placeholder": "Messaggio", "required": false },
+    "privacyCheckbox": "Ho letto e accetto la Privacy Policy e acconsento al trattamento dei dati.",
+    "marketingCheckbox": "Acconsento all'invio di ispirazioni e novità (Opzionale).",
+    "submitLabel": "INVIA RICHIESTA"
   },
   "info": {
     "email": {
       "label": "Email Generale",
       "value": "hello@aura-design.it"
+    },
+    "phone": {
+      "label": "Telefono",
+      "value": "+39 02 555 7890"
     },
     "showroom": {
       "label": "Showroom Virtuale",

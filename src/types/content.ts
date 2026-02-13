@@ -270,7 +270,7 @@ export interface ConfigAnimaDigitale {
 export interface ConfiguratorContent {
   hero: { heading: string };
   cockpit: { defaultLabel: string; ledLabel: string };
-  confronta: { label: string; heading: string; taxNote: string };
+  confronta: { label: string; heading: string; subtitle: string; taxNote: string };
   materia: { label: string; materialImages: Record<string, string> };
   animaDigitale: ConfigAnimaDigitale;
   sezione01: ConfigSectionGeneric;
@@ -314,13 +314,18 @@ export interface SocialLink {
 
 export interface ContactContent {
   form: {
-    label: string; heading: string; headingHtml: string; subheading: string; responseTime: string;
+    label: string; heading: string; headingHtml: string; subheading: string; description: string;
     fields: FormField[];
+    requestTypes: string[];
+    requestTypeLabel: string;
+    messageField: FormField;
     privacyCheckbox: string;
+    marketingCheckbox: string;
     submitLabel: string;
   };
   info: {
     email: { label: string; value: string };
+    phone: { label: string; value: string };
     showroom: { label: string; value: string };
     social: SocialLink[];
   };
