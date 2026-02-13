@@ -226,17 +226,6 @@ const productJsonLd = showProductSchema ? JSON.stringify({
       //    Calling them here would create a double-init: MainLayout runs BEFORE
       //    page scripts create PINs, so positions would be wrong.
       //    Then astro:page-load reverts + recreates, causing flicker/broken anims.
-
-      // 6. Seamless video loops — restart before last frame to avoid black flash
-      document.querySelectorAll('video[data-seamless-loop]').forEach(v => {
-        const video = v as HTMLVideoElement;
-        video.addEventListener('timeupdate', () => {
-          if (video.duration && video.currentTime > video.duration - 0.3) {
-            video.currentTime = 0;
-            video.play();
-          }
-        });
-      });
     </script>
   </body>
 </html>
