@@ -66,8 +66,7 @@
     "headingHtml": "Disegnato<br/>per sparire.",
     "description": "L'idea era semplice: un piano che levita.",
     "description2": "Volevamo che la struttura portante svanisse, lasciando il legno protagonista assoluto.",
-    "image": "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2670&auto=format&fit=crop",
-    "caption": "ORIGINAL SKETCH // V.1.0"
+    "image": "/textures/genesis-table.png"
   },
   "smartContext": {
     "label": "Controllo Fluido",
@@ -81,13 +80,13 @@
       "label": "Livello 01",
       "heading": "Il Nucleo.",
       "description": "Dove il silicio incontra l'intenzione. <br/>L'intelligenza non si vede.",
-      "bgImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670",
+      "bgImage": "/textures/nucleo-led.png",
       "theme": "dark"
     },
     {
       "heading": "Forza Invisibile.",
       "headingHtml": "Forza<br/>Invisibile.",
-      "image": "https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=2670",
+      "image": "/textures/forza-invisibile.png",
       "theme": "light"
     },
     {
@@ -103,9 +102,9 @@
     "headingHtml": "Abitare<br/>Aether.",
     "scrollHint": "Scorri per esplorare ->",
     "items": [
-      { "image": "https://images.unsplash.com/photo-1529124263156-4c9c148f32fb?q=80&w=2670&auto=format&fit=crop", "title": "Rituali Mattutini" },
-      { "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670&auto=format&fit=crop", "title": "Focus & Chiarezza" },
-      { "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2574&auto=format&fit=crop", "title": "Atmosfera Serale" }
+      { "image": "/textures/rituali-mattutini.png", "title": "Rituali Mattutini" },
+      { "image": "/textures/focus-chiarezza.png", "title": "Focus & Chiarezza" },
+      { "image": "/textures/atmosfera-serale.png", "title": "Atmosfera Serale" }
     ]
   },
   "estetica": {
@@ -114,10 +113,10 @@
     "headingHtml": "Dettagli che<br/>respirano.",
     "subtitle": "La bellezza risiede nell'imperfezione controllata.",
     "grid": {
-      "mainImage": { "src": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop", "alt": "Texture", "label": "Rovere Grezzo" },
-      "topRight": { "src": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2670&auto=format&fit=crop", "alt": "Living", "label": "Living" },
-      "infoCard": { "title": "Superficie Touch", "subtitle": "Legno Capacitivo" },
-      "bottomRight": { "src": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669&auto=format&fit=crop", "alt": "Detail" }
+      "mainImage": { "src": "/textures/dettagli-living-day.png", "alt": "Living Day" },
+      "topRight": { "src": "/textures/dettagli-living-night.png", "alt": "Living Night" },
+      "bottomLeft": { "src": "/textures/dettagli-tablescape.png", "alt": "Tablescape" },
+      "bottomRight": { "src": "/textures/dettagli-kintsugi.png", "alt": "Detail" }
     }
   },
   "heritage": {

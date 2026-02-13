@@ -85,16 +85,16 @@ export interface HomeContent {
   philosophy: { label: string; number: string; heading: string; headingHtml: string; description: string; image: string; bgImage: string };
   tech: { label: string; heading: string; headingHtml: string; description: string; integrations: string[]; ledSpecs: LedSpecRow[] };
   material: { label: string; heading: string; headingHtml: string; description: string; bgImage: string; videoLoop: string; videoFull: string; videoButtonLabel: string };
-  genesis: { label: string; heading: string; headingHtml: string; description: string; description2: string; image: string; caption: string };
+  genesis: { label: string; heading: string; headingHtml: string; description: string; description2: string; image: string };
   smartContext: { label: string; heading: string; headingHtml: string; description: string; bgImage: string };
   elementalFlow: { label?: string; heading: string; headingHtml?: string; description?: string; bgImage?: string; image?: string; theme: string }[];
   lifestyle: { label: string; heading: string; headingHtml: string; scrollHint: string; items: LifestyleItem[] };
   estetica: {
     label: string; heading: string; headingHtml: string; subtitle: string;
     grid: {
-      mainImage: { src: string; alt: string; label: string };
-      topRight: { src: string; alt: string; label: string };
-      infoCard: { title: string; subtitle: string };
+      mainImage: { src: string; alt: string };
+      topRight: { src: string; alt: string };
+      bottomLeft: { src: string; alt: string };
       bottomRight: { src: string; alt: string };
     };
   };

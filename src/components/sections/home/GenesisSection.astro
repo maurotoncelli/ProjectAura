@@ -11,10 +11,8 @@ const home = getHomeContent();
       <p class="text-2xl font-light leading-relaxed mb-6">{home.genesis.description}</p>
       <p class="text-at-text/70 text-xl leading-relaxed">{home.genesis.description2}</p>
     </div>
-    <div class="w-full md:w-1/2 h-[800px] bg-at-surface relative overflow-hidden border border-at-border p-8 flex items-center justify-center group img-reveal-wrapper">
-      <img src={home.genesis.image} class="w-full h-full object-cover opacity-80 transition-[filter] duration-1000 grayscale group-hover:grayscale-0" alt="Design Sketch" loading="lazy" decoding="async" />
-      <div class="absolute inset-0 bg-at-stone/20 mix-blend-multiply"></div>
-      <p class="absolute bottom-6 right-6 text-xs text-at-text-muted font-mono">{home.genesis.caption}</p>
+    <div class="w-full md:w-1/2 h-[800px] bg-at-stone relative overflow-hidden p-8 flex items-center justify-center group img-reveal-wrapper">
+      <img src={home.genesis.image} class="w-full h-full object-cover" alt="AETHER Table" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

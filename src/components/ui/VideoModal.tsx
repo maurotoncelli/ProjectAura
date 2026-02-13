@@ -6,8 +6,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Z_INDEX } from '../../lib/constants';
 
-export default function VideoModal({ src }: { src: string }) {
+export default function VideoModal({ src: defaultSrc }: { src: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSrc, setActiveSrc] = useState(defaultSrc);
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -17,29 +18,26 @@ export default function VideoModal({ src }: { src: string }) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
-    // Exit fullscreen if active
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
     }
   }, []);
 
-  const open = useCallback(() => {
+  const open = useCallback((customSrc?: string) => {
+    setActiveSrc(customSrc || defaultSrc);
     setIsOpen(true);
-    // Request fullscreen after a short delay to allow React to render the video
     setTimeout(() => {
       const container = containerRef.current;
       if (container?.requestFullscreen) {
-        container.requestFullscreen().catch(() => {
-          // Fullscreen denied by browser — still show the modal overlay as fallback
-        });
+        container.requestFullscreen().catch(() => {});
       }
     }, 100);
-  }, []);
+  }, [defaultSrc]);
 
   // Register global open/close for Astro components
   useEffect(() => {
     const w = window as any;
-    w.openVideoModal = open;
+    w.openVideoModal = (src?: string) => open(src);
     w.closeVideoModal = close;
     return () => {
       delete w.openVideoModal;
@@ -118,7 +116,7 @@ export default function VideoModal({ src }: { src: string }) {
       {isOpen && (
         <video
           ref={videoRef}
-          src={src}
+          src={activeSrc}
           controls
           autoPlay
           playsInline

@@ -14,23 +14,18 @@ const home = getHomeContent();
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[120vh]">
       <div class="md:col-span-5 h-[60vh] md:h-full relative overflow-hidden group img-reveal-wrapper">
-        <img src={home.estetica.grid.mainImage.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt={home.estetica.grid.mainImage.alt} loading="lazy" decoding="async" />
-        <div class="absolute top-8 left-8 writing-vertical text-white text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition duration-500">{home.estetica.grid.mainImage.label}</div>
+        <img src={home.estetica.grid.mainImage.src} class="w-full h-full object-cover" alt={home.estetica.grid.mainImage.alt} loading="lazy" decoding="async" />
       </div>
       <div class="md:col-span-7 flex flex-col gap-4 h-full">
         <div class="h-[40vh] md:h-[50%] relative overflow-hidden group img-reveal-wrapper">
-          <img src={home.estetica.grid.topRight.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt={home.estetica.grid.topRight.alt} loading="lazy" decoding="async" />
-          <div class="absolute bottom-8 right-8 text-white text-4xl font-serif italic">{home.estetica.grid.topRight.label}</div>
+          <img src={home.estetica.grid.topRight.src} class="w-full h-full object-cover" alt={home.estetica.grid.topRight.alt} loading="lazy" decoding="async" />
         </div>
         <div class="h-[40vh] md:h-[50%] grid grid-cols-2 gap-4">
-          <div class="relative overflow-hidden group img-reveal-wrapper bg-at-graphite flex items-center justify-center">
-            <div class="text-center p-8">
-              <h4 class="text-white text-xl font-light mb-2">{home.estetica.grid.infoCard.title}</h4>
-              <p class="text-at-text-muted text-xs">{home.estetica.grid.infoCard.subtitle}</p>
-            </div>
+          <div class="relative overflow-hidden group img-reveal-wrapper">
+            <img src={home.estetica.grid.bottomLeft.src} class="w-full h-full object-cover" alt={home.estetica.grid.bottomLeft.alt} loading="lazy" decoding="async" />
           </div>
           <div class="relative overflow-hidden group img-reveal-wrapper">
-            <img src={home.estetica.grid.bottomRight.src} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt={home.estetica.grid.bottomRight.alt} loading="lazy" decoding="async" />
+            <img src={home.estetica.grid.bottomRight.src} class="w-full h-full object-cover" alt={home.estetica.grid.bottomRight.alt} loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
