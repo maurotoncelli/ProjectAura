@@ -11,8 +11,8 @@ const home = getHomeContent();
       <p class="text-2xl font-light leading-relaxed mb-6">{home.genesis.description}</p>
       <p class="text-at-text/70 text-xl leading-relaxed">{home.genesis.description2}</p>
     </div>
-    <div class="w-full md:w-1/2 h-[800px] bg-at-stone relative overflow-hidden p-8 flex items-center justify-center group img-reveal-wrapper">
-      <img src={home.genesis.image} class="w-full h-full object-cover" alt="AETHER Table" loading="lazy" decoding="async" />
+    <div class="w-full md:w-1/2 aspect-[4/3] bg-at-stone relative overflow-hidden p-8 flex items-center justify-center group img-reveal-wrapper">
+      <img src={home.genesis.image} class="w-full h-full object-contain" alt="AETHER Table" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

@@ -113,9 +113,9 @@
     "headingHtml": "Dettagli che<br/>respirano.",
     "subtitle": "La bellezza risiede nell'imperfezione controllata.",
     "grid": {
-      "mainImage": { "src": "/textures/dettagli-living-day.png", "alt": "Living Day" },
-      "topRight": { "src": "/textures/dettagli-living-night.png", "alt": "Living Night" },
-      "bottomLeft": { "src": "/textures/dettagli-tablescape.png", "alt": "Tablescape" },
+      "mainImage": { "src": "/textures/dettagli-tablescape.png", "alt": "Tablescape" },
+      "topRight": { "src": "/textures/dettagli-living-day.png", "alt": "Living Day" },
+      "bottomLeft": { "src": "/textures/dettagli-living-night.png", "alt": "Living Night" },
       "bottomRight": { "src": "/textures/dettagli-kintsugi.png", "alt": "Detail" }
     }
   },
@@ -130,7 +130,7 @@
     "heading": "Specifiche",
     "description": "Un design senza tempo che nasconde un cuore tecnologico. Ogni tavolo è un pezzo unico, lavorato a mano.",
     "longDescription": "La struttura portante svanisce per lasciare spazio alla materia pura. Un equilibrio perfetto tra la solidità del rovere secolare e la trasparenza del vetro temperato, uniti da una tecnologia luminosa che non si impone, ma accoglie.",
-    "image": "https://images.unsplash.com/photo-1544413164-6c8ce3638245?q=80&w=2600",
+    "image": "/textures/render-led-night.png",
     "cta": { "label": "Configura il tuo AETHER", "href": "/configurator" },
     "downloads": {
       "label": "Area Download",

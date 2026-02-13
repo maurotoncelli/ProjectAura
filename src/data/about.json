@@ -46,10 +46,10 @@
   "metodo": {
     "label": "Il Metodo",
     "steps": [
-      { "number": "01", "heading": "Selezione Pura", "description": "Viaggio nelle foreste certificate.", "bgImage": "https://images.unsplash.com/photo-1518461749842-887754d909c0?q=80&w=1000" },
-      { "number": "02", "heading": "Precisione & Tocco", "bgImage": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670" },
-      { "number": "03", "heading": "Anima Intelligente" },
-      { "number": "04", "heading": "Controllo Assoluto" }
+      { "number": "01", "heading": "Selezione Pura", "description": "Viaggio nelle foreste certificate.", "bgImage": "/textures/metodo-selezione.png" },
+      { "number": "02", "heading": "Precisione & Tocco", "bgImage": "/textures/metodo-precisione.png" },
+      { "number": "03", "heading": "Anima Intelligente", "bgImage": "/textures/metodo-anima.png" },
+      { "number": "04", "heading": "Controllo Assoluto", "bgImage": "/textures/metodo-controllo.png" }
     ]
   },
   "elements": {
