@@ -22,6 +22,7 @@ import CookieConsent from '../components/ui/CookieConsent.astro';
 import CartSidebar from '../components/ui/CartSidebar.tsx';
 import Lightbox from '../components/ui/Lightbox.tsx';
 import LegalModal from '../components/ui/LegalModal.tsx';
+import VideoModal from '../components/ui/VideoModal.tsx';
 
 // Canvas (React Three Fiber — persistent single canvas)
 import CanvasWrapper from '../components/canvas/CanvasWrapper.tsx';
@@ -184,6 +185,7 @@ const productJsonLd = showProductSchema ? JSON.stringify({
     <CookieConsent />
     <LegalModal client:load transition:persist type="privacy" />
     <LegalModal client:load transition:persist type="terms" />
+    <VideoModal client:load transition:persist src="/videos/craftsmanship-full.mp4" />
 
     <!-- Global Script Orchestrator -->
     <script>

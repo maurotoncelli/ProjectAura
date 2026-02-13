@@ -5,12 +5,27 @@ const about = getAboutContent();
 
 <div class="h-32 w-full bg-at-stone"></div>
 
-<section class="w-full px-8 pb-32 pt-16 relative">
-  <div class="container mx-auto reveal-on-scroll">
-    <h1 class="text-[clamp(3.5rem,12vw,9rem)] leading-[0.85] font-serif font-light text-at-graphite mb-12 fluid-element" set:html={about.hero.headingHtml}></h1>
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-t border-at-graphite/20 pt-8">
+<section class="w-full min-h-[70vh] relative flex items-end overflow-hidden">
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      class="w-full h-full object-cover"
+    >
+      <source src="/videos/invisibile-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-8 pb-16 pt-24 relative z-10 reveal-on-scroll">
+    <h1 class="text-[clamp(3.5rem,12vw,9rem)] leading-[0.85] font-serif font-light text-white mb-12 fluid-element" set:html={about.hero.headingHtml}></h1>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-t border-white/20 pt-8">
       <p class="text-xs font-bold uppercase tracking-widest text-at-oak">{about.hero.founded}</p>
-      <p class="max-w-xl text-xl md:text-2xl font-light leading-relaxed mt-6 md:mt-0 text-at-text/80 fluid-element">{about.hero.description}</p>
+      <p class="max-w-xl text-xl md:text-2xl font-light leading-relaxed mt-6 md:mt-0 text-at-oak fluid-element">{about.hero.description}</p>
     </div>
   </div>
 </section>

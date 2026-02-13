@@ -84,7 +84,7 @@ export interface HomeContent {
   hero: { title: string; subtitle: string; branding: string; workshop: string };
   philosophy: { label: string; number: string; heading: string; headingHtml: string; description: string; image: string; bgImage: string };
   tech: { label: string; heading: string; headingHtml: string; description: string; integrations: string[]; ledSpecs: LedSpecRow[] };
-  material: { label: string; heading: string; headingHtml: string; description: string; bgImage: string };
+  material: { label: string; heading: string; headingHtml: string; description: string; bgImage: string; videoLoop: string; videoFull: string; videoButtonLabel: string };
   genesis: { label: string; heading: string; headingHtml: string; description: string; description2: string; image: string; caption: string };
   smartContext: { label: string; heading: string; headingHtml: string; description: string; bgImage: string };
   elementalFlow: { label?: string; heading: string; headingHtml?: string; description?: string; bgImage?: string; image?: string; theme: string }[];

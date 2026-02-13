@@ -55,7 +55,10 @@
     "heading": "Non è solo legno.",
     "headingHtml": "Non è solo<br/>legno.",
     "description": "Ogni venatura racconta una tempesta. Rovere massello selezionato a mano, stagionato lentamente.",
-    "bgImage": "https://images.unsplash.com/photo-1620037302061-419b6265691e?q=80&w=2600&auto=format&fit=crop"
+    "bgImage": "https://images.unsplash.com/photo-1620037302061-419b6265691e?q=80&w=2600&auto=format&fit=crop",
+    "videoLoop": "/videos/hero-loop.mp4",
+    "videoFull": "/videos/craftsmanship-full.mp4",
+    "videoButtonLabel": "Guarda il Video"
   },
   "genesis": {
     "label": "Genesi",
@@ -71,7 +74,7 @@
     "heading": "Il potere in un gesto.",
     "headingHtml": "Il potere<br/>in un gesto.",
     "description": "Non serve un interruttore. Usa l'app Casa, Alexa o semplicemente la tua voce.",
-    "bgImage": "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2670&auto=format&fit=crop"
+    "bgImage": "/textures/app-control.png"
   },
   "elementalFlow": [
     {
