@@ -247,13 +247,19 @@ export interface ConfigSectionGeneric {
   image: string;
 }
 
+export interface BespokeInspiration {
+  image: string;
+  title: string;
+  description: string;
+}
+
 export interface ConfigOltreLo {
   label: string;
   heading: string;
   headingHtml: string;
   description: string;
   disclaimer: string;
-  image: string;
+  inspirations: BespokeInspiration[];
 }
 
 export interface ConfigAnimaDigitale {

@@ -112,5 +112,12 @@ export function initPageTransitions(lenis: Lenis) {
       initScrollAnimations();
     }
     initCursorInteractions();
+
+    // Re-trigger autoplay on videos after View Transition DOM swap.
+    // Browsers ignore the autoplay attribute on dynamically inserted nodes;
+    // an explicit .play() is the standard fix.
+    document.querySelectorAll('video[autoplay]').forEach((video) => {
+      (video as HTMLVideoElement).play().catch(() => {});
+    });
   });
 }

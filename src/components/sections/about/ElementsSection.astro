@@ -3,7 +3,9 @@ import { getAboutContent } from '../../../lib/data';
 const about = getAboutContent();
 ---
 
-<section class="w-full py-32 bg-[#EAE8E3] overflow-hidden relative">
+<section class="w-full py-32 overflow-hidden relative">
+  <!-- Lab workshop background -->
+  <img src="/textures/about-lab-workshop.png" class="absolute inset-0 w-full h-full object-cover" alt="" loading="lazy" decoding="async" />
   <div class="container mx-auto px-8 relative h-[120vh]">
     <div class="relative z-30 text-center pt-12 mb-24">
       <p class="text-sm font-bold uppercase tracking-widest mb-4 text-at-walnut">{about.elements.label}</p>

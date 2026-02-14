@@ -1,6 +1,7 @@
 ---
 import { getConfiguratorContent } from '../../../lib/data';
 const config = getConfiguratorContent();
+const inspirations = config.oltreLo.inspirations ?? [];
 ---
 
 <section class="container mx-auto px-8 mb-32 reveal-on-scroll">
@@ -11,8 +12,82 @@ const config = getConfiguratorContent();
       <p class="text-xl text-at-text-muted leading-relaxed mb-6">{config.oltreLo.description}</p>
       <p class="text-sm text-at-text-muted italic">{config.oltreLo.disclaimer}</p>
     </div>
-    <div class="w-full md:w-1/2 h-[500px] overflow-hidden relative group img-reveal-wrapper order-1 md:order-2">
-      <img src={config.oltreLo.image} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-1000" alt="Bespoke Customization" loading="lazy" decoding="async" />
+    <div class="w-full md:w-1/2 order-1 md:order-2">
+      <!-- Image slider -->
+      <div class="relative h-[500px] overflow-hidden img-reveal-wrapper group" id="bespoke-slider">
+        {inspirations.map((item, i) => (
+          <img
+            src={item.image}
+            class:list={[
+              "bespoke-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+              i === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+            ]}
+            alt={item.title}
+            data-index={i}
+            loading={i < 2 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        ))}
+
+        <!-- Arrows -->
+        <button id="bespoke-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Precedente">
+          <svg class="w-4 h-4 text-at-graphite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="bespoke-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Successiva">
+          <svg class="w-4 h-4 text-at-graphite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Counter -->
+        <div class="absolute bottom-4 right-4 text-xs text-white/80 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full z-10">
+          <span id="bespoke-current">1</span> / {inspirations.length}
+        </div>
+      </div>
+
+      <!-- Caption below image -->
+      <div class="pt-5" id="bespoke-caption">
+        {inspirations.map((item, i) => (
+          <div class:list={["bespoke-caption-item transition-opacity duration-500", i === 0 ? "block opacity-100" : "hidden opacity-0"]} data-caption={i}>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-at-walnut mb-1">{item.title}</h3>
+            <p class="text-sm text-at-text-muted leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  function initBespokeSlider() {
+    const slides = document.querySelectorAll('.bespoke-slide') as NodeListOf<HTMLImageElement>;
+    const captions = document.querySelectorAll('.bespoke-caption-item') as NodeListOf<HTMLElement>;
+    const counter = document.getElementById('bespoke-current');
+    const prevBtn = document.getElementById('bespoke-prev');
+    const nextBtn = document.getElementById('bespoke-next');
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(index: number) {
+      slides[current].classList.remove('opacity-100');
+      slides[current].classList.add('opacity-0', 'pointer-events-none');
+      captions[current].classList.remove('block', 'opacity-100');
+      captions[current].classList.add('hidden', 'opacity-0');
+
+      current = (index + total) % total;
+
+      slides[current].classList.remove('opacity-0', 'pointer-events-none');
+      slides[current].classList.add('opacity-100');
+      captions[current].classList.remove('hidden', 'opacity-0');
+      captions[current].classList.add('block', 'opacity-100');
+
+      if (counter) counter.textContent = String(current + 1);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+  }
+
+  document.addEventListener('DOMContentLoaded', initBespokeSlider);
+  document.addEventListener('astro:page-load', initBespokeSlider);
+</script>

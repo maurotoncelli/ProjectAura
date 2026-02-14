@@ -53,7 +53,38 @@
     "headingHtml": "Oltre lo<br>Standard.",
     "description": "Poiché ogni singolo pezzo è prodotto interamente in-house nel nostro laboratorio di Torino, siamo a completa disposizione per valutare modifiche strutturali, finiture fuori catalogo o integrazioni tecnologiche specifiche.",
     "disclaimer": "*Le richieste di personalizzazione avanzata saranno oggetto di un preventivo dedicato e potrebbero comportare una variazione del prezzo finale e dei tempi di consegna.",
-    "image": "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?q=80&w=2670"
+    "inspirations": [
+      {
+        "image": "/textures/bespoke-01-cicatrici-preziose.png",
+        "title": "Le cicatrici preziose",
+        "description": "Non nascondiamo le ferite del tempo, le celebriamo con l'oro. Colate di metallo prezioso fuso o resine cristalline trasformano le crepe naturali del legno nell'elemento più lussuoso dell'opera."
+      },
+      {
+        "image": "/textures/bespoke-02-sfida-gravita.png",
+        "title": "Sfida alla gravità",
+        "description": "Il supporto non è solo struttura, è scultura di luce. Scegli come far fluttuare l'imponente piano in legno: dalla trasparenza assoluta dell'extra-chiaro alle texture drammatiche del vetro \"ghiaccio spaccato\"."
+      },
+      {
+        "image": "/textures/bespoke-03-pelle-materica.png",
+        "title": "Pelle materica",
+        "description": "Il vero lusso si sente al tatto. Definisci la \"pelle\" del tuo tavolo: dalla levigatura \"Silk\" che rende il legno liscio come marmo, alla texture profonda, ancestrale e carbonizzata della finitura Shou Sugi Ban."
+      },
+      {
+        "image": "/textures/bespoke-04-ricarica-invisibile.png",
+        "title": "Ricarica invisibile",
+        "description": "Magia, più che tecnologia. Integra le funzionalità del futuro direttamente nella fibra del passato: ricarica wireless invisibile e comandi touch nascosti sotto la superficie del legno massello."
+      },
+      {
+        "image": "/textures/bespoke-05-gioielli-strutturali.png",
+        "title": "Gioielli strutturali",
+        "description": "Quando la funzione diventa ornamento puro. Le giunzioni a farfalla, necessarie per stabilizzare le lastre più antiche, sono realizzate come gioielli in metalli nobili lucidati a specchio e incastonati a mano."
+      },
+      {
+        "image": "/textures/bespoke-06-profilo-corteccia.png",
+        "title": "Il profilo in corteccia",
+        "description": "L'anima del tavolo è nel suo confine. Scegli tra il minimalismo aerodinamico di un taglio moderno o l'autenticità estrema del bordo \"Raw Bark\", con la corteccia viva stabilizzata per durare in eterno."
+      }
+    ]
   },
   "viaggio": {
     "label": "Il Processo",
@@ -130,6 +161,6 @@
     "label": "Prossimo Capitolo",
     "heading": "Contattaci",
     "href": "/contact",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2670"
+    "image": "/textures/footer-contattaci.png"
   }
 }

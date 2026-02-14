@@ -57,11 +57,11 @@
     "heading": "Elements.",
     "subtitle": "Il caos che si fa silenzio.",
     "polaroids": [
-      { "image": "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2680", "alt": "Copper", "position": "top-[25%] left-[10%]", "size": "w-64 h-80", "rotation": "-6deg", "speed": "0.2", "zIndex": "z-10" },
-      { "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670", "alt": "Blueprint", "position": "top-[40%] right-[15%]", "size": "w-80 h-64", "rotation": "3deg", "speed": "0.05", "zIndex": "z-20" },
-      { "image": "https://images.unsplash.com/photo-1520188741366-0777e5bb6274?q=80&w=2670", "alt": "Leather Texture", "position": "top-[60%] left-[20%]", "size": "w-56 h-72", "rotation": "4deg", "speed": "0.15", "zIndex": "z-[15]" },
-      { "image": "https://images.unsplash.com/photo-1621261313386-a79782559593?q=80&w=2670", "alt": "Stone Texture", "position": "top-[15%] right-[25%]", "size": "w-48 h-48", "rotation": "-3deg", "speed": "0.1", "zIndex": "z-10" },
-      { "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669", "alt": "Detail Metal", "position": "top-[75%] right-[10%]", "size": "w-64 h-64", "rotation": "2deg", "speed": "0.25", "zIndex": "z-10" }
+      { "image": "/textures/materia-rovere-antico.png", "alt": "Rovere Antico", "position": "top-[25%] left-[10%]", "size": "w-64 h-80", "rotation": "-6deg", "speed": "0.2", "zIndex": "z-10" },
+      { "image": "/textures/bespoke-01-cicatrici-preziose.png", "alt": "Cicatrici Preziose", "position": "top-[40%] right-[15%]", "size": "w-80 h-64", "rotation": "3deg", "speed": "0.05", "zIndex": "z-20" },
+      { "image": "/textures/bespoke-03-pelle-materica.png", "alt": "Shou Sugi Ban", "position": "top-[60%] left-[20%]", "size": "w-56 h-72", "rotation": "4deg", "speed": "0.15", "zIndex": "z-[15]" },
+      { "image": "/textures/bespoke-05-gioielli-strutturali.png", "alt": "Giunzione a Farfalla", "position": "top-[15%] right-[25%]", "size": "w-48 h-48", "rotation": "-3deg", "speed": "0.1", "zIndex": "z-10" },
+      { "image": "/textures/materia-noce-canaletto.png", "alt": "Noce Canaletto", "position": "top-[75%] right-[10%]", "size": "w-64 h-64", "rotation": "2deg", "speed": "0.25", "zIndex": "z-10" }
     ]
   },
   "ethos": {
@@ -104,6 +104,6 @@
     "heading": "Esplora gli Spazi",
     "linkText": "Gallery Ambienti",
     "href": "/spaces",
-    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574"
+    "image": "/textures/spaces-villa-mare-terrazza.png"
   }
 }
