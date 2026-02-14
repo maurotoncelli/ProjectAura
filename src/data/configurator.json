@@ -35,14 +35,14 @@
     "heading": "Non compri un\ncodice prodotto.",
     "headingHtml": "Non compri un<br>codice prodotto.",
     "description": "Il legno è vivo e irripetibile. Dopo l'ordine, ti contatteremo su WhatsApp o Mail inviandoti le foto ad alta risoluzione delle tre migliori lastre \"Anima\" disponibili nel nostro atelier. Sarai tu a scegliere quella che diventerà il tuo AETHER.",
-    "image": "https://images.unsplash.com/photo-1544413164-6c8ce3638245?q=80&w=2600"
+    "image": "/textures/config-scegli-la-tavola.png"
   },
   "sezione02": {
     "label": "02 — La Firma",
     "heading": "Mark it\nForever.",
     "headingHtml": "Mark it<br>Forever.",
     "description": "Una placca in ottone brunito, incassata a filo nel legno, porta le tue iniziali. Un dettaglio invisibile agli ospiti, essenziale per il proprietario.",
-    "image": "https://images.unsplash.com/photo-1610219666087-9b26792679e9?q=80&w=1000",
+    "image": "/textures/config-iniziali-ottone.png",
     "inputPlaceholder": "A.T.",
     "inputMaxLength": 2,
     "inputHint": "Inserisci le tue iniziali"
