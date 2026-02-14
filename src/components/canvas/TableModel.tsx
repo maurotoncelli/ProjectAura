@@ -17,8 +17,8 @@ import { TABLE_PARTS, MODEL_PATHS } from '../../lib/constants';
 // Lower values darken the texture — use sparingly.
 const WOOD_COLORS: Record<string, number> = {
   rovere: 0xffffff,   // neutral — texture at full brightness
-  cipresso: 0xf5efe0, // subtle warm tint, still bright
-  noce: 0x8B7355,     // walnut tint — darker but not crushed
+  cipresso: 0xfcf8f0, // very subtle warm tint — Wood014 texture carries its own color
+  noce: 0xdecfbe,     // light warm tint — Wood018 texture is already naturally dark
 };
 
 // Shared texture loader (reused across loads)
