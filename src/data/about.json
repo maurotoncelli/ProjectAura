@@ -11,14 +11,14 @@
       "heading": "Alchimisti della luce.",
       "headingHtml": "Alchimisti<br/>della luce.",
       "description": "<strong>AT STUDIO</strong> affonda le sue radici in fotografia e visual design. Qui nasce l'idea di progettare la luce come protagonista degli interni.",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670"
+      "image": "/textures/atstudio.png"
     },
     "segnobianco": {
       "logo": "S",
       "heading": "Artigianato Italiano & Passione per il legno.",
       "headingHtml": "Artigianato Italiano &<br/>Passione per il legno.",
       "description": "La firma di <strong>Segno Bianco</strong> è la sua esperienza.",
-      "image": "https://images.unsplash.com/photo-1622396636133-74323d9a8e93?q=80&w=2600"
+      "image": "/textures/segnobianco.png"
     }
   },
   "timeline": [

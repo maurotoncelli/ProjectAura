@@ -93,6 +93,7 @@
       "label": "Livello 03",
       "heading": "L'Atmosfera.",
       "description": "Luce diffusa a 2700K. <br/>Calore che avvolge lo spazio.",
+      "bgImage": "/textures/atmosfera-warm.png",
       "theme": "warm"
     }
   ],

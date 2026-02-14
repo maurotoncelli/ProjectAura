@@ -32,11 +32,16 @@ const home = getHomeContent();
         )}
         {panel.theme === 'warm' && (
           <>
-            <h3 class="text-[12vw] font-bold leading-none absolute left-0 opacity-10">AETHER</h3>
+            {panel.bgImage && (
+              <div class="absolute inset-0 z-0">
+                <img src={panel.bgImage} class="w-full h-full object-cover" alt="" loading="lazy" decoding="async" />
+              </div>
+            )}
+            <h3 class="text-[12vw] font-bold leading-none absolute left-0 opacity-10 z-[1]">AETHER</h3>
             <div class="relative z-10 text-center">
-              {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] mb-6">{panel.label}</p>}
-              <h3 class="text-6xl md:text-8xl font-light mb-8">{panel.heading}</h3>
-              {panel.description && <p class="text-xl max-w-xl mx-auto text-at-text" set:html={panel.description}></p>}
+              {panel.label && <p class="text-xs font-bold uppercase tracking-[0.4em] mb-6 text-white">{panel.label}</p>}
+              <h3 class="text-6xl md:text-8xl font-light mb-8 text-white">{panel.heading}</h3>
+              {panel.description && <p class="text-xl max-w-xl mx-auto text-white/80" set:html={panel.description}></p>}
             </div>
           </>
         )}
