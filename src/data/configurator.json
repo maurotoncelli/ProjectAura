@@ -15,9 +15,9 @@
   "materia": {
     "label": "La Materia",
     "materialImages": {
-      "rovere": "https://images.unsplash.com/photo-1543459176-475240c872f7?q=80&w=2670",
-      "cipresso": "https://images.unsplash.com/photo-1518461749842-887754d909c0?q=80&w=1000",
-      "noce": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2669"
+      "rovere": "/textures/materia-rovere-antico.png",
+      "cipresso": "/textures/materia-cipresso-toscano.png",
+      "noce": "/textures/materia-noce-canaletto.png"
     }
   },
   "animaDigitale": {
@@ -27,8 +27,8 @@
     "description": "AETHER non illumina la stanza, ne definisce i confini. Abbiamo integrato un'anima di LED COB ad alta fedeltà cromatica (98 CRI) che accarezza il pavimento senza mai abbagliare. La luce non viene dal tavolo, sembra nascere dal legno stesso. Controllabile tramite Apple HomeKit, Alexa e Google Home.",
     "toggleLabelOff": "Luce Naturale",
     "toggleLabelOn": "Smart Glow",
-    "dayImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2600",
-    "nightImage": "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2670"
+    "dayImage": "/textures/anima-digitale-day.png",
+    "nightImage": "/textures/anima-digitale-night.png"
   },
   "sezione01": {
     "label": "01 — L'Anima",
