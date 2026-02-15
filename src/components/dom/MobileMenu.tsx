@@ -44,7 +44,7 @@ export default function MobileMenu() {
       {/* Hamburger Button — visible only on mobile */}
       <button
         className="md:hidden fixed top-8 right-8 flex flex-col gap-1.5 p-2"
-        style={{ zIndex: Z_INDEX.MOBILE_MENU }}
+        style={{ zIndex: Z_INDEX.MOBILE_MENU, mixBlendMode: open ? 'normal' : 'difference' }}
         onClick={toggle}
         aria-label="Menu"
       >

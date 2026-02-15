@@ -120,7 +120,7 @@ export default function VideoModal({ src: defaultSrc }: { src: string }) {
           controls
           autoPlay
           playsInline
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover md:object-contain bg-black"
         />
       )}
     </div>

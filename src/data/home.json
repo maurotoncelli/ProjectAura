@@ -12,7 +12,7 @@
     "headingHtml": "Il silenzio <br/><span class=\"font-serif italic text-at-oak\">della forma.</span>",
     "description": "In un mondo che urla, AETHER sussurra. Abbiamo rimosso il superfluo per rivelare l'essenziale.",
     "image": "https://images.unsplash.com/photo-1543459176-475240c872f7?q=80&w=2670&auto=format&fit=crop",
-    "bgImage": "https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2600&auto=format&fit=crop"
+    "bgImage": "/textures/philosophy-room.png"
   },
   "tech": {
     "label": "Integrazione Smart",
