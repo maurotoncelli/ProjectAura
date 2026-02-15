@@ -53,9 +53,7 @@ const about = getAboutContent();
     ScrollTrigger.refresh();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootAboutPage);
-  } else {
-    bootAboutPage();
-  }
+  document.addEventListener('astro:page-load', () => {
+    if (document.body.dataset.page === 'about') bootAboutPage();
+  });
 </script>

@@ -63,9 +63,9 @@ const home = getHomeContent();
     ScrollTrigger.refresh();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootHomePage);
-  } else {
-    bootHomePage();
-  }
+  // astro:page-load fires on initial load AND after every View Transition.
+  // The guard ensures boot only runs when we're actually on the home page.
+  document.addEventListener('astro:page-load', () => {
+    if (document.body.dataset.page === 'home') bootHomePage();
+  });
 </script>

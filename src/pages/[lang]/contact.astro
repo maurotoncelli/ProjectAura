@@ -29,9 +29,7 @@ const { lang } = Astro.params as { lang: Lang };
     ScrollTrigger.refresh();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootContactPage);
-  } else {
-    bootContactPage();
-  }
+  document.addEventListener('astro:page-load', () => {
+    if (document.body.dataset.page === 'contact') bootContactPage();
+  });
 </script>

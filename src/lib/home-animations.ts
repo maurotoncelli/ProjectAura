@@ -144,6 +144,14 @@ export function initHomePage() {
         .to('#tech-text', { opacity: 1, y: 0, duration: 1.5 }, '-=0.5');
     }
 
+    // Fade out mobile scroll hint as soon as the user starts scrolling
+    gsap.to('#hero-scroll-hint', {
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: 'body', start: '10px top', toggleActions: 'play none none reverse' },
+    });
+
     // Fixed hero text fade on tech section
     gsap.to('#fixed-hero-text', {
       opacity: 0,

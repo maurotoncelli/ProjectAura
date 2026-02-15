@@ -28,9 +28,8 @@ const spaces = getSpacesContent();
 
 <script>
   import { initSpacesPage } from '../../lib/spaces-animations';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSpacesPage);
-  } else {
-    initSpacesPage();
-  }
+
+  document.addEventListener('astro:page-load', () => {
+    if (document.body.dataset.page === 'spaces') initSpacesPage();
+  });
 </script>

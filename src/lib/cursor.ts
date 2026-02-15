@@ -40,6 +40,10 @@ export function initCursorInteractions() {
 
   const circle = cCircle;
 
+  // Reset any stale cursor state from previous page (mouseleave may never
+  // have fired if the section was destroyed during a View Transition swap).
+  circle.classList.remove('scroll-mode', 'magnetic');
+
   // Hover states on interactive elements
   const interactives = document.querySelectorAll(
     'a, button, input, select, .clickable, .gallery-item, .config-option, .toggle-track, summary, .zoom-container, .cb-container, .mat-btn, .mood-slider, .next-chapter-footer'
@@ -49,8 +53,8 @@ export function initCursorInteractions() {
     el.addEventListener('mouseleave', () => circle.classList.remove('magnetic'));
   });
 
-  // Scroll context for horizontal sections
-  const scrollSections = ['#elemental-flow', '#lifestyle-section', '#chronos-section', '#global-grid'];
+  // Scroll context for scrollable sections (horizontal + hero)
+  const scrollSections = ['#hero-section', '#elemental-flow', '#lifestyle-section', '#chronos-section', '#global-grid'];
   scrollSections.forEach(id => {
     const section = document.querySelector(id);
     if (section) {
