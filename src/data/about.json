@@ -31,8 +31,7 @@
     {
       "label": "Timeline .02",
       "heading": "La Scintilla.",
-      "description": "2026. AT Studio inietta l'intelligenza nella materia.",
-      "image": "https://images.unsplash.com/photo-1598300056393-8dd33ec148c1?q=80&w=2676"
+      "description": "2026. AT Studio inietta l'intelligenza nella materia."
     },
     {
       "label": "Timeline .03",
@@ -92,7 +91,7 @@
     "marquee": "Oltre l'Oggetto — Oltre l'Oggetto — Oltre l'Oggetto —",
     "quote": "\"Non stiamo progettando per oggi. Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
     "quoteHtml": "\"Non stiamo progettando per oggi.<br/>Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
-    "image": "https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=2676"
+    "image": "/textures/anima-intelligente.png"
   },
   "cta": {
     "heading": "Abita il futuro.",
