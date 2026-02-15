@@ -62,7 +62,7 @@ export default function CartSidebar() {
         className="fixed top-0 right-0 h-full w-full md:w-[500px] transform translate-x-full transition-transform duration-500 shadow-2xl flex flex-col"
         style={{ zIndex: Z_INDEX.CART_LIGHTBOX, backgroundColor: 'var(--color-at-stone)' }}
       >
-        <div className="p-8 flex justify-between items-center border-b border-at-border">
+        <div className="p-8 flex flex-row-reverse md:flex-row justify-between items-center border-b border-at-border">
           <h2 className="text-xl font-bold">{cart.title}</h2>
           <button onClick={handleClose} className="text-2xl text-at-graphite">&times;</button>
         </div>

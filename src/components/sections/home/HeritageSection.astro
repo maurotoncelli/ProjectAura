@@ -3,9 +3,9 @@ import { getHomeContent } from '../../../lib/data';
 const home = getHomeContent();
 ---
 
-<section id="heritage-section" class="min-h-screen w-full relative flex items-center bg-at-stone text-at-text overflow-hidden py-32 z-curtain">
-  <div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-24">
-    <div class="w-full md:w-1/2 h-[800px] bg-black relative overflow-hidden reveal-on-scroll flex items-center justify-center">
+<section id="heritage-section" class="min-h-screen w-full relative flex items-center bg-at-stone text-at-text overflow-hidden py-16 md:py-32 z-curtain">
+  <div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <div class="w-full md:w-1/2 h-[50vh] md:h-[800px] bg-black relative overflow-hidden reveal-on-scroll flex items-center justify-center">
       <video
         autoplay
         muted
@@ -29,7 +29,7 @@ const home = getHomeContent();
     <div class="w-full md:w-1/2 reveal-on-scroll">
       <h2 class="section-title font-light mb-8 leading-none tracking-tight fluid-element" set:html={home.heritage.headingHtml}></h2>
       <div class="w-24 h-1 bg-at-text mb-12"></div>
-      <p class="text-2xl font-light leading-relaxed mb-8">{home.heritage.description}</p>
+      <p class="text-lg md:text-2xl font-light leading-relaxed mb-8">{home.heritage.description}</p>
     </div>
   </div>
 </section>

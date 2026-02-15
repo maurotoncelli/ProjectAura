@@ -81,7 +81,7 @@ export default function Lightbox() {
       className={isOpen ? 'active' : ''}
     >
       <button
-        className="absolute top-8 right-8 text-white text-xs uppercase tracking-widest z-50 hover:opacity-50 bg-transparent border-none"
+        className="absolute top-8 left-8 md:left-auto md:right-8 text-white text-xs uppercase tracking-widest z-50 hover:opacity-50 bg-transparent border-none"
         onClick={close}
       >
         Chiudi [ESC]
@@ -92,7 +92,7 @@ export default function Lightbox() {
         {imgSrc && <img src={imgSrc} className="lightbox-img" alt="Gallery" style={{ opacity: 1, transform: 'none' }} />}
         <div className="lightbox-caption" style={{ opacity: 1, transform: 'none' }}>
           <p className="text-xs text-at-oak uppercase tracking-widest mb-2 font-bold">{category}</p>
-          <h3 className="text-4xl text-white font-serif italic">{title}</h3>
+          <h3 className="text-2xl md:text-4xl text-white font-serif italic">{title}</h3>
           <p className="text-sm text-at-text-muted mt-2 uppercase tracking-wide">{location}</p>
         </div>
       </div>

@@ -3,14 +3,14 @@ import { getConfiguratorContent } from '../../../lib/data';
 const config = getConfiguratorContent();
 ---
 
-<section class="w-full py-32 bg-at-stone overflow-hidden">
-  <div class="container mx-auto px-8 flex flex-col md:flex-row gap-24 items-center">
-    <div class="w-full md:w-1/2 h-[500px] relative img-reveal-wrapper">
+<section class="w-full py-16 md:py-32 bg-at-stone overflow-hidden">
+  <div class="container mx-auto px-8 flex flex-col md:flex-row gap-12 md:gap-24 items-center">
+    <div class="w-full md:w-1/2 h-[250px] md:h-[500px] relative img-reveal-wrapper">
       <img src={config.sezione02.image} class="w-full h-full object-cover" alt="Brass Plate" loading="lazy" decoding="async" />
     </div>
     <div class="w-full md:w-1/2 reveal-on-scroll">
       <p class="text-xs text-at-text-muted font-bold uppercase tracking-widest mb-6">{config.sezione02.label}</p>
-      <h2 class="text-6xl font-light mb-8 fluid-element uppercase tracking-tight text-at-walnut" set:html={config.sezione02.headingHtml}></h2>
+      <h2 class="text-4xl md:text-6xl font-light mb-8 fluid-element uppercase tracking-tight text-at-walnut" set:html={config.sezione02.headingHtml}></h2>
       <p class="text-lg text-at-text-muted mb-12">{config.sezione02.description}</p>
       <input id="initials-input" type="text" placeholder={config.sezione02.inputPlaceholder} maxlength={config.sezione02.inputMaxLength} class="w-full bg-transparent border-b-2 border-at-graphite text-6xl py-4 font-mono uppercase tracking-[0.5em] text-center focus:outline-none" />
       <p class="text-xs text-center mt-4 text-at-text-muted uppercase tracking-widest">{config.sezione02.inputHint}</p>

@@ -3,13 +3,13 @@ import { getConfiguratorContent } from '../../../lib/data';
 const config = getConfiguratorContent();
 ---
 
-<section class="w-full py-48 bg-at-stone relative overflow-hidden">
+<section class="w-full py-24 md:py-48 bg-at-stone relative overflow-hidden">
   <div class="container mx-auto px-8">
-    <div class="flex flex-col items-center mb-24 reveal-on-scroll">
+    <div class="flex flex-col items-center mb-12 md:mb-24 reveal-on-scroll">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.animaDigitale.label}</p>
-      <h2 class="text-5xl font-light text-center mb-8 uppercase tracking-tight text-at-walnut" set:html={config.animaDigitale.headingHtml}></h2>
-      <p class="text-xl text-at-text-muted text-center max-w-3xl leading-relaxed mb-12">{config.animaDigitale.description}</p>
-      <div class="flex items-center gap-6">
+      <h2 class="text-3xl md:text-5xl font-light text-center mb-8 uppercase tracking-tight text-at-walnut" set:html={config.animaDigitale.headingHtml}></h2>
+      <p class="text-base md:text-xl text-at-text-muted text-center max-w-3xl leading-relaxed mb-8 md:mb-12">{config.animaDigitale.description}</p>
+      <div class="flex items-center gap-4 md:gap-6">
         <span class="text-xs uppercase tracking-widest text-at-text-muted">{config.animaDigitale.toggleLabelOff}</span>
         <div id="atmos-toggle" class="toggle-track">
           <div class="toggle-thumb"></div>

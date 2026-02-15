@@ -313,6 +313,16 @@ html.lenis { height: auto; }
   will-change: transform, opacity;
 }
 
+/* Mobile: smaller fluid typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  .section-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+}
+
 .writing-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -720,6 +730,12 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   position: relative;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .comparison-card {
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+  }
+}
 
 .comparison-card:hover {
   transform: translateY(-5px);
@@ -810,6 +826,11 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 768px) {
+  .atmos-container {
+    height: 55vh;
+  }
+}
 
 /* ==========================================
    LIGHTBOX
@@ -875,6 +896,36 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   text-align: left;
   opacity: 0;
   transform: translateY(10px);
+}
+
+/* Mobile: lightbox arrows below image, not overlapping */
+@media (max-width: 768px) {
+  .lightbox-content {
+    max-width: 95vw;
+    max-height: 60vh;
+  }
+  .lightbox-img {
+    max-height: 50vh;
+  }
+  .lightbox-nav-btn {
+    top: auto;
+    bottom: 2rem;
+    transform: none;
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  .lightbox-nav-btn:hover {
+    transform: none;
+  }
+  .lightbox-prev { left: 2rem; }
+  .lightbox-next { right: 2rem; }
+  .lightbox-caption {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    text-align: center;
+    margin-top: 1rem;
+  }
 }
 
 /* ==========================================

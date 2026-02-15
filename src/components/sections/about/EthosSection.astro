@@ -3,7 +3,7 @@ import { getAboutContent } from '../../../lib/data';
 const about = getAboutContent();
 ---
 
-<section class="w-full py-48 relative overflow-hidden bg-black text-white">
+<section class="w-full py-48 relative overflow-hidden bg-black text-white hidden md:block">
   <div class="absolute inset-0 z-0"><img src={about.ethos.bgImage} class="w-full h-full object-cover" alt="Forest" /></div>
   <div class="container mx-auto px-8 relative z-10 flex flex-col items-start justify-center">
     <div class="reveal-on-scroll">

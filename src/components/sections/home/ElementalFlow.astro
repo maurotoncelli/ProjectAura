@@ -3,10 +3,10 @@ import { getHomeContent } from '../../../lib/data';
 const home = getHomeContent();
 ---
 
-<section id="elemental-flow" class="w-full h-screen bg-white relative overflow-hidden h-scroll-wrapper z-curtain" data-scroll-section>
+<section id="elemental-flow" class="w-full h-screen bg-white relative overflow-hidden h-scroll-wrapper z-curtain hidden md:block" data-scroll-section>
   <div class="h-scroll-container-home">
     {home.elementalFlow.map((panel) => (
-      <div class={`h-scroll-panel ${panel.theme === 'dark' ? 'bg-at-graphite text-white' : panel.theme === 'warm' ? 'bg-at-stone text-at-oak' : 'bg-white text-at-graphite'} relative`}>
+      <div class={`h-scroll-panel ${panel.theme === 'dark' ? 'bg-at-graphite text-white' : panel.theme === 'warm' ? 'bg-at-stone text-at-oak' : 'bg-white text-at-graphite'} ${panel.theme === 'light' ? 'hidden md:flex' : ''} relative`}>
         {panel.bgImage && (
           <div class="absolute inset-0 bg-cover bg-center opacity-20 grayscale" style={`background-image: url('${panel.bgImage}');`}></div>
         )}

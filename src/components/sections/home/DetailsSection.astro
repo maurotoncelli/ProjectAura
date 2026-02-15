@@ -5,11 +5,11 @@ const home = getHomeContent();
 const currentLang = getLangFromPath(Astro.url.pathname);
 ---
 
-<section id="details-section" class="min-h-screen bg-at-stone text-at-text relative pt-24 pb-24 z-curtain">
-  <div class="container mx-auto px-8 max-w-5xl flex flex-col items-center gap-16 mb-24 text-center">
+<section id="details-section" class="min-h-screen bg-at-stone text-at-text relative pt-12 pb-12 md:pt-24 md:pb-24 z-curtain">
+  <div class="container mx-auto px-8 max-w-5xl flex flex-col items-center gap-8 mb-12 md:gap-16 md:mb-24 text-center">
     <div class="max-w-3xl">
-      <h3 class="text-5xl font-light mb-8 fluid-element">{home.details.heading}</h3>
-      <p class="text-2xl font-light leading-relaxed fluid-element text-at-text-muted mb-12">{home.details.description}</p>
+      <h3 class="section-title font-light leading-none mb-8 fluid-element">{home.details.heading}</h3>
+      <p class="text-lg mb-8 md:text-2xl font-light leading-relaxed fluid-element text-at-text-muted md:mb-12">{home.details.description}</p>
     </div>
     <div class="w-full reveal-on-scroll">
       <p class="text-xl md:text-2xl font-light leading-relaxed text-at-text/70 max-w-4xl mx-auto text-center">
@@ -18,11 +18,11 @@ const currentLang = getLangFromPath(Astro.url.pathname);
     </div>
   </div>
 
-  <div class="w-full h-[70vh] relative overflow-hidden my-24 img-reveal-wrapper">
+  <div class="w-full h-[40vh] md:h-[70vh] relative overflow-hidden my-12 md:my-24 img-reveal-wrapper">
     <img src={home.details.image} class="w-full h-full object-cover" alt="Static Detail" loading="lazy" decoding="async" />
   </div>
 
-  <div class="container mx-auto px-8 max-w-5xl flex flex-col items-center gap-16 mb-24 text-center">
+  <div class="container mx-auto px-8 max-w-5xl flex flex-col items-center gap-8 mb-12 md:gap-16 md:mb-24 text-center">
     <div class="w-full max-w-xl">
       <a href={localizeHref(home.details.cta.href, currentLang)} class="block w-full py-6 bg-at-graphite text-white hover:bg-at-graphite/90 transition font-bold tracking-[0.2em] text-sm uppercase shadow-2xl text-center no-underline">{home.details.cta.label}</a>
     </div>
@@ -31,15 +31,15 @@ const currentLang = getLangFromPath(Astro.url.pathname);
   <div class="container mx-auto px-8">
     <div class="w-full text-center">
       <p class="text-xs text-at-text-muted uppercase tracking-widest mb-8">{home.details.downloads.label}</p>
-      <div class="flex flex-col md:flex-row gap-0 justify-center max-w-xl mx-auto mb-32 border border-at-border">
+      <div class="flex flex-col md:flex-row gap-0 justify-center max-w-xl mx-auto mb-16 md:mb-32 border border-at-border">
         {home.details.downloads.buttons.map((button, index) => (
           <button class={`flex-1 py-6 ${index === 0 ? 'border-r border-at-border' : ''} hover:bg-at-surface transition text-xs font-bold uppercase tracking-widest`}>{button}</button>
         ))}
       </div>
-      <div class="border-t border-b border-at-graphite/20 py-24 flex flex-col md:flex-row items-center justify-between gap-12 text-left">
+      <div class="border-t border-b border-at-graphite/20 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 text-left">
         <div class="max-w-xl">
           <p class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-4">{home.details.b2b.label}</p>
-          <h4 class="text-5xl font-light mb-4 tracking-tight fluid-element">{home.details.b2b.heading}</h4>
+          <h4 class="text-3xl md:text-5xl font-light mb-4 tracking-tight fluid-element">{home.details.b2b.heading}</h4>
           <p class="text-at-text-muted text-sm">{home.details.b2b.description}</p>
         </div>
         <button class="px-10 py-5 border border-at-graphite text-at-graphite hover:bg-at-graphite hover:text-white transition font-bold text-xs uppercase tracking-widest whitespace-nowrap">{home.details.b2b.buttonLabel}</button>

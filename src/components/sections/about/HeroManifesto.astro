@@ -3,7 +3,7 @@ import { getAboutContent } from '../../../lib/data';
 const about = getAboutContent();
 ---
 
-<div class="h-32 w-full bg-at-stone"></div>
+<div class="h-16 md:h-32 w-full bg-at-stone"></div>
 
 <section class="w-full min-h-[70vh] relative flex items-end overflow-hidden bg-[#1a1610]">
   <!-- Video Background -->
@@ -22,7 +22,7 @@ const about = getAboutContent();
   </div>
 
   <!-- Content -->
-  <div class="container mx-auto px-8 pb-16 pt-24 relative z-10 reveal-on-scroll">
+  <div class="container mx-auto px-8 pb-16 pt-12 md:pt-24 relative z-10 reveal-on-scroll">
     <h1 class="text-[clamp(3.5rem,12vw,9rem)] leading-[0.85] font-serif font-light text-white mb-12 fluid-element" set:html={about.hero.headingHtml}></h1>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-t border-white/20 pt-8">
       <p class="text-xs font-bold uppercase tracking-widest text-at-oak">{about.hero.founded}</p>

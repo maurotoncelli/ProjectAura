@@ -3,27 +3,27 @@ import { getConfiguratorContent } from '../../../lib/data';
 const config = getConfiguratorContent();
 ---
 
-<section class="container mx-auto px-8 pb-32">
-  <div class="max-w-4xl mx-auto text-center mb-32 reveal-on-scroll">
+<section class="container mx-auto px-8 pb-16 md:pb-32">
+  <div class="max-w-4xl mx-auto text-center mb-16 md:mb-32 reveal-on-scroll">
 
-    <div id="config-summary" class="w-full max-w-4xl mx-auto mb-16 p-8 border border-at-graphite/10 bg-[#EFECE6] text-left">
+    <div id="config-summary" class="w-full max-w-4xl mx-auto mb-8 md:mb-16 p-4 md:p-8 border border-at-graphite/10 bg-[#EFECE6] text-left">
       <p class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-8 border-b border-at-border pb-4">{config.summary.title}</p>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
         <div>
           <p class="text-[10px] uppercase tracking-widest text-at-text-muted mb-1">{config.summary.fields[0]}</p>
-          <p id="summary-model" class="text-xl font-serif text-at-graphite">AETHER 250</p>
+          <p id="summary-model" class="text-base md:text-xl font-serif text-at-graphite">AETHER 250</p>
         </div>
         <div>
           <p class="text-[10px] uppercase tracking-widest text-at-text-muted mb-1">{config.summary.fields[1]}</p>
-          <p id="summary-material" class="text-xl font-serif text-at-graphite">Rovere Antico</p>
+          <p id="summary-material" class="text-base md:text-xl font-serif text-at-graphite">Rovere Antico</p>
         </div>
         <div>
           <p class="text-[10px] uppercase tracking-widest text-at-text-muted mb-1">{config.summary.fields[2]}</p>
-          <p id="summary-initials" class="text-xl font-serif text-at-graphite">--</p>
+          <p id="summary-initials" class="text-base md:text-xl font-serif text-at-graphite">--</p>
         </div>
         <div>
           <p class="text-[10px] uppercase tracking-widest text-at-text-muted mb-1">{config.summary.fields[3]}</p>
-          <select id="shipping-selector" class="bg-transparent font-serif text-xl text-at-graphite border-none p-0 focus:ring-0 cursor-pointer w-full outline-none">
+          <select id="shipping-selector" class="bg-transparent font-serif text-base md:text-xl text-at-graphite border-none p-0 focus:ring-0 cursor-pointer w-full outline-none">
             <option value="" selected disabled>-- Seleziona --</option>
             {config.shippingOptions.map((opt) => (
               <option value={opt.code}>{opt.label}</option>
@@ -32,7 +32,7 @@ const config = getConfiguratorContent();
         </div>
         <div>
           <p class="text-[10px] uppercase tracking-widest text-at-text-muted mb-1">{config.summary.fields[4]}</p>
-          <p id="summary-total" class="text-xl font-serif text-at-graphite">&euro; 2.800</p>
+          <p id="summary-total" class="text-base md:text-xl font-serif text-at-graphite">&euro; 2.800</p>
         </div>
       </div>
       <p class="text-[10px] text-at-text-muted mt-6">{config.summary.disclaimer}</p>
@@ -53,11 +53,11 @@ const config = getConfiguratorContent();
     </div>
 
     <!-- Action Buttons -->
-    <div class="flex flex-wrap gap-8 justify-center mb-12">
-      <button id="btn-acconto" class="config-action-btn px-8 py-6 border border-at-graphite text-at-graphite bg-white hover:bg-at-stone transition text-xs font-bold uppercase tracking-widest">{config.buttons.acconto}</button>
-      <button id="btn-saldo" class="config-action-btn px-8 py-6 border border-at-graphite bg-at-graphite text-white hover:bg-black transition text-xs font-bold uppercase tracking-widest">{config.buttons.saldo}</button>
+    <div class="flex flex-wrap gap-4 md:gap-8 justify-center mb-12">
+      <button id="btn-acconto" class="config-action-btn px-4 py-4 md:px-8 md:py-6 border border-at-graphite text-at-graphite bg-white hover:bg-at-stone transition text-xs font-bold uppercase tracking-widest">{config.buttons.acconto}</button>
+      <button id="btn-saldo" class="config-action-btn px-4 py-4 md:px-8 md:py-6 border border-at-graphite bg-at-graphite text-white hover:bg-black transition text-xs font-bold uppercase tracking-widest">{config.buttons.saldo}</button>
     </div>
-    <button id="btn-order" class="config-action-btn w-full py-8 text-white text-xl font-light tracking-[0.2em] uppercase transition shadow-2xl bg-at-oak hover:bg-[#7a5a49]">{config.buttons.order}</button>
+    <button id="btn-order" class="config-action-btn w-full py-6 text-base md:py-8 md:text-xl text-white font-light tracking-[0.2em] uppercase transition shadow-2xl bg-at-oak hover:bg-[#7a5a49]">{config.buttons.order}</button>
 
     <!-- Legal Disclaimer -->
     <div class="mt-8 mb-8 text-xs text-at-text-muted space-y-4 text-left max-w-2xl mx-auto">
@@ -69,7 +69,7 @@ const config = getConfiguratorContent();
 
     <!-- Parla con il Progettista -->
     <div class="mt-6 flex items-center justify-center">
-      <button class="text-lg font-bold uppercase tracking-widest text-at-text/70 hover:text-at-oak transition flex items-center gap-3 border-b-2 border-transparent hover:border-at-oak pb-2">
+      <button class="text-sm md:text-lg font-bold uppercase tracking-widest text-at-text/70 hover:text-at-oak transition flex items-center gap-3 border-b-2 border-transparent hover:border-at-oak pb-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
         {config.buttons.designer}
       </button>

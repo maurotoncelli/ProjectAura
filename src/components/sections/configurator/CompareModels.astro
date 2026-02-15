@@ -4,31 +4,31 @@ const config = getConfiguratorContent();
 const products = getProducts();
 ---
 
-<section class="container mx-auto px-8 mb-48 reveal-on-scroll">
-  <div class="text-center mb-24">
+<section class="container mx-auto px-8 mb-24 md:mb-48 reveal-on-scroll">
+  <div class="text-center mb-12 md:mb-24">
     <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-4">{config.confronta.label}</p>
-    <h2 class="text-5xl font-light uppercase tracking-tight">{config.confronta.heading}</h2>
+    <h2 class="text-3xl md:text-5xl font-light uppercase tracking-tight">{config.confronta.heading}</h2>
     <p class="mt-6 text-base font-light text-at-text/60 max-w-2xl mx-auto tracking-wide leading-relaxed font-serif italic">{config.confronta.subtitle}</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-3 gap-2 md:gap-8">
     {products.map((product, i) => (
       <div class={i === 1 ? 'comparison-card border-at-oak/30 bg-at-stone/10 cursor-pointer' : 'comparison-card cursor-pointer'} data-model={product.modelNumber}>
         {product.badge && (
-          <div class="absolute top-6 right-6 text-[8px] font-bold uppercase tracking-widest bg-at-oak text-white px-3 py-1 rounded-full">{product.badge}</div>
+          <div class="absolute top-2 right-2 md:top-6 md:right-6 text-[6px] md:text-[8px] font-bold uppercase tracking-widest bg-at-oak text-white px-2 py-0.5 md:px-3 md:py-1 rounded-full">{product.badge}</div>
         )}
-        <img src={product.image} class="w-full h-48 object-contain mb-12" alt={product.modelNumber} loading="lazy" decoding="async" />
-        <h3 class="text-2xl font-semibold mb-2 uppercase tracking-widest text-at-walnut">{product.model}</h3>
-        <p class="text-3xl font-serif text-at-graphite mb-6">&euro; <span class="model-price">{product.displayPrice}</span></p>
+        <img src={product.image} class="w-full h-20 md:h-48 object-contain mb-4 md:mb-12" alt={product.modelNumber} loading="lazy" decoding="async" />
+        <h3 class="text-[10px] md:text-2xl font-semibold mb-1 md:mb-2 uppercase tracking-widest text-at-walnut">{product.model}</h3>
+        <p class="text-sm md:text-3xl font-serif text-at-graphite mb-2 md:mb-6">&euro; <span class="model-price">{product.displayPrice}</span></p>
         <div class="w-full">
           {product.specRows.map(row => (
             <div>
-              <p class="spec-label">{row.label}</p>
-              <p class="spec-value">{row.value}</p>
+              <p class="spec-label text-[6px] md:text-[10px]">{row.label}</p>
+              <p class="spec-value text-[7px] md:text-sm">{row.value}</p>
             </div>
           ))}
         </div>
-        <button class="mt-8 px-8 py-4 border border-at-graphite text-at-graphite font-bold text-xs uppercase tracking-widest hover:bg-at-graphite hover:text-white transition w-full">Seleziona</button>
+        <button class="mt-4 px-2 py-2 md:mt-8 md:px-8 md:py-4 border border-at-graphite text-at-graphite font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-at-graphite hover:text-white transition w-full">Seleziona</button>
       </div>
     ))}
   </div>

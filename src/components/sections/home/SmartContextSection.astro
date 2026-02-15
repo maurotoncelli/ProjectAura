@@ -7,11 +7,13 @@ const home = getHomeContent();
   <div class="absolute inset-0 z-0">
     <div class="w-full h-full bg-cover bg-center" style={`background-image: url('${home.smartContext.bgImage}');`}></div>
   </div>
+  <!-- Mobile-only dark overlay for readability over bright background areas -->
+  <div class="absolute inset-0 bg-black/60 z-[1] md:hidden"></div>
   <div class="container mx-auto px-8 relative z-10 flex flex-col md:flex-row items-center h-full">
     <div class="w-full md:w-1/2 reveal-on-scroll py-24">
       <p class="text-xs text-at-light font-bold uppercase tracking-widest mb-6">{home.smartContext.label}</p>
       <h2 class="section-title font-light mb-8 leading-none fluid-element" set:html={home.smartContext.headingHtml}></h2>
-      <p class="text-at-stone/70 text-2xl leading-relaxed mb-12 font-light fluid-element">{home.smartContext.description}</p>
+      <p class="text-at-stone/70 text-lg md:text-2xl leading-relaxed mb-12 font-light fluid-element">{home.smartContext.description}</p>
     </div>
   </div>
 </section>
