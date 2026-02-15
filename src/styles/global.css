@@ -1014,7 +1014,53 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.mood-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  cursor: pointer;
+}
+
+.mood-slider::-moz-range-track {
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+  border: none;
+  border-radius: 1px;
+}
+
 .mood-slider:hover::-webkit-slider-thumb { transform: scale(1.4); }
+
+/* Mobile: larger touch target for mood slider */
+@media (max-width: 768px) {
+  .mood-slider {
+    width: 80px;
+    height: 6px;
+    border-radius: 3px;
+    opacity: 1;
+    padding: 10px 0;
+    margin: -10px 0;
+    background-clip: content-box;
+  }
+  .mood-slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(255,255,255,0.9);
+  }
+  .mood-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(255,255,255,0.9);
+  }
+  .mood-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+  }
+}
 
 /* ==========================================
    DETAILS / ACCORDION
