@@ -1033,33 +1033,21 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 
 .mood-slider:hover::-webkit-slider-thumb { transform: scale(1.4); }
 
-/* Mobile: larger touch target for mood slider */
-@media (max-width: 768px) {
-  .mood-slider {
-    width: 80px;
-    height: 6px;
-    border-radius: 3px;
-    opacity: 1;
-    padding: 10px 0;
-    margin: -10px 0;
-    background-clip: content-box;
-  }
-  .mood-slider::-webkit-slider-thumb {
-    width: 24px;
-    height: 24px;
-    border: 3px solid rgba(0,0,0,0.1);
-    box-shadow: 0 0 12px rgba(255,255,255,0.9);
-  }
-  .mood-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    border: 3px solid rgba(0,0,0,0.1);
-    box-shadow: 0 0 12px rgba(255,255,255,0.9);
-  }
-  .mood-slider::-moz-range-track {
-    height: 6px;
-    border-radius: 3px;
-  }
+/* LED COLOR DOTS (mobile alternative to slider) */
+.led-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.led-dot:active { transform: scale(0.9); }
+.led-dot.active {
+  border-color: white;
+  box-shadow: 0 0 8px rgba(255,255,255,0.6);
+  transform: scale(1.15);
 }
 
 /* ==========================================

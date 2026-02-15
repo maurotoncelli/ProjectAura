@@ -248,7 +248,7 @@ export function initConfigPage() {
     });
   }
 
-  // LED Mood slider — writes hue (0-360) to nanostore.
+  // LED Mood slider (desktop) — writes hue (0-360) to nanostore.
   // LightingController and TableModel read it reactively to update LED color in real time.
   const moodSlider = document.getElementById('mood-slider') as HTMLInputElement;
   if (moodSlider) {
@@ -257,6 +257,20 @@ export function initConfigPage() {
       setLedColorHue(hue);
     });
   }
+
+  // LED Color dots (mobile) — tappable hue presets
+  const ledDots = document.querySelectorAll<HTMLButtonElement>('.led-dot');
+  ledDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const hue = parseInt(dot.dataset.hue || '30');
+      setLedColorHue(hue);
+      // Update active state
+      ledDots.forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+      // Sync desktop slider if present
+      if (moodSlider) moodSlider.value = String(hue);
+    });
+  });
 
   // Initials input
   const initialsInput = document.getElementById('initials-input') as HTMLInputElement;
