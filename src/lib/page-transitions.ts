@@ -72,7 +72,8 @@ export function initPageTransitions(lenis: Lenis) {
     if (newPage === 'home') {
       setActiveScene('HERO');
       setCanvasVisible(true);
-      resetTableState(); // Reset rotation/scale to hero idle defaults
+      resetTableState();
+      resetConfigDefaults(); // Reset isDayMode + ledColorHue to day defaults
     } else if (newPage === 'configurator') {
       setActiveScene('CONFIGURATOR');
       setCanvasVisible(true);

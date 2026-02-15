@@ -14,6 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Module-level GSAP context for proper garbage collection
 let ctx: ReturnType<typeof gsap.context> | null = null;
+// Reference to the preloader-complete listener (must be removed manually — ctx.revert() only cleans GSAP)
+let heroAnimListener: (() => void) | null = null;
 
 /**
  * Cleanup all home page animations. Called automatically by page-transitions
@@ -23,6 +25,10 @@ export function cleanupHomePage() {
   if (ctx) {
     ctx.revert();
     ctx = null;
+  }
+  if (heroAnimListener) {
+    window.removeEventListener('preloader-complete', heroAnimListener);
+    heroAnimListener = null;
   }
 }
 
@@ -112,6 +118,8 @@ export function initHomePage() {
       gsap.to('#hero-text-content', { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', delay: 0.2 });
       gsap.to('#hero-price-content', { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', delay: 0.4 });
     }
+    // Store reference for cleanup (ctx.revert() doesn't remove window listeners)
+    heroAnimListener = startHeroAnimations;
     window.addEventListener('preloader-complete', startHeroAnimations);
 
     // ==========================================
