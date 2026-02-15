@@ -3,12 +3,12 @@ import { getHomeContent } from '../../../lib/data';
 const home = getHomeContent();
 ---
 
-<section class="w-full bg-at-stone py-32 overflow-hidden z-curtain">
+<section class="w-full bg-at-stone py-16 md:py-32 overflow-hidden z-curtain">
   <div class="container mx-auto px-8">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal-on-scroll">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-24 reveal-on-scroll text-center md:text-left">
       <div>
         <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-4">{home.estetica.label}</p>
-        <h3 class="text-5xl font-light leading-tight fluid-element" set:html={home.estetica.headingHtml}></h3>
+        <h3 class="section-title font-light leading-none fluid-element" set:html={home.estetica.headingHtml}></h3>
       </div>
       <p class="max-w-md text-at-text-muted text-sm mt-8 md:mt-0 fluid-element">{home.estetica.subtitle}</p>
     </div>
