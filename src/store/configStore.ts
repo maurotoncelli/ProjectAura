@@ -58,9 +58,10 @@ export function setLedColorHue(hue: number) {
 
 /**
  * Reset all configurator state to defaults.
- * Called on page transition TO the configurator to prevent stale values.
+ * Called on page transitions to prevent stale values from previous visits.
  */
 export function resetConfigDefaults() {
   isDayMode.set(true);
   ledColorHue.set(30);
+  selectedMaterial.set(productsData.materials[0] as Material);
 }
