@@ -169,12 +169,6 @@
     },
     {
       "category": "living",
-      "image": "/textures/Stanzaclassichetta_00002light-40f451c3-7d19-46aa-b48f-2a49673f80b3.webp",
-      "location": "Stanza Classichetta, Firenze",
-      "title": "Console Perspective"
-    },
-    {
-      "category": "living",
       "image": "/textures/Stanzaclassichetta_00004.light-30421dc1-316b-48ff-9620-d64115721b92.webp",
       "location": "Stanza Classichetta, Firenze",
       "title": "Neutral Living"
@@ -194,12 +188,6 @@
     {
       "category": "living",
       "image": "/textures/Villa_Brutalista_00009_copia-52ba4a2d-54a4-40e3-b20e-524bce01e9ee.webp",
-      "location": "Villa Brutalista, Milano",
-      "title": "Brutalist Living"
-    },
-    {
-      "category": "living",
-      "image": "/textures/Villa_Brutalista_00006_copia-39ecef32-1b34-401b-8b18-ccf6153662fa.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
@@ -235,12 +223,6 @@
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Classica_00001_copia-313d39c3-0a29-4b04-9aec-d349794448cd.webp",
-      "location": "Villa Classica, Firenze",
-      "title": "Classic Elegance"
-    },
-    {
-      "category": "living",
       "image": "/textures/Villa_Classica_00000_copia-6ff4ee4a-ea8e-4534-93f5-871283b1f369.webp",
       "location": "Villa Classica, Firenze",
       "title": "Classic Elegance"
@@ -248,12 +230,6 @@
     {
       "category": "living",
       "image": "/textures/Villa_Giardino_00000_copia-afe82454-e7ed-4838-82e0-998af98d1244.webp",
-      "location": "Villa Giardino, Toscana",
-      "title": "Garden Retreat"
-    },
-    {
-      "category": "living",
-      "image": "/textures/Villa_Giardino_00001_copia-1e1c0275-4fc0-4dc7-bc4d-fda30ab85aaf.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
@@ -272,12 +248,6 @@
     {
       "category": "living",
       "image": "/textures/Villa_Giardino_00005_copia-411b5060-6fdf-42f4-9d44-fbce781298f0.webp",
-      "location": "Villa Giardino, Toscana",
-      "title": "Garden Retreat"
-    },
-    {
-      "category": "living",
-      "image": "/textures/Villa_Giardino_00003_copia-3593b21f-008f-4081-aad8-15633932139b.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
@@ -304,12 +274,6 @@
       "image": "/textures/Yacht_00001.light-fe4b2417-2481-4237-b330-57d0ebe001a7.webp",
       "location": "Yacht Privato, Mediterraneo",
       "title": "Nautical Lounge"
-    },
-    {
-      "category": "living",
-      "image": "/textures/villasvizzera_light-84d7ddd8-c5a8-4aee-8ea0-df81f6992482.webp",
-      "location": "Villa Svizzera, Alpi",
-      "title": "Alpine Panorama"
     },
     {
       "category": "living",
