@@ -99,14 +99,25 @@ html, body {
   background-color: var(--color-at-stone);
   color: var(--color-at-text);
   font-family: var(--font-sans);
-  cursor: none !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Force cursor none on all interactive elements */
-a, button, input, select, textarea, .cursor-pointer, .cb-container, .cb-input, input[type="range"], .next-chapter-footer {
-  cursor: none !important;
+/* Custom cursor: hide native cursor only on devices with a fine pointer (mouse) */
+@media (pointer: fine) {
+  html, body {
+    cursor: none !important;
+  }
+  a, button, input, select, textarea, .cursor-pointer, .cb-container, .cb-input, input[type="range"], .next-chapter-footer, .minimal-select, .zoom-container {
+    cursor: none !important;
+  }
+}
+
+/* Touch devices: hide custom cursor element entirely */
+@media (pointer: coarse) {
+  #custom-cursor {
+    display: none !important;
+  }
 }
 
 /* ==========================================
@@ -429,25 +440,24 @@ html.lenis { height: auto; }
   width: max-content;
 }
 
-/* MOBILE TOUCH OPTIMIZATIONS */
+/* MOBILE: Horizontal sections become vertical stacks */
 @media (max-width: 768px) {
   .h-scroll-wrapper {
     height: auto !important;
-    overflow-x: auto !important;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
+    overflow: visible !important;
   }
   .h-scroll-container,
   .h-scroll-container-home,
   .h-scroll-container-contact {
-    width: auto !important;
-    height: 100vh;
+    flex-direction: column;
+    width: 100% !important;
+    height: auto !important;
   }
   .h-scroll-panel {
-    width: 100vw !important;
-    scroll-snap-align: start;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh;
+    flex-shrink: 0;
   }
   #lifestyle-section {
     height: auto !important;
@@ -457,6 +467,7 @@ html.lenis { height: auto; }
   #lifestyle-section .lifestyle-track {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     padding: 0;
     gap: 0;
@@ -585,7 +596,6 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   background-repeat: no-repeat;
   background-position: right 0 center;
   background-size: 12px;
-  cursor: none;
   color: rgba(28,27,26,0.4);
 }
 
@@ -607,7 +617,6 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  cursor: none;
   position: relative;
   margin-bottom: 1rem;
   user-select: none;
@@ -616,7 +625,6 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 .cb-input {
   opacity: 0;
   position: absolute;
-  cursor: none;
   height: 0;
   width: 0;
 }
@@ -755,7 +763,6 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
    MATERIAL ZOOM & STACK
    ========================================== */
 .zoom-container {
-  cursor: none;
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;

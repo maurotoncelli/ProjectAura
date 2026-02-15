@@ -43,42 +43,67 @@ export function initHomePage() {
     // we write to nanostores that HeroScene reads in useFrame.
     // ==========================================
 
-    // Table scale ramp: 1.0 -> 1.5 from page top to dark-void start.
-    // STOPS at dark-void — the belly-view trigger takes over scale from 1.5 → 2.5.
-    // If this range extended to material, it would OVERRIDE the belly scale (2.5 → ~1.3).
-    // onUpdate on the TWEEN so it fires during scrub catch-up.
-    const scaleProxy = { value: 1.0 };
-    gsap.to(scaleProxy, {
-      value: 1.5,
-      ease: 'none',
-      onUpdate: () => setTableScale(scaleProxy.value),
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        endTrigger: '#dark-void-section',
-        end: 'top bottom',
-        scrub: 1,
-      },
+    // Shared matchMedia instance for all responsive animations in this page.
+    const mm = gsap.matchMedia();
+
+    // ==========================================
+    // TABLE SCROLL CHOREOGRAPHY (responsive)
+    // Desktop/Tablet: scale ramp (1→1.5→2.5) + rotation
+    // Mobile: rotation only (no scale changes)
+    // ==========================================
+
+    // Desktop/Tablet: full scale + rotation choreography
+    mm.add('(min-width: 769px)', () => {
+      // Table scale ramp: 1.0 -> 1.5 from page top to dark-void start.
+      // STOPS at dark-void — the belly-view trigger takes over scale from 1.5 → 2.5.
+      const scaleProxy = { value: 1.0 };
+      gsap.to(scaleProxy, {
+        value: 1.5,
+        ease: 'none',
+        onUpdate: () => setTableScale(scaleProxy.value),
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          endTrigger: '#dark-void-section',
+          end: 'top bottom',
+          scrub: 1,
+        },
+      });
+
+      // Table rotation for dark void (underside view) + scale to 2.5.
+      const rotProxy = { rx: DEFAULT_TABLE_ROTATION[0], scale: 1.5 };
+      const revealTl = gsap.timeline({
+        onUpdate: () => {
+          setTableRotation([rotProxy.rx, baseRy, 0]);
+          setTableScale(rotProxy.scale);
+        },
+        scrollTrigger: {
+          trigger: '#dark-void-section',
+          start: 'top bottom',
+          end: 'center center',
+          scrub: 1,
+        },
+      });
+      revealTl
+        .to(rotProxy, { rx: -Math.PI / 2, ease: 'power1.inOut', duration: 1 }, 0)
+        .to(rotProxy, { scale: 2.5, ease: 'power1.inOut', duration: 1 }, 0);
     });
 
-    // Table rotation for dark void (underside view) + scale to 2.5.
-    // onUpdate on the TIMELINE so it fires during scrub catch-up too.
-    const rotProxy = { rx: DEFAULT_TABLE_ROTATION[0], scale: 1.5 };
-    const revealTl = gsap.timeline({
-      onUpdate: () => {
-        setTableRotation([rotProxy.rx, baseRy, 0]);
-        setTableScale(rotProxy.scale);
-      },
-      scrollTrigger: {
-        trigger: '#dark-void-section',
-        start: 'top bottom',
-        end: 'center center',
-        scrub: 1,
-      },
+    // Mobile: rotation only, table stays at default scale
+    mm.add('(max-width: 768px)', () => {
+      const rotProxy = { rx: DEFAULT_TABLE_ROTATION[0] };
+      gsap.to(rotProxy, {
+        rx: -Math.PI / 2,
+        ease: 'power1.inOut',
+        onUpdate: () => setTableRotation([rotProxy.rx, baseRy, 0]),
+        scrollTrigger: {
+          trigger: '#dark-void-section',
+          start: 'top bottom',
+          end: 'center center',
+          scrub: 1,
+        },
+      });
     });
-    revealTl
-      .to(rotProxy, { rx: -Math.PI / 2, ease: 'power1.inOut', duration: 1 }, 0)
-      .to(rotProxy, { scale: 2.5, ease: 'power1.inOut', duration: 1 }, 0);
 
     // ==========================================
     // HERO TEXT ANIMATIONS
@@ -156,7 +181,6 @@ export function initHomePage() {
     // ==========================================
     // HORIZONTAL SCROLL SECTIONS
     // ==========================================
-    const mm = gsap.matchMedia();
 
     function initHScroll(sectionId: string, containerClass: string) {
       const hSection = document.getElementById(sectionId);

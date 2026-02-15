@@ -9,6 +9,9 @@ let cDot: HTMLElement | null = null;
 let cCircle: HTMLElement | null = null;
 
 export function initCursor() {
+  // Skip cursor initialization entirely on touch devices (no mouse pointer)
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
   cDot = document.querySelector('.c-dot') as HTMLElement;
   cCircle = document.querySelector('.c-circle') as HTMLElement;
 
@@ -26,6 +29,9 @@ export function initCursor() {
 }
 
 export function initCursorInteractions() {
+  // Skip cursor interactions entirely on touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
   if (!cDot || !cCircle) {
     cDot = document.querySelector('.c-dot') as HTMLElement;
     cCircle = document.querySelector('.c-circle') as HTMLElement;
