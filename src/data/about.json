@@ -11,14 +11,14 @@
       "heading": "Alchimisti della luce.",
       "headingHtml": "Alchimisti<br/>della luce.",
       "description": "<strong>AT STUDIO</strong> affonda le sue radici in fotografia e visual design. Qui nasce l'idea di progettare la luce come protagonista degli interni.",
-      "image": "/textures/atstudio.png"
+      "image": "/textures/atstudio.webp"
     },
     "segnobianco": {
       "logo": "S",
       "heading": "Artigianato Italiano & Passione per il legno.",
       "headingHtml": "Artigianato Italiano &<br/>Passione per il legno.",
       "description": "La firma di <strong>Segno Bianco</strong> è la sua esperienza.",
-      "image": "/textures/segnobianco.png"
+      "image": "/textures/segnobianco.webp"
     }
   },
   "timeline": [
@@ -45,10 +45,10 @@
   "metodo": {
     "label": "Il Metodo",
     "steps": [
-      { "number": "01", "heading": "Selezione Pura", "description": "Viaggio nelle foreste certificate.", "bgImage": "/textures/metodo-selezione.png" },
-      { "number": "02", "heading": "Precisione & Tocco", "bgImage": "/textures/metodo-precisione.png" },
-      { "number": "03", "heading": "Anima Intelligente", "bgImage": "/textures/metodo-anima.png" },
-      { "number": "04", "heading": "Controllo Assoluto", "bgImage": "/textures/metodo-controllo.png" }
+      { "number": "01", "heading": "Selezione Pura", "description": "Viaggio nelle foreste certificate.", "bgImage": "/textures/metodo-selezione.webp" },
+      { "number": "02", "heading": "Precisione & Tocco", "bgImage": "/textures/metodo-precisione.webp" },
+      { "number": "03", "heading": "Anima Intelligente", "bgImage": "/textures/metodo-anima.webp" },
+      { "number": "04", "heading": "Controllo Assoluto", "bgImage": "/textures/metodo-controllo.webp" }
     ]
   },
   "elements": {
@@ -56,28 +56,28 @@
     "heading": "Elements.",
     "subtitle": "Il caos che si fa silenzio.",
     "polaroids": [
-      { "image": "/textures/materia-rovere-antico.png", "alt": "Rovere Antico", "position": "top-[25%] left-[10%]", "size": "w-64 h-80", "rotation": "-6deg", "speed": "0.2", "zIndex": "z-10" },
-      { "image": "/textures/bespoke-01-cicatrici-preziose.png", "alt": "Cicatrici Preziose", "position": "top-[40%] right-[15%]", "size": "w-80 h-64", "rotation": "3deg", "speed": "0.05", "zIndex": "z-20" },
-      { "image": "/textures/bespoke-03-pelle-materica.png", "alt": "Shou Sugi Ban", "position": "top-[60%] left-[20%]", "size": "w-56 h-72", "rotation": "4deg", "speed": "0.15", "zIndex": "z-[15]" },
-      { "image": "/textures/bespoke-05-gioielli-strutturali.png", "alt": "Giunzione a Farfalla", "position": "top-[15%] right-[25%]", "size": "w-48 h-48", "rotation": "-3deg", "speed": "0.1", "zIndex": "z-10" },
-      { "image": "/textures/materia-noce-canaletto.png", "alt": "Noce Canaletto", "position": "top-[75%] right-[10%]", "size": "w-64 h-64", "rotation": "2deg", "speed": "0.25", "zIndex": "z-10" }
+      { "image": "/textures/materia-rovere-antico.webp", "alt": "Rovere Antico", "position": "top-[25%] left-[10%]", "size": "w-64 h-80", "rotation": "-6deg", "speed": "0.2", "zIndex": "z-10" },
+      { "image": "/textures/bespoke-01-cicatrici-preziose.webp", "alt": "Cicatrici Preziose", "position": "top-[40%] right-[15%]", "size": "w-80 h-64", "rotation": "3deg", "speed": "0.05", "zIndex": "z-20" },
+      { "image": "/textures/bespoke-03-pelle-materica.webp", "alt": "Shou Sugi Ban", "position": "top-[60%] left-[20%]", "size": "w-56 h-72", "rotation": "4deg", "speed": "0.15", "zIndex": "z-[15]" },
+      { "image": "/textures/bespoke-05-gioielli-strutturali.webp", "alt": "Giunzione a Farfalla", "position": "top-[15%] right-[25%]", "size": "w-48 h-48", "rotation": "-3deg", "speed": "0.1", "zIndex": "z-10" },
+      { "image": "/textures/materia-noce-canaletto.webp", "alt": "Noce Canaletto", "position": "top-[75%] right-[10%]", "size": "w-64 h-64", "rotation": "2deg", "speed": "0.25", "zIndex": "z-10" }
     ]
   },
   "ethos": {
     "label": "Ethos",
     "heading": "Rispetto Radicale.",
     "headingHtml": "Rispetto<br/>Radicale.",
-    "bgImage": "/textures/rispetto-radicale.png"
+    "bgImage": "/textures/rispetto-radicale.webp"
   },
   "cronache": {
     "label": "Dietro le Quinte",
     "heading": "Cronache d'Atelier.",
     "headingHtml": "Cronache <span class=\"font-serif italic text-gray-400\">d'Atelier.</span>",
     "items": [
-      { "image": "/textures/cronache-01.png", "alt": "Vetro e Legno", "caption": "Finitura Manuale" },
-      { "image": "/textures/cronache-00.png", "alt": "Levigatura", "caption": "Precisione Digitale" },
-      { "image": "/textures/cronache-02.png", "alt": "Soffio Polvere", "caption": "Integrazione Smart" },
-      { "image": "/textures/cronache-03.png", "alt": "Incasso Smart Core", "caption": "Controllo Qualità" }
+      { "image": "/textures/cronache-01.webp", "alt": "Vetro e Legno", "caption": "Finitura Manuale" },
+      { "image": "/textures/cronache-00.webp", "alt": "Levigatura", "caption": "Precisione Digitale" },
+      { "image": "/textures/cronache-02.webp", "alt": "Soffio Polvere", "caption": "Integrazione Smart" },
+      { "image": "/textures/cronache-03.webp", "alt": "Incasso Smart Core", "caption": "Controllo Qualità" }
     ]
   },
   "manifesto": [
@@ -91,7 +91,7 @@
     "marquee": "Oltre l'Oggetto — Oltre l'Oggetto — Oltre l'Oggetto —",
     "quote": "\"Non stiamo progettando per oggi. Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
     "quoteHtml": "\"Non stiamo progettando per oggi.<br/>Stiamo progettando per un futuro dove la tecnologia scompare nell'ambiente.\"",
-    "image": "/textures/anima-intelligente.png"
+    "image": "/textures/anima-intelligente.webp"
   },
   "cta": {
     "heading": "Abita il futuro.",
@@ -103,6 +103,6 @@
     "heading": "Esplora gli Spazi",
     "linkText": "Gallery Ambienti",
     "href": "/spaces",
-    "image": "/textures/spaces-villa-mare-terrazza.png"
+    "image": "/textures/spaces-villa-mare-terrazza.webp"
   }
 }

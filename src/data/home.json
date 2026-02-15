@@ -11,8 +11,8 @@
     "heading": "Il silenzio della forma.",
     "headingHtml": "Il silenzio <br/><span class=\"font-serif italic text-at-oak\">della forma.</span>",
     "description": "In un mondo che urla, AETHER sussurra. Abbiamo rimosso il superfluo per rivelare l'essenziale.",
-    "image": "/textures/philosophy-glass-leg.png",
-    "bgImage": "/textures/philosophy-room.png"
+    "image": "/textures/philosophy-glass-leg.webp",
+    "bgImage": "/textures/philosophy-room.webp"
   },
   "tech": {
     "label": "Integrazione Smart",
@@ -55,7 +55,7 @@
     "heading": "Non è solo legno.",
     "headingHtml": "Non è solo<br/>legno.",
     "description": "Ogni venatura racconta una tempesta. Rovere massello selezionato a mano, stagionato lentamente.",
-    "bgImage": "/textures/genesis-table.png",
+    "bgImage": "/textures/genesis-table.webp",
     "videoLoop": "/videos/hero-loop.mp4",
     "videoFull": "/videos/craftsmanship-full.mp4",
     "videoButtonLabel": "Guarda il Video"
@@ -66,34 +66,34 @@
     "headingHtml": "Disegnato<br/>per sparire.",
     "description": "L'idea era semplice: un piano che levita.",
     "description2": "Volevamo che la struttura portante svanisse, lasciando il legno protagonista assoluto.",
-    "image": "/textures/genesis-table.png"
+    "image": "/textures/genesis-table.webp"
   },
   "smartContext": {
     "label": "Controllo Fluido",
     "heading": "Il potere in un gesto.",
     "headingHtml": "Il potere<br/>in un gesto.",
     "description": "Non serve un interruttore. Usa l'app Casa, Alexa o semplicemente la tua voce.",
-    "bgImage": "/textures/app-control.png"
+    "bgImage": "/textures/app-control.webp"
   },
   "elementalFlow": [
     {
       "label": "Livello 01",
       "heading": "Il Nucleo.",
       "description": "Dove il silicio incontra l'intenzione. <br/>L'intelligenza non si vede.",
-      "bgImage": "/textures/nucleo-led.png",
+      "bgImage": "/textures/nucleo-led.webp",
       "theme": "dark"
     },
     {
       "heading": "Forza Invisibile.",
       "headingHtml": "Forza<br/>Invisibile.",
-      "image": "/textures/forza-invisibile.png",
+      "image": "/textures/forza-invisibile.webp",
       "theme": "light"
     },
     {
       "label": "Livello 03",
       "heading": "L'Atmosfera.",
       "description": "Luce diffusa a 2700K. <br/>Calore che avvolge lo spazio.",
-      "bgImage": "/textures/atmosfera-warm.png",
+      "bgImage": "/textures/atmosfera-warm.webp",
       "theme": "warm"
     }
   ],
@@ -103,9 +103,9 @@
     "headingHtml": "Abitare<br/>Aether.",
     "scrollHint": "Scorri per esplorare ->",
     "items": [
-      { "image": "/textures/rituali-mattutini.png", "title": "Rituali Mattutini" },
-      { "image": "/textures/focus-chiarezza.png", "title": "Focus & Chiarezza" },
-      { "image": "/textures/atmosfera-serale.png", "title": "Atmosfera Serale" }
+      { "image": "/textures/rituali-mattutini.webp", "title": "Rituali Mattutini" },
+      { "image": "/textures/focus-chiarezza.webp", "title": "Focus & Chiarezza" },
+      { "image": "/textures/atmosfera-serale.webp", "title": "Atmosfera Serale" }
     ]
   },
   "estetica": {
@@ -114,24 +114,24 @@
     "headingHtml": "Dettagli che<br/>respirano.",
     "subtitle": "La bellezza risiede nell'imperfezione controllata.",
     "grid": {
-      "mainImage": { "src": "/textures/dettagli-tablescape.png", "alt": "Tablescape" },
-      "topRight": { "src": "/textures/dettagli-living-day.png", "alt": "Living Day" },
-      "bottomLeft": { "src": "/textures/dettagli-living-night.png", "alt": "Living Night" },
-      "bottomRight": { "src": "/textures/dettagli-kintsugi.png", "alt": "Detail" }
+      "mainImage": { "src": "/textures/dettagli-tablescape.webp", "alt": "Tablescape" },
+      "topRight": { "src": "/textures/dettagli-living-day.webp", "alt": "Living Day" },
+      "bottomLeft": { "src": "/textures/dettagli-living-night.webp", "alt": "Living Night" },
+      "bottomRight": { "src": "/textures/dettagli-kintsugi.webp", "alt": "Detail" }
     }
   },
   "heritage": {
     "heading": "Fatto a Mano.",
     "headingHtml": "Fatto<br/>a Mano.",
     "description": "Dove la mano dell'artigiano incontra il design della luce.",
-    "bgImage": "/textures/genesis-table.png",
+    "bgImage": "/textures/genesis-table.webp",
     "badge": "Manifattura Italiana — Workshop Segnobianco"
   },
   "details": {
     "heading": "Specifiche",
     "description": "Un design senza tempo che nasconde un cuore tecnologico. Ogni tavolo è un pezzo unico, lavorato a mano.",
     "longDescription": "La struttura portante svanisce per lasciare spazio alla materia pura. Un equilibrio perfetto tra la solidità del rovere secolare e la trasparenza del vetro temperato, uniti da una tecnologia luminosa che non si impone, ma accoglie.",
-    "image": "/textures/render-led-night.png",
+    "image": "/textures/render-led-night.webp",
     "cta": { "label": "Configura il tuo AETHER", "href": "/configurator" },
     "downloads": {
       "label": "Area Download",
@@ -149,6 +149,6 @@
     "heading": "Scopri la Visione",
     "linkText": "Esplora About",
     "href": "/about",
-    "image": "/textures/footer-scopri-visione.png"
+    "image": "/textures/footer-scopri-visione.webp"
   }
 }

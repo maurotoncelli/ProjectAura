@@ -9,7 +9,7 @@ const materials = getMaterials();
     <div class="w-full md:w-1/2">
       <div id="materia-zoom-container" class="zoom-container shadow-2xl relative h-[300px] md:h-[600px]">
         <div id="zoom-lens" class="zoom-lens"></div>
-        <img id="material-stack-rovere" src={config.materia.materialImages.rovere} class="stack-img active" alt="Rovere" />
+        <img id="material-stack-rovere" src={config.materia.materialImages.rovere} class="stack-img active" alt="Rovere" loading="lazy" decoding="async" />
         <img id="material-stack-cipresso" src={config.materia.materialImages.cipresso} class="stack-img behind-1 transform translate-x-4 translate-y-4 rotate-2" alt="Cipresso" loading="lazy" decoding="async" />
         <img id="material-stack-noce" src={config.materia.materialImages.noce} class="stack-img behind-2 transform -translate-x-4 translate-y-8 -rotate-2" alt="Noce" loading="lazy" decoding="async" />
       </div>

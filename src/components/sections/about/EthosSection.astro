@@ -4,7 +4,7 @@ const about = getAboutContent();
 ---
 
 <section class="w-full py-48 relative overflow-hidden bg-black text-white hidden md:block">
-  <div class="absolute inset-0 z-0"><img src={about.ethos.bgImage} class="w-full h-full object-cover" alt="Forest" /></div>
+  <div class="absolute inset-0 z-0"><img src={about.ethos.bgImage} class="w-full h-full object-cover" alt="Forest" loading="lazy" decoding="async" /></div>
   <div class="container mx-auto px-8 relative z-10 flex flex-col items-start justify-center">
     <div class="reveal-on-scroll">
       <div class="writing-vertical text-xs font-bold uppercase tracking-[0.3em] text-white/50 h-24 mb-8 rotate-180">{about.ethos.label}</div>

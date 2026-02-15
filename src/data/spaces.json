@@ -25,469 +25,469 @@
   "items": [
     {
       "category": "living",
-      "image": "/textures/spaces-attico-gaming-night.png",
+      "image": "/textures/spaces-attico-gaming-night.webp",
       "location": "Attico Privato, Milano",
       "title": "Game Night"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-attico-gaming-day.png",
+      "image": "/textures/spaces-attico-gaming-day.webp",
       "location": "Attico Privato, Milano",
       "title": "Daylight Play"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-attico-social-night.png",
+      "image": "/textures/spaces-attico-social-night.webp",
       "location": "Attico Privato, Milano",
       "title": "Social Glow"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-ritratto.png",
+      "image": "/textures/spaces-cena-ritratto.webp",
       "location": "Private Dining, Milano",
       "title": "The Hostess"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-convivio.png",
+      "image": "/textures/spaces-cena-convivio.webp",
       "location": "Private Dining, Milano",
       "title": "Convivio"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-tablescape.png",
+      "image": "/textures/spaces-cena-tablescape.webp",
       "location": "Private Dining, Milano",
       "title": "Table Set"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-margaux.png",
+      "image": "/textures/spaces-cena-margaux.webp",
       "location": "Private Dining, Milano",
       "title": "Château Margaux"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-pasta-wide.png",
+      "image": "/textures/spaces-cena-pasta-wide.webp",
       "location": "Private Dining, Milano",
       "title": "Italian Ritual"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-pasta-close.png",
+      "image": "/textures/spaces-cena-pasta-close.webp",
       "location": "Private Dining, Milano",
       "title": "Al Dente"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-cena-risata.png",
+      "image": "/textures/spaces-cena-risata.webp",
       "location": "Private Dining, Milano",
       "title": "Joy"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-villa-mare-terrazza.png",
+      "image": "/textures/spaces-villa-mare-terrazza.webp",
       "location": "Villa sul Mare, Sardegna",
       "title": "Mediterranean Solitude"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-villa-mare-pesce.png",
+      "image": "/textures/spaces-villa-mare-pesce.webp",
       "location": "Villa sul Mare, Sardegna",
       "title": "Catch of the Day"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-villa-mare-vetro.png",
+      "image": "/textures/spaces-villa-mare-vetro.webp",
       "location": "Villa sul Mare, Sardegna",
       "title": "Glass & Sea"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-villa-mare-sedie.png",
+      "image": "/textures/spaces-villa-mare-sedie.webp",
       "location": "Villa sul Mare, Sardegna",
       "title": "Al Fresco"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-villa-mare-convivio.png",
+      "image": "/textures/spaces-villa-mare-convivio.webp",
       "location": "Villa sul Mare, Sardegna",
       "title": "Summer Table"
     },
     {
       "category": "living",
-      "image": "/textures/spaces-dettaglio-vetro.png",
+      "image": "/textures/spaces-dettaglio-vetro.webp",
       "location": "Dettaglio Materico",
       "title": "Invisible Strength"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00000_copia-5d53380f-8c1a-4870-b428-65a4d7b20981.png",
+      "image": "/textures/Villa_Brutalista_00000_copia-5d53380f-8c1a-4870-b428-65a4d7b20981.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Courtyard Night"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00001_copia-67b1799e-891d-439b-9c5f-c5a6a39966a3.png",
+      "image": "/textures/Villa_Brutalista_00001_copia-67b1799e-891d-439b-9c5f-c5a6a39966a3.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Crimson Dining"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00002_copia-0053d49c-7975-4327-9d5c-e30672117b3a.png",
+      "image": "/textures/Villa_Brutalista_00002_copia-0053d49c-7975-4327-9d5c-e30672117b3a.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Concrete Loft Day"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00003_copia-da35389c-6463-415b-a51b-9479131f9b66.png",
+      "image": "/textures/Villa_Brutalista_00003_copia-da35389c-6463-415b-a51b-9479131f9b66.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Concrete Loft Night"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00004_copia-12448aa7-1f92-4ab9-be9b-49439be0a7f5.png",
+      "image": "/textures/Villa_Brutalista_00004_copia-12448aa7-1f92-4ab9-be9b-49439be0a7f5.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Zen Court Lounge"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00005_copia-63fd3c7a-382b-42a8-aeb0-b4e930c6081e.png",
+      "image": "/textures/Villa_Brutalista_00005_copia-63fd3c7a-382b-42a8-aeb0-b4e930c6081e.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Soft Minimal Living"
     },
     {
       "category": "living",
-      "image": "/textures/Stanzaclassichetta_00000_copia-b383ce98-455c-48fe-b76d-c188c7b86350.png",
+      "image": "/textures/Stanzaclassichetta_00000_copia-b383ce98-455c-48fe-b76d-c188c7b86350.webp",
       "location": "Stanza Classichetta, Firenze",
       "title": "Glass Base Detail"
     },
     {
       "category": "living",
-      "image": "/textures/Stanzaclassichetta_0000.light-a3e1a0b4-9fe8-422c-a30a-ddc4d9123af1.png",
+      "image": "/textures/Stanzaclassichetta_0000.light-a3e1a0b4-9fe8-422c-a30a-ddc4d9123af1.webp",
       "location": "Stanza Classichetta, Firenze",
       "title": "Quiet Dining Setup"
     },
     {
       "category": "living",
-      "image": "/textures/Stanzaclassichetta_00002light-40f451c3-7d19-46aa-b48f-2a49673f80b3.png",
+      "image": "/textures/Stanzaclassichetta_00002light-40f451c3-7d19-46aa-b48f-2a49673f80b3.webp",
       "location": "Stanza Classichetta, Firenze",
       "title": "Console Perspective"
     },
     {
       "category": "living",
-      "image": "/textures/Stanzaclassichetta_00004.light-30421dc1-316b-48ff-9620-d64115721b92.png",
+      "image": "/textures/Stanzaclassichetta_00004.light-30421dc1-316b-48ff-9620-d64115721b92.webp",
       "location": "Stanza Classichetta, Firenze",
       "title": "Neutral Living"
     },
     {
       "category": "living",
-      "image": "/textures/Stanza_etera_00003_light-c298bd09-e0b6-487e-a67b-a02be9261113.png",
+      "image": "/textures/Stanza_etera_00003_light-c298bd09-e0b6-487e-a67b-a02be9261113.webp",
       "location": "Stanza Etera, Roma",
       "title": "Nocturne Atmosphere"
     },
     {
       "category": "living",
-      "image": "/textures/Tokyo_00001_light-4ff2a4fb-71a0-4123-85c5-c4d7256aa451.png",
+      "image": "/textures/Tokyo_00001_light-4ff2a4fb-71a0-4123-85c5-c4d7256aa451.webp",
       "location": "Tokyo Penthouse, Tokyo",
       "title": "Skyline Dinner"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00009_copia-52ba4a2d-54a4-40e3-b20e-524bce01e9ee.png",
+      "image": "/textures/Villa_Brutalista_00009_copia-52ba4a2d-54a4-40e3-b20e-524bce01e9ee.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00006_copia-39ecef32-1b34-401b-8b18-ccf6153662fa.png",
+      "image": "/textures/Villa_Brutalista_00006_copia-39ecef32-1b34-401b-8b18-ccf6153662fa.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00011copia_copia-1e03046b-9867-4bd6-805a-0b3245e85746.png",
+      "image": "/textures/Villa_Brutalista_00011copia_copia-1e03046b-9867-4bd6-805a-0b3245e85746.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00008_copia-07d53933-a139-493a-956a-5faa39b98d45.png",
+      "image": "/textures/Villa_Brutalista_00008_copia-07d53933-a139-493a-956a-5faa39b98d45.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00010_copia-cb29fe9c-4638-4f1c-b6d8-629c1a355923.png",
+      "image": "/textures/Villa_Brutalista_00010_copia-cb29fe9c-4638-4f1c-b6d8-629c1a355923.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Classica_00002_copia-604f53d3-9672-45f7-ac02-0c5648d87803.png",
+      "image": "/textures/Villa_Classica_00002_copia-604f53d3-9672-45f7-ac02-0c5648d87803.webp",
       "location": "Villa Classica, Firenze",
       "title": "Classic Elegance"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Brutalista_00007_copia-429685bf-f5f6-4cfb-a56f-9b6015b90333.png",
+      "image": "/textures/Villa_Brutalista_00007_copia-429685bf-f5f6-4cfb-a56f-9b6015b90333.webp",
       "location": "Villa Brutalista, Milano",
       "title": "Brutalist Living"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Classica_00001_copia-313d39c3-0a29-4b04-9aec-d349794448cd.png",
+      "image": "/textures/Villa_Classica_00001_copia-313d39c3-0a29-4b04-9aec-d349794448cd.webp",
       "location": "Villa Classica, Firenze",
       "title": "Classic Elegance"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Classica_00000_copia-6ff4ee4a-ea8e-4534-93f5-871283b1f369.png",
+      "image": "/textures/Villa_Classica_00000_copia-6ff4ee4a-ea8e-4534-93f5-871283b1f369.webp",
       "location": "Villa Classica, Firenze",
       "title": "Classic Elegance"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00000_copia-afe82454-e7ed-4838-82e0-998af98d1244.png",
+      "image": "/textures/Villa_Giardino_00000_copia-afe82454-e7ed-4838-82e0-998af98d1244.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00001_copia-1e1c0275-4fc0-4dc7-bc4d-fda30ab85aaf.png",
+      "image": "/textures/Villa_Giardino_00001_copia-1e1c0275-4fc0-4dc7-bc4d-fda30ab85aaf.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00002_copia-1f4a59c1-0aeb-4300-89ff-941f5a901df1.png",
+      "image": "/textures/Villa_Giardino_00002_copia-1f4a59c1-0aeb-4300-89ff-941f5a901df1.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00004_copia-35189f6d-3b57-4ceb-a88a-773ecc2b2dd0.png",
+      "image": "/textures/Villa_Giardino_00004_copia-35189f6d-3b57-4ceb-a88a-773ecc2b2dd0.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00005_copia-411b5060-6fdf-42f4-9d44-fbce781298f0.png",
+      "image": "/textures/Villa_Giardino_00005_copia-411b5060-6fdf-42f4-9d44-fbce781298f0.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_Giardino_00003_copia-3593b21f-008f-4081-aad8-15633932139b.png",
+      "image": "/textures/Villa_Giardino_00003_copia-3593b21f-008f-4081-aad8-15633932139b.webp",
       "location": "Villa Giardino, Toscana",
       "title": "Garden Retreat"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_svizzera_light_00001-83b33432-388a-44e8-8b6c-ea6b3650fff4.png",
+      "image": "/textures/Villa_svizzera_light_00001-83b33432-388a-44e8-8b6c-ea6b3650fff4.webp",
       "location": "Villa Svizzera, Alpi",
       "title": "Alpine Panorama"
     },
     {
       "category": "living",
-      "image": "/textures/VillaPool_00000-a3a0169e-5fc4-4066-b47b-d979b39125bb.png",
+      "image": "/textures/VillaPool_00000-a3a0169e-5fc4-4066-b47b-d979b39125bb.webp",
       "location": "Villa Pool, Ibiza",
       "title": "Poolside Twilight"
     },
     {
       "category": "living",
-      "image": "/textures/villasvizzera_02_light-6245acb7-703a-40a6-bfa3-cb4ff880fc61.png",
+      "image": "/textures/villasvizzera_02_light-6245acb7-703a-40a6-bfa3-cb4ff880fc61.webp",
       "location": "Villa Svizzera, Alpi",
       "title": "Alpine Panorama"
     },
     {
       "category": "living",
-      "image": "/textures/Yacht_00001.light-fe4b2417-2481-4237-b330-57d0ebe001a7.png",
+      "image": "/textures/Yacht_00001.light-fe4b2417-2481-4237-b330-57d0ebe001a7.webp",
       "location": "Yacht Privato, Mediterraneo",
       "title": "Nautical Lounge"
     },
     {
       "category": "living",
-      "image": "/textures/villasvizzera_light-84d7ddd8-c5a8-4aee-8ea0-df81f6992482.png",
+      "image": "/textures/villasvizzera_light-84d7ddd8-c5a8-4aee-8ea0-df81f6992482.webp",
       "location": "Villa Svizzera, Alpi",
       "title": "Alpine Panorama"
     },
     {
       "category": "living",
-      "image": "/textures/Yacht_00000.light-bc051a16-6af4-4cfe-8cb1-9b432d42b6ad.png",
+      "image": "/textures/Yacht_00000.light-bc051a16-6af4-4cfe-8cb1-9b432d42b6ad.webp",
       "location": "Yacht Privato, Mediterraneo",
       "title": "Nautical Lounge"
     },
     {
       "category": "living",
-      "image": "/textures/Yacht_00003.light-daa1a466-5c0f-44fa-936a-f67491792492.png",
+      "image": "/textures/Yacht_00003.light-daa1a466-5c0f-44fa-936a-f67491792492.webp",
       "location": "Yacht Privato, Mediterraneo",
       "title": "Nautical Lounge"
     },
     {
       "category": "living",
-      "image": "/textures/Villa_svizzera_light_00000-5efcf2ff-aa5b-4aa7-9b9f-12730927ed65.png",
+      "image": "/textures/Villa_svizzera_light_00000-5efcf2ff-aa5b-4aa7-9b9f-12730927ed65.webp",
       "location": "Villa Svizzera, Alpi",
       "title": "Alpine Panorama"
     },
     {
       "category": "living",
-      "image": "/textures/VillaPool_00001-15d74fda-66dd-41e1-ae78-7d90df50c17a.png",
+      "image": "/textures/VillaPool_00001-15d74fda-66dd-41e1-ae78-7d90df50c17a.webp",
       "location": "Villa Pool, Ibiza",
       "title": "Poolside Twilight"
     },
     {
       "category": "office",
-      "image": "/textures/MilanoOffice_light-690a74de-9976-442a-bb3c-6f42c877bc6e.png",
+      "image": "/textures/MilanoOffice_light-690a74de-9976-442a-bb3c-6f42c877bc6e.webp",
       "location": "Milano Office, Milano",
       "title": "Executive Library"
     },
     {
       "category": "office",
-      "image": "/textures/dubaioffice-2fe763b9-2426-49b7-a29f-ef081f0a4b6d.png",
+      "image": "/textures/dubaioffice-2fe763b9-2426-49b7-a29f-ef081f0a4b6d.webp",
       "location": "Dubai Office, Dubai",
       "title": "Boardroom Skyline"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00008_light-edd17798-5187-48d7-aa3f-4a14dd706a8e.png",
+      "image": "/textures/newyork_office_00008_light-edd17798-5187-48d7-aa3f-4a14dd706a8e.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00009_light-f6b8f3b6-fbd8-40c4-87a9-430769b68a43.png",
+      "image": "/textures/newyork_office_00009_light-f6b8f3b6-fbd8-40c4-87a9-430769b68a43.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00005_light-b3aa04a3-e923-400e-92d4-90048b65f13a.png",
+      "image": "/textures/newyork_office_00005_light-b3aa04a3-e923-400e-92d4-90048b65f13a.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00000_light-bcbf98ff-e4e8-4701-8eef-12e8f71cd9ce.png",
+      "image": "/textures/newyork_office_00000_light-bcbf98ff-e4e8-4701-8eef-12e8f71cd9ce.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00007_copia-3c570021-2253-408d-a18e-3b7c2d660314.png",
+      "image": "/textures/newyork_office_00007_copia-3c570021-2253-408d-a18e-3b7c2d660314.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00010_light-78a27d90-f089-4b5f-9ed4-010fe52a0590.png",
+      "image": "/textures/newyork_office_00010_light-78a27d90-f089-4b5f-9ed4-010fe52a0590.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00006_light-847bfaeb-595f-451b-aa2e-515971ca243a.png",
+      "image": "/textures/newyork_office_00006_light-847bfaeb-595f-451b-aa2e-515971ca243a.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00004_light-5ca6d7b4-45e9-4eee-9faf-536472799a30.png",
+      "image": "/textures/newyork_office_00004_light-5ca6d7b4-45e9-4eee-9faf-536472799a30.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00001_light-0f23ac42-30ec-4c3c-a248-0a92c1885157.png",
+      "image": "/textures/newyork_office_00001_light-0f23ac42-30ec-4c3c-a248-0a92c1885157.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00012_light-f1e9b72d-0536-49ac-94fe-0f0c5bc8026e.png",
+      "image": "/textures/newyork_office_00012_light-f1e9b72d-0536-49ac-94fe-0f0c5bc8026e.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00002_light-ccec73c2-291c-495e-97d4-77c0114c9092.png",
+      "image": "/textures/newyork_office_00002_light-ccec73c2-291c-495e-97d4-77c0114c9092.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "office",
-      "image": "/textures/newyork_office_00003_light-0743f324-57c4-49b6-bf84-8e4d04ed839c.png",
+      "image": "/textures/newyork_office_00003_light-0743f324-57c4-49b6-bf84-8e4d04ed839c.webp",
       "location": "New York Office, NYC",
       "title": "Skyline Workspace"
     },
     {
       "category": "creative",
-      "image": "/textures/stanzabuia_light_0001-63747764-c14d-49c0-be49-6d6cb3b1c1ba.png",
+      "image": "/textures/stanzabuia_light_0001-63747764-c14d-49c0-be49-6d6cb3b1c1ba.webp",
       "location": "Stanza Buia, Milano",
       "title": "Shadow Material Study"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00000_light-559484e0-7c0e-4f82-ae2c-1f4c7595ad34.png",
+      "image": "/textures/StanzaRossa_00000_light-559484e0-7c0e-4f82-ae2c-1f4c7595ad34.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00001_light-ee55b4dc-ab6e-49f7-8afc-9a26f26901c6.png",
+      "image": "/textures/StanzaRossa_00001_light-ee55b4dc-ab6e-49f7-8afc-9a26f26901c6.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/stanzabuia_light_0002-2c0e773f-f472-4986-b947-969885ac6c23.png",
+      "image": "/textures/stanzabuia_light_0002-2c0e773f-f472-4986-b947-969885ac6c23.webp",
       "location": "Stanza Buia, Milano",
       "title": "Shadow Material Study"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00002_light-74f7efe8-1240-4582-ba8f-503109a3aa69.png",
+      "image": "/textures/StanzaRossa_00002_light-74f7efe8-1240-4582-ba8f-503109a3aa69.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00006_light-09ec0bc1-8401-4ffc-9c21-8aa50d96365b.png",
+      "image": "/textures/StanzaRossa_00006_light-09ec0bc1-8401-4ffc-9c21-8aa50d96365b.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00003_light-b1f56d65-c818-499d-8f4e-c8f16ae1a88a.png",
+      "image": "/textures/StanzaRossa_00003_light-b1f56d65-c818-499d-8f4e-c8f16ae1a88a.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/Garage_00002_light-cb014eba-c7dc-4b3c-afa0-083d6c315f80.png",
+      "image": "/textures/Garage_00002_light-cb014eba-c7dc-4b3c-afa0-083d6c315f80.webp",
       "location": "Garage Studio, Torino",
       "title": "Industrial Creative Set"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00007_light-7fa911cd-6fc7-4760-810a-59465c76014a.png",
+      "image": "/textures/StanzaRossa_00007_light-7fa911cd-6fc7-4760-810a-59465c76014a.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00008_light-54aecda9-07bc-4e30-a86b-8ff7d98c17fe.png",
+      "image": "/textures/StanzaRossa_00008_light-54aecda9-07bc-4e30-a86b-8ff7d98c17fe.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/StanzaRossa_00009_light-7e7c6bf1-3001-4195-9473-a8c6e71e65c4.png",
+      "image": "/textures/StanzaRossa_00009_light-7e7c6bf1-3001-4195-9473-a8c6e71e65c4.webp",
       "location": "Stanza Rossa, Milano",
       "title": "Neon Kintsugi Session"
     },
     {
       "category": "creative",
-      "image": "/textures/stanzabuia_light_0003-2c17c63c-2e18-48c9-a732-bdf1637b5993.png",
+      "image": "/textures/stanzabuia_light_0003-2c17c63c-2e18-48c9-a732-bdf1637b5993.webp",
       "location": "Stanza Buia, Milano",
       "title": "Shadow Material Study"
     }
@@ -504,6 +504,6 @@
     "heading": "Crea il tuo Aether",
     "linkText": "Vai al Configuratore",
     "href": "/configurator",
-    "image": "/textures/footer-crea-il-tuo-aether.png"
+    "image": "/textures/footer-crea-il-tuo-aether.webp"
   }
 }

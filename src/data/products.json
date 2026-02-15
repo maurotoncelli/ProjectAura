@@ -10,7 +10,7 @@
       "currency": "EUR",
       "seats": "6-8",
       "weight": "95 kg",
-      "image": "/textures/card-aether-250.png",
+      "image": "/textures/card-aether-250.webp",
       "dimensions": {
         "length": 250,
         "depth": 90,
@@ -49,7 +49,7 @@
       "currency": "EUR",
       "seats": "8-10",
       "weight": "110 kg",
-      "image": "/textures/card-aether-270.png",
+      "image": "/textures/card-aether-270.webp",
       "dimensions": {
         "length": 270,
         "depth": 100,
@@ -87,7 +87,7 @@
       "currency": "EUR",
       "seats": "10-14",
       "weight": "140 kg",
-      "image": "/textures/card-aether-330.png",
+      "image": "/textures/card-aether-330.webp",
       "dimensions": {
         "length": 330,
         "depth": 110,

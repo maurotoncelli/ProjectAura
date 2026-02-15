@@ -11,7 +11,7 @@ const home = getHomeContent();
       muted
       loop
       playsinline
-      preload="auto"
+      preload="metadata"
       class="w-full h-full object-cover"
       poster={home.material.bgImage}
       ontimeupdate="if(this.duration&&this.currentTime>this.duration-0.3){this.currentTime=0}"

@@ -15,9 +15,9 @@
   "materia": {
     "label": "La Materia",
     "materialImages": {
-      "rovere": "/textures/materia-rovere-antico.png",
-      "cipresso": "/textures/materia-cipresso-toscano.png",
-      "noce": "/textures/materia-noce-canaletto.png"
+      "rovere": "/textures/materia-rovere-antico.webp",
+      "cipresso": "/textures/materia-cipresso-toscano.webp",
+      "noce": "/textures/materia-noce-canaletto.webp"
     }
   },
   "animaDigitale": {
@@ -27,22 +27,22 @@
     "description": "AETHER non illumina la stanza, ne definisce i confini. Abbiamo integrato un'anima di LED COB ad alta fedeltà cromatica (98 CRI) che accarezza il pavimento senza mai abbagliare. La luce non viene dal tavolo, sembra nascere dal legno stesso. Controllabile tramite Apple HomeKit, Alexa e Google Home.",
     "toggleLabelOff": "Luce Naturale",
     "toggleLabelOn": "Smart Glow",
-    "dayImage": "/textures/anima-digitale-day.png",
-    "nightImage": "/textures/anima-digitale-night.png"
+    "dayImage": "/textures/anima-digitale-day.webp",
+    "nightImage": "/textures/anima-digitale-night.webp"
   },
   "sezione01": {
     "label": "01 — L'Anima",
     "heading": "Non compri un\ncodice prodotto.",
     "headingHtml": "Non compri un<br>codice prodotto.",
     "description": "Il legno è vivo e irripetibile. Dopo l'ordine, ti contatteremo su WhatsApp o Mail inviandoti le foto ad alta risoluzione delle tre migliori lastre \"Anima\" disponibili nel nostro atelier. Sarai tu a scegliere quella che diventerà il tuo AETHER.",
-    "image": "/textures/config-scegli-la-tavola.png"
+    "image": "/textures/config-scegli-la-tavola.webp"
   },
   "sezione02": {
     "label": "02 — La Firma",
     "heading": "Mark it\nForever.",
     "headingHtml": "Mark it<br>Forever.",
     "description": "Una placca in ottone brunito, incassata a filo nel legno, porta le tue iniziali. Un dettaglio invisibile agli ospiti, essenziale per il proprietario.",
-    "image": "/textures/config-iniziali-ottone.png",
+    "image": "/textures/config-iniziali-ottone.webp",
     "inputPlaceholder": "A.T.",
     "inputMaxLength": 2,
     "inputHint": "Inserisci le tue iniziali"
@@ -55,32 +55,32 @@
     "disclaimer": "*Le richieste di personalizzazione avanzata saranno oggetto di un preventivo dedicato e potrebbero comportare una variazione del prezzo finale e dei tempi di consegna.",
     "inspirations": [
       {
-        "image": "/textures/bespoke-01-cicatrici-preziose.png",
+        "image": "/textures/bespoke-01-cicatrici-preziose.webp",
         "title": "Le cicatrici preziose",
         "description": "Non nascondiamo le ferite del tempo, le celebriamo con l'oro. Colate di metallo prezioso fuso o resine cristalline trasformano le crepe naturali del legno nell'elemento più lussuoso dell'opera."
       },
       {
-        "image": "/textures/bespoke-02-sfida-gravita.png",
+        "image": "/textures/bespoke-02-sfida-gravita.webp",
         "title": "Sfida alla gravità",
         "description": "Il supporto non è solo struttura, è scultura di luce. Scegli come far fluttuare l'imponente piano in legno: dalla trasparenza assoluta dell'extra-chiaro alle texture drammatiche del vetro \"ghiaccio spaccato\"."
       },
       {
-        "image": "/textures/bespoke-03-pelle-materica.png",
+        "image": "/textures/bespoke-03-pelle-materica.webp",
         "title": "Pelle materica",
         "description": "Il vero lusso si sente al tatto. Definisci la \"pelle\" del tuo tavolo: dalla levigatura \"Silk\" che rende il legno liscio come marmo, alla texture profonda, ancestrale e carbonizzata della finitura Shou Sugi Ban."
       },
       {
-        "image": "/textures/bespoke-04-ricarica-invisibile.png",
+        "image": "/textures/bespoke-04-ricarica-invisibile.webp",
         "title": "Ricarica invisibile",
         "description": "Magia, più che tecnologia. Integra le funzionalità del futuro direttamente nella fibra del passato: ricarica wireless invisibile e comandi touch nascosti sotto la superficie del legno massello."
       },
       {
-        "image": "/textures/bespoke-05-gioielli-strutturali.png",
+        "image": "/textures/bespoke-05-gioielli-strutturali.webp",
         "title": "Gioielli strutturali",
         "description": "Quando la funzione diventa ornamento puro. Le giunzioni a farfalla, necessarie per stabilizzare le lastre più antiche, sono realizzate come gioielli in metalli nobili lucidati a specchio e incastonati a mano."
       },
       {
-        "image": "/textures/bespoke-06-profilo-corteccia.png",
+        "image": "/textures/bespoke-06-profilo-corteccia.webp",
         "title": "Il profilo in corteccia",
         "description": "L'anima del tavolo è nel suo confine. Scegli tra il minimalismo aerodinamico di un taglio moderno o l'autenticità estrema del bordo \"Raw Bark\", con la corteccia viva stabilizzata per durare in eterno."
       }
@@ -161,6 +161,6 @@
     "label": "Prossimo Capitolo",
     "heading": "Contattaci",
     "href": "/contact",
-    "image": "/textures/footer-contattaci.png"
+    "image": "/textures/footer-contattaci.webp"
   }
 }
