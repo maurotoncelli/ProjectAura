@@ -54,7 +54,9 @@
         { "title": "Produzione Artigianale", "description": "Lavorazione CNC, finitura a mano e QC.", "style": "outlined" }
       ]
     },
-    "checkoutLabel": "CHECKOUT SICURO"
+    "checkoutLabel": "CHECKOUT SICURO",
+    "assistanceLabel": "Parla con l'assistenza per l'ordine",
+    "assistancePhone": "+390587635000"
   },
   "legal": {
     "privacy": {
