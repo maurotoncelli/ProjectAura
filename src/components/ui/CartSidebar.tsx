@@ -5,7 +5,7 @@
  */
 import { useEffect, useRef, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
-import { isCartOpen, closeCart, cartItems } from '../../store/cartStore';
+import { isCartOpen, closeCart, cartItems, removeFromCart } from '../../store/cartStore';
 import { Z_INDEX } from '../../lib/constants';
 import siteData from '../../data/site.json';
 
@@ -68,14 +68,24 @@ export default function CartSidebar() {
         </div>
 
         <div className="p-8 flex-grow overflow-y-auto pb-32">
-          <div className="flex gap-6 mb-12">
-            <div className="w-24 h-24 bg-at-border rounded-sm"></div>
-            <div>
+          <div className="flex gap-6 mb-12 relative">
+            <div className="w-24 h-24 bg-at-border rounded-sm flex-shrink-0"></div>
+            <div className="flex-grow">
               <h3 className="font-bold text-xl">{cart.productName}</h3>
               <p id="cart-desc" className="text-sm text-at-text-muted uppercase tracking-wide">{cart.defaultDesc}</p>
               <p id="cart-initials" className="text-xs text-at-text-muted uppercase tracking-wide mt-1">{cart.defaultInitials}</p>
               <p id="cart-price" className="mt-2 font-mono">{cart.defaultPrice}</p>
             </div>
+            <button
+              onClick={() => removeFromCart(0)}
+              className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center text-at-text-muted hover:text-red-500 transition-colors rounded-full hover:bg-red-50"
+              aria-label="Rimuovi dal carrello"
+              title="Rimuovi"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
 
           <div className="mb-8 text-xs text-at-text-muted space-y-4 pt-4">

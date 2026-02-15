@@ -104,28 +104,32 @@ export function initConfigPage() {
     const cockpitLabel = document.getElementById('cockpit-label');
     if (cockpitLabel) cockpitLabel.innerText = materialDisplayNames[mat] || mat;
 
+    // Update both desktop and mobile material image stacks
     const stackIds = ['rovere', 'cipresso', 'noce'];
-    stackIds.forEach(id => {
-      const el = document.getElementById('material-stack-' + id);
-      if (!el) return;
-      if (id === mat.toLowerCase()) {
-        el.className = 'stack-img active';
-        el.style.transform = 'scale(1) rotate(0deg)';
-        el.style.opacity = '1';
-      } else {
-        const idx = stackIds.indexOf(id);
-        const matIdx = stackIds.indexOf(mat.toLowerCase());
-        const diff = Math.abs(idx - matIdx);
-        if (diff === 1) {
-          el.className = 'stack-img behind-1';
-          el.style.transform = 'scale(0.95) rotate(3deg)';
-          el.style.opacity = '0.8';
+    const suffixes = ['', '-mobile']; // desktop + mobile
+    suffixes.forEach(suffix => {
+      stackIds.forEach(id => {
+        const el = document.getElementById('material-stack-' + id + suffix);
+        if (!el) return;
+        if (id === mat.toLowerCase()) {
+          el.className = 'stack-img active';
+          el.style.transform = 'scale(1) rotate(0deg)';
+          el.style.opacity = '1';
         } else {
-          el.className = 'stack-img behind-2';
-          el.style.transform = 'scale(0.9) rotate(-3deg)';
-          el.style.opacity = '0.6';
+          const idx = stackIds.indexOf(id);
+          const matIdx = stackIds.indexOf(mat.toLowerCase());
+          const diff = Math.abs(idx - matIdx);
+          if (diff === 1) {
+            el.className = 'stack-img behind-1';
+            el.style.transform = 'scale(0.95) rotate(3deg)';
+            el.style.opacity = '0.8';
+          } else {
+            el.className = 'stack-img behind-2';
+            el.style.transform = 'scale(0.9) rotate(-3deg)';
+            el.style.opacity = '0.6';
+          }
         }
-      }
+      });
     });
 
     document.querySelectorAll('.material-btn-bottom').forEach(b => {

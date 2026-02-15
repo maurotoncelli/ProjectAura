@@ -6,8 +6,9 @@ const materials = getMaterials();
 
 <section class="container mx-auto px-8 mb-24 md:mb-48 reveal-on-scroll">
   <div class="flex flex-col md:flex-row gap-12 md:gap-24 items-center">
-    <div class="w-full md:w-1/2">
-      <div id="materia-zoom-container" class="zoom-container shadow-2xl relative h-[300px] md:h-[600px]">
+    <!-- Desktop: image on left -->
+    <div class="w-full md:w-1/2 hidden md:block">
+      <div id="materia-zoom-container" class="zoom-container shadow-2xl relative h-[600px]">
         <div id="zoom-lens" class="zoom-lens"></div>
         <img id="material-stack-rovere" src={config.materia.materialImages.rovere} class="stack-img active" alt="Rovere" loading="lazy" decoding="async" />
         <img id="material-stack-cipresso" src={config.materia.materialImages.cipresso} class="stack-img behind-1 transform translate-x-4 translate-y-4 rotate-2" alt="Cipresso" loading="lazy" decoding="async" />
@@ -16,19 +17,27 @@ const materials = getMaterials();
     </div>
     <div class="w-full md:w-1/2">
       <p class="text-xs text-at-oak font-bold uppercase tracking-widest mb-6">{config.materia.label}</p>
-      <div id="wood-storytelling" class="mb-8 md:mb-12">
-        <h2 id="mat-detail-name" class="text-2xl md:text-6xl font-light mb-8 uppercase tracking-tight text-at-walnut">{materials[0].displayName}.</h2>
-        <p id="mat-detail-desc" class="text-base md:text-xl text-at-text/80 leading-relaxed mb-8">{materials[0].description}</p>
-        <div class="grid grid-cols-3 gap-4 md:gap-8 border-t border-at-border-light pt-8">
+      <div id="wood-storytelling" class="mb-6 md:mb-12">
+        <h2 id="mat-detail-name" class="text-2xl md:text-6xl font-light mb-4 md:mb-8 uppercase tracking-tight text-at-walnut">{materials[0].displayName}.</h2>
+        <p id="mat-detail-desc" class="text-base md:text-xl text-at-text/80 leading-relaxed mb-4 md:mb-8">{materials[0].description}</p>
+        <div class="grid grid-cols-3 gap-4 md:gap-8 border-t border-at-border-light pt-4 md:pt-8">
           <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Grana</p><p id="spec-grain" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.grain}</p></div>
           <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Durezza</p><p id="spec-hard" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.hardness}</p></div>
           <div><p class="text-[10px] text-at-text-muted uppercase tracking-widest mb-1">Riflesso</p><p id="spec-reflect" class="text-sm font-normal uppercase text-at-walnut">{materials[0].specs.reflect}</p></div>
         </div>
       </div>
-      <div class="flex gap-2 md:gap-4">
+      <div class="flex gap-2 md:gap-4 mb-6 md:mb-0">
         <button class="material-btn-bottom active px-4 py-3 md:px-8 md:py-4 border text-xs uppercase tracking-widest font-bold" data-mat="rovere">Rovere</button>
         <button class="material-btn-bottom px-4 py-3 md:px-8 md:py-4 border text-xs uppercase tracking-widest font-bold" data-mat="cipresso">Cipresso</button>
         <button class="material-btn-bottom px-4 py-3 md:px-8 md:py-4 border text-xs uppercase tracking-widest font-bold" data-mat="noce">Noce</button>
+      </div>
+      <!-- Mobile: image right below buttons -->
+      <div class="w-full md:hidden">
+        <div id="materia-zoom-container-mobile" class="zoom-container shadow-2xl relative h-[300px]">
+          <img id="material-stack-rovere-mobile" src={config.materia.materialImages.rovere} class="stack-img active" alt="Rovere" loading="lazy" decoding="async" />
+          <img id="material-stack-cipresso-mobile" src={config.materia.materialImages.cipresso} class="stack-img behind-1 transform translate-x-4 translate-y-4 rotate-2" alt="Cipresso" loading="lazy" decoding="async" />
+          <img id="material-stack-noce-mobile" src={config.materia.materialImages.noce} class="stack-img behind-2 transform -translate-x-4 translate-y-8 -rotate-2" alt="Noce" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
   </div>
