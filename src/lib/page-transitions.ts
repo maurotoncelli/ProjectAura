@@ -10,6 +10,7 @@ import { EASINGS } from './constants';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type Lenis from 'lenis';
 import { setActiveScene, setCanvasVisible, resetTableState } from '../store/sceneStore';
+import { resetConfigDefaults } from '../store/configStore';
 import { initScrollAnimations, cleanupScrollAnimations } from './scroll-animations';
 import { cleanupHomePage } from './home-animations';
 import { cleanupAboutPage } from './about-animations';
@@ -75,6 +76,8 @@ export function initPageTransitions(lenis: Lenis) {
     } else if (newPage === 'configurator') {
       setActiveScene('CONFIGURATOR');
       setCanvasVisible(true);
+      resetTableState();
+      resetConfigDefaults();
     } else {
       setActiveScene('NONE');
     }

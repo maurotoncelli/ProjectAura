@@ -55,3 +55,12 @@ export function endPageTransition() {
 export function setLedColorHue(hue: number) {
   ledColorHue.set(hue);
 }
+
+/**
+ * Reset all configurator state to defaults.
+ * Called on page transition TO the configurator to prevent stale values.
+ */
+export function resetConfigDefaults() {
+  isDayMode.set(true);
+  ledColorHue.set(30);
+}
