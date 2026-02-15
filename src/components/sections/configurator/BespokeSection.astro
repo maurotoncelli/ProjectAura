@@ -29,11 +29,11 @@ const inspirations = config.oltreLo.inspirations ?? [];
           />
         ))}
 
-        <!-- Arrows -->
-        <button id="bespoke-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Precedente">
+        <!-- Arrows (always visible on mobile, hover-reveal on desktop) -->
+        <button id="bespoke-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Precedente">
           <svg class="w-4 h-4 text-at-graphite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <button id="bespoke-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Successiva">
+        <button id="bespoke-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 hover:bg-white/90 z-10" aria-label="Successiva">
           <svg class="w-4 h-4 text-at-graphite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
 
@@ -86,6 +86,26 @@ const inspirations = config.oltreLo.inspirations ?? [];
 
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Touch swipe support
+    const slider = document.getElementById('bespoke-slider');
+    if (slider) {
+      let startX = 0;
+      let startY = 0;
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      slider.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        // Only trigger if horizontal swipe is dominant and > 50px
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) goTo(current + 1);
+          else goTo(current - 1);
+        }
+      }, { passive: true });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', initBespokeSlider);
