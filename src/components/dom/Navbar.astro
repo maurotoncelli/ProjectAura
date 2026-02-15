@@ -22,7 +22,7 @@ const currentPath = Astro.url.pathname;
     ))}
   </div>
   
-  <div id="nav-cart-container" class="flex items-center space-x-6 text-sm transition-opacity duration-300 absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0">
+  <div id="nav-cart-container" class="flex items-center gap-6 text-sm transition-opacity duration-300 absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0">
     <LanguageSelector client:load currentLang={currentLang} currentPath={currentPath} />
     <button id="cart-btn-label" class="hover:opacity-50">{site.nav.cartLabel} (0)</button>
   </div>
