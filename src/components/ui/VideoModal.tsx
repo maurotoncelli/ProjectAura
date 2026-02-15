@@ -27,11 +27,23 @@ export default function VideoModal({ src: defaultSrc }: { src: string }) {
     setActiveSrc(customSrc || defaultSrc);
     setIsOpen(true);
     setTimeout(() => {
-      const container = containerRef.current;
-      if (container?.requestFullscreen) {
-        container.requestFullscreen().catch(() => {});
+      const isMobile = window.matchMedia('(pointer: coarse)').matches;
+      const video = videoRef.current;
+      // Mobile: use native video fullscreen (required for iOS Safari)
+      if (isMobile && video) {
+        if ((video as any).webkitEnterFullscreen) {
+          (video as any).webkitEnterFullscreen();
+        } else if (video.requestFullscreen) {
+          video.requestFullscreen().catch(() => {});
+        }
+      } else {
+        // Desktop: fullscreen the container (keeps custom close button visible)
+        const container = containerRef.current;
+        if (container?.requestFullscreen) {
+          container.requestFullscreen().catch(() => {});
+        }
       }
-    }, 100);
+    }, 200);
   }, [defaultSrc]);
 
   // Register global open/close for Astro components
@@ -69,7 +81,16 @@ export default function VideoModal({ src: defaultSrc }: { src: string }) {
       }
     };
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+
+    // iOS Safari: native video fullscreen fires this event instead
+    const video = videoRef.current;
+    const handleWebkitEnd = () => { if (isOpen) close(); };
+    video?.addEventListener('webkitendfullscreen', handleWebkitEnd);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      video?.removeEventListener('webkitendfullscreen', handleWebkitEnd);
+    };
   }, [isOpen, close]);
 
   // Close on Escape (fallback for non-fullscreen)
