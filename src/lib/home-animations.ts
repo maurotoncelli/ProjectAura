@@ -144,13 +144,19 @@ export function initHomePage() {
         .to('#tech-text', { opacity: 1, y: 0, duration: 1.5 }, '-=0.5');
     }
 
-    // Fade out mobile scroll hint as soon as the user starts scrolling
-    gsap.to('#hero-scroll-hint', {
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: 'body', start: '10px top', toggleActions: 'play none none reverse' },
-    });
+    // Mobile scroll hint: fade in on load, fade out on first scroll
+    const scrollHint = document.getElementById('hero-scroll-hint');
+    if (scrollHint) {
+      // Show the hint (it starts at opacity-0 in HTML so it stays hidden on non-home pages)
+      gsap.to(scrollHint, { opacity: 1, duration: 1, delay: 1.5, ease: 'power2.out' });
+      // Hide on scroll
+      gsap.to(scrollHint, {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: 'body', start: '30px top' },
+      });
+    }
 
     // Fixed hero text fade on tech section
     gsap.to('#fixed-hero-text', {
