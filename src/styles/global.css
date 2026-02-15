@@ -878,8 +878,8 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 .lightbox-next { right: 2rem; }
 
 .lightbox-content {
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 90vw;
+  max-height: 90vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -888,7 +888,7 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 
 .lightbox-img {
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 80vh;
   object-fit: contain;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   opacity: 0;
@@ -904,14 +904,46 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
   transform: translateY(10px);
 }
 
-/* Mobile: lightbox arrows below image, not overlapping */
-@media (max-width: 768px) {
+/* Landscape: fill the viewport for immersive viewing */
+@media (orientation: landscape) and (max-height: 600px) {
   .lightbox-content {
-    max-width: 95vw;
-    max-height: 60vh;
+    max-width: 98vw;
+    max-height: 98vh;
   }
   .lightbox-img {
-    max-height: 50vh;
+    max-height: 94vh;
+    box-shadow: none;
+  }
+  .lightbox-nav-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+  }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+  .lightbox-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1rem 1.5rem;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile portrait: arrows below image, not overlapping */
+@media (max-width: 768px) and (orientation: portrait) {
+  .lightbox-content {
+    max-width: 95vw;
+    max-height: 70vh;
+  }
+  .lightbox-img {
+    max-height: 60vh;
   }
   .lightbox-nav-btn {
     top: auto;

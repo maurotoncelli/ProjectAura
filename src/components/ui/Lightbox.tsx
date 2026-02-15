@@ -1,9 +1,10 @@
 /**
  * Lightbox — Full-screen image gallery overlay.
  * Keyboard navigation (Escape, Arrow keys).
+ * Touch swipe navigation for mobile.
  * z-index: 10002
  */
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export default function Lightbox() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,8 @@ export default function Lightbox() {
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('Space');
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -75,16 +78,30 @@ export default function Lightbox() {
     return () => document.removeEventListener('keydown', handleKey);
   }, [isOpen, close, navigate]);
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      navigate(diff > 0 ? 1 : -1);
+    }
+  }, [navigate]);
+
   return (
     <div
       id="lightbox-overlay"
       className={isOpen ? 'active' : ''}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <button
-        className="absolute top-8 left-8 md:left-auto md:right-8 text-white text-xs uppercase tracking-widest z-50 hover:opacity-50 bg-transparent border-none"
+        className="absolute top-4 right-4 md:top-8 md:right-8 text-white text-xs uppercase tracking-widest z-50 hover:opacity-50 bg-black/30 backdrop-blur-sm border-none px-3 py-2 rounded-full"
         onClick={close}
       >
-        Chiudi [ESC]
+        Chiudi
       </button>
       <button className="lightbox-nav-btn lightbox-prev" onClick={() => navigate(-1)}>&larr;</button>
       <button className="lightbox-nav-btn lightbox-next" onClick={() => navigate(1)}>&rarr;</button>
@@ -92,8 +109,8 @@ export default function Lightbox() {
         {imgSrc && <img src={imgSrc} className="lightbox-img" alt="Gallery" style={{ opacity: 1, transform: 'none' }} />}
         <div className="lightbox-caption" style={{ opacity: 1, transform: 'none' }}>
           <p className="text-xs text-at-oak uppercase tracking-widest mb-2 font-bold">{category}</p>
-          <h3 className="text-2xl md:text-4xl text-white font-serif italic">{title}</h3>
-          <p className="text-sm text-at-text-muted mt-2 uppercase tracking-wide">{location}</p>
+          <h3 className="text-xl md:text-4xl text-white font-serif italic">{title}</h3>
+          <p className="text-xs md:text-sm text-at-text-muted mt-1 md:mt-2 uppercase tracking-wide">{location}</p>
         </div>
       </div>
     </div>

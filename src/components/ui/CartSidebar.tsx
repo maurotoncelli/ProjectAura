@@ -68,63 +68,74 @@ export default function CartSidebar() {
         </div>
 
         <div className="p-8 flex-grow overflow-y-auto pb-32">
-          <div className="flex gap-6 mb-12 relative">
-            <div className="w-24 h-24 bg-at-border rounded-sm flex-shrink-0"></div>
-            <div className="flex-grow">
-              <h3 className="font-bold text-xl">{cart.productName}</h3>
-              <p id="cart-desc" className="text-sm text-at-text-muted uppercase tracking-wide">{cart.defaultDesc}</p>
-              <p id="cart-initials" className="text-xs text-at-text-muted uppercase tracking-wide mt-1">{cart.defaultInitials}</p>
-              <p id="cart-price" className="mt-2 font-mono">{cart.defaultPrice}</p>
-            </div>
-            <button
-              onClick={() => removeFromCart(0)}
-              className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center text-at-text-muted hover:text-red-500 transition-colors rounded-full hover:bg-red-50"
-              aria-label="Rimuovi dal carrello"
-              title="Rimuovi"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-
-          <div className="mb-8 text-xs text-at-text-muted space-y-4 pt-4">
-            {cart.disclaimers.map((disclaimer, i) => (
-              <p key={i}>
-                <span className="font-bold uppercase tracking-widest text-at-text-muted">{disclaimer.label}</span><br />
-                {disclaimer.text}
-              </p>
-            ))}
-          </div>
-
-          <div className="bg-white p-8 rounded-sm mt-8 border border-at-border">
-            <p className="text-xs uppercase tracking-widest text-at-text-muted mb-8">{cart.roadmap.title}</p>
-            <div className="space-y-8 relative pl-2">
-              {cart.roadmap.steps.map((step, i) => (
-                <div key={i} className="relative pl-10 animate-step opacity-50">
-                  <div className={`absolute left-2 top-1.5 w-3 h-3 transform -translate-x-1/2 ${step.style === 'filled' ? 'bg-at-graphite rounded-full' : 'border-2 border-at-graphite bg-white rounded-full'}`}></div>
-                  <h4 className="font-bold text-sm uppercase tracking-wide text-at-walnut">{step.title}</h4>
-                  <p className="text-[10px] text-at-walnut mt-1">{step.description}</p>
+          {items.length > 0 ? (
+            <>
+              <div className="flex gap-6 mb-12 relative">
+                <div className="w-24 h-24 bg-at-border rounded-sm flex-shrink-0"></div>
+                <div className="flex-grow pr-10">
+                  <h3 className="font-bold text-xl">{cart.productName}</h3>
+                  <p id="cart-desc" className="text-sm text-at-text-muted uppercase tracking-wide">{cart.defaultDesc}</p>
+                  <p id="cart-initials" className="text-xs text-at-text-muted uppercase tracking-wide mt-1">{cart.defaultInitials}</p>
+                  <p id="cart-price" className="mt-2 font-mono">{cart.defaultPrice}</p>
                 </div>
-              ))}
+                <button
+                  onClick={() => { removeFromCart(0); }}
+                  className="absolute top-0 right-0 w-10 h-10 flex items-center justify-center text-at-text-muted/60 hover:text-red-500 active:text-red-600 transition-colors rounded-full hover:bg-red-50 active:bg-red-100"
+                  aria-label="Rimuovi dal carrello"
+                  title="Rimuovi dal carrello"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-8 text-xs text-at-text-muted space-y-4 pt-4">
+                {cart.disclaimers.map((disclaimer, i) => (
+                  <p key={i}>
+                    <span className="font-bold uppercase tracking-widest text-at-text-muted">{disclaimer.label}</span><br />
+                    {disclaimer.text}
+                  </p>
+                ))}
+              </div>
+
+              <div className="bg-white p-8 rounded-sm mt-8 border border-at-border">
+                <p className="text-xs uppercase tracking-widest text-at-text-muted mb-8">{cart.roadmap.title}</p>
+                <div className="space-y-8 relative pl-2">
+                  {cart.roadmap.steps.map((step, i) => (
+                    <div key={i} className="relative pl-10 animate-step opacity-50">
+                      <div className={`absolute left-2 top-1.5 w-3 h-3 transform -translate-x-1/2 ${step.style === 'filled' ? 'bg-at-graphite rounded-full' : 'border-2 border-at-graphite bg-white rounded-full'}`}></div>
+                      <h4 className="font-bold text-sm uppercase tracking-wide text-at-walnut">{step.title}</h4>
+                      <p className="text-[10px] text-at-walnut mt-1">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center justify-center h-full text-center">
+              <p className="text-at-text-muted text-sm uppercase tracking-widest mb-4">Il tuo carrello è vuoto</p>
+              <p className="text-at-text/60 text-xs">Configura il tuo AETHER per aggiungerlo qui.</p>
             </div>
-          </div>
+          )}
         </div>
 
-        <div className="p-8 border-t border-at-border bg-white">
-          <button className="w-full bg-at-graphite text-white py-5 font-bold tracking-[0.2em] text-sm uppercase transition hover:bg-at-graphite/90">
-            {cart.checkoutLabel}
-          </button>
-          <div className="mt-4 flex items-center justify-center">
-            <a
-              href={`tel:${cart.assistancePhone}`}
-              className="text-xs md:text-sm font-bold uppercase tracking-widest text-at-text/70 hover:text-at-oak transition flex items-center gap-2 border-b-2 border-transparent hover:border-at-oak pb-1"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              {cart.assistanceLabel}
-            </a>
+        {items.length > 0 && (
+          <div className="p-8 border-t border-at-border bg-white">
+            <button className="w-full bg-at-graphite text-white py-5 font-bold tracking-[0.2em] text-sm uppercase transition hover:bg-at-graphite/90">
+              {cart.checkoutLabel}
+            </button>
+            <div className="mt-4 flex items-center justify-center">
+              <a
+                href={`tel:${cart.assistancePhone}`}
+                className="text-xs md:text-sm font-bold uppercase tracking-widest text-at-text/70 hover:text-at-oak transition flex items-center gap-2 border-b-2 border-transparent hover:border-at-oak pb-1"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                {cart.assistanceLabel}
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
