@@ -30,12 +30,12 @@ const config = getConfiguratorContent();
         </div>
       </div>
 
-      <div class="flex flex-col justify-center gap-1">
+      <div id="led-section" class="flex flex-col justify-center gap-1">
         <span id="rgb-label" class="text-[9px] font-bold uppercase tracking-widest text-at-graphite opacity-50 transition-colors duration-500">{config.cockpit.ledLabel}</span>
         <!-- Desktop: range slider -->
         <input type="range" id="mood-slider" class="mood-slider hidden md:block" min="0" max="360" value="0" />
-        <!-- Mobile: tappable color dots -->
-        <div id="led-color-dots" class="flex items-center gap-1.5 md:hidden">
+        <!-- Mobile: tappable color dots (visible only in night mode) -->
+        <div id="led-color-dots" class="items-center gap-1.5">
           <button class="led-dot active" data-hue="30" style="background: hsl(30,100%,65%);" title="Warm"></button>
           <button class="led-dot" data-hue="0" style="background: hsl(0,100%,60%);" title="Red"></button>
           <button class="led-dot" data-hue="60" style="background: hsl(60,100%,55%);" title="Yellow"></button>

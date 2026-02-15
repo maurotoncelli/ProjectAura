@@ -1034,6 +1034,17 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 .mood-slider:hover::-webkit-slider-thumb { transform: scale(1.4); }
 
 /* LED COLOR DOTS (mobile alternative to slider) */
+/* Mobile: hide entire LED section in day mode, show in night mode */
+@media (max-width: 768px) {
+  #led-section { display: none; }
+  body.active-night #led-section { display: flex; }
+  body.active-night #led-color-dots { display: flex; }
+}
+/* Desktop: dots always hidden (slider used instead) */
+@media (min-width: 769px) {
+  #led-color-dots { display: none; }
+}
+
 .led-dot {
   width: 18px;
   height: 18px;
