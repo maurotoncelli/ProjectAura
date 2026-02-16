@@ -101,20 +101,20 @@ export default function LightingController({ shadows = false, variant = 'hero' }
         args={[SKY_COLOR, GROUND_COLOR, dayMode ? 1.0 : 0.08]}
       />
 
-      {/* LED bounce light 1 — positioned under table, front side.
+      {/* LED bounce light 1 — positioned under table, left leg.
           High intensity + wide distance for visible warm pool on floor and glass legs. */}
       <pointLight
         ref={ledBounce1Ref}
-        position={[0, 0.15, -0.6]}
+        position={[-0.6, 0.15, 0]}
         intensity={dayMode ? 0 : 6}
         color={0xF5D0A9}
         distance={5}
         decay={2}
       />
-      {/* LED bounce light 2 — positioned under table, back side */}
+      {/* LED bounce light 2 — positioned under table, right leg */}
       <pointLight
         ref={ledBounce2Ref}
-        position={[0, 0.15, 0.6]}
+        position={[0.6, 0.15, 0]}
         intensity={dayMode ? 0 : 6}
         color={0xF5D0A9}
         distance={5}

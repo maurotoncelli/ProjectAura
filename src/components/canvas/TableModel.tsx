@@ -15,12 +15,13 @@ import { useStore } from '@nanostores/react';
 import { selectedMaterial, isDayMode, ledColorHue } from '../../store/configStore';
 import { TABLE_PARTS, MODEL_PATHS } from '../../lib/constants';
 
-// Color tints per wood type (multiplied on top of texture).
-// 0xffffff = no tint, texture renders at full brightness.
-const WOOD_COLORS: Record<string, number> = {
-  rovere: 0xffffff,
-  cipresso: 0xfcf8f0,
-  noce: 0xdecfbe,
+// Per-material appearance overrides.
+// color: tint multiplied on texture (0xffffff = no tint).
+// roughness / envMapIntensity / normalScale: surface feel per wood.
+const WOOD_PROPS: Record<string, { color: number; roughness: number; envMapIntensity: number; normalScale: number }> = {
+  rovere:   { color: 0xffffff, roughness: 0.95, envMapIntensity: 0.3, normalScale: 1.5 },
+  cipresso: { color: 0xfcf8f0, roughness: 0.95, envMapIntensity: 0.3, normalScale: 1.5 },
+  noce:     { color: 0xdecfbe, roughness: 1.0,  envMapIntensity: 0.08, normalScale: 2.0 },
 };
 
 // Shared texture loader (reused across loads)
@@ -160,12 +161,15 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
     };
   }, [materials, clonedScene]);
 
-  // React to material changes: load new textures from data layer and apply color tint + UV scale
+  // React to material changes: load new textures from data layer and apply per-material appearance
   useEffect(() => {
     if (!material) return;
 
-    const color = WOOD_COLORS[material.id] || 0xffffff;
-    materials.wood.color.set(color);
+    const props = WOOD_PROPS[material.id] || WOOD_PROPS.rovere;
+    materials.wood.color.set(props.color);
+    materials.wood.roughness = props.roughness;
+    materials.wood.envMapIntensity = props.envMapIntensity;
+    materials.wood.normalScale.set(props.normalScale, props.normalScale);
 
     const scaleY = material.textureScaleY || 1;
     const newTextures: THREE.Texture[] = [];
