@@ -1,9 +1,9 @@
 import { atom } from 'nanostores';
 import type { SceneType } from '../types/product';
 
-// Default hero rotation: slight X tilt for perspective, Y=π/2 to show the LONG side
-// (the model's long axis is along Z; rotating 90° on Y brings it to face the camera)
-export const DEFAULT_TABLE_ROTATION: [number, number, number] = [0.1, Math.PI / 2, 0];
+// Default hero rotation: slight X tilt for perspective.
+// v2 model long axis is along X — no Y rotation needed to show the long side.
+export const DEFAULT_TABLE_ROTATION: [number, number, number] = [0.1, 0, 0];
 export const DEFAULT_TABLE_SCALE = 1.0;
 
 export const activeScene = atom<SceneType>('HERO');

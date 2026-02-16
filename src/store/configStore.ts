@@ -3,7 +3,8 @@ import type { Product, Material, ShippingZone } from '../types/product';
 import productsData from '../data/products.json';
 
 export const selectedProduct = atom<Product | null>(null);
-export const selectedMaterial = atom<Material | null>(productsData.materials[0] as Material);
+// Default material: Noce Canaletto (index 2)
+export const selectedMaterial = atom<Material | null>(productsData.materials[2] as Material);
 export const selectedShipping = atom<ShippingZone | null>(productsData.shipping[0] as ShippingZone);
 export const isDayMode = atom<boolean>(true);
 export const isMenuOpen = atom<boolean>(false);
@@ -63,5 +64,5 @@ export function setLedColorHue(hue: number) {
 export function resetConfigDefaults() {
   isDayMode.set(true);
   ledColorHue.set(30);
-  selectedMaterial.set(productsData.materials[0] as Material);
+  selectedMaterial.set(productsData.materials[2] as Material);
 }

@@ -303,20 +303,35 @@ export function initConfigPage() {
   }
 
   // Legal checkboxes
+  let orderEnabled = false;
   function checkLegal() {
     const cb1 = (document.getElementById('order-terms') as HTMLInputElement)?.checked;
     const cb2 = (document.getElementById('order-withdrawal') as HTMLInputElement)?.checked;
-    const enabled = cb1 && cb2;
+    orderEnabled = !!(cb1 && cb2);
     const btnAcconto = document.getElementById('btn-acconto') as HTMLButtonElement;
     const btnSaldo = document.getElementById('btn-saldo') as HTMLButtonElement;
     const btnOrder = document.getElementById('btn-order') as HTMLButtonElement;
-    if (btnAcconto) { btnAcconto.style.opacity = enabled ? '1' : '0.45'; btnAcconto.style.pointerEvents = enabled ? 'auto' : 'none'; }
-    if (btnSaldo) { btnSaldo.style.opacity = enabled ? '1' : '0.45'; btnSaldo.style.pointerEvents = enabled ? 'auto' : 'none'; }
-    if (btnOrder) { btnOrder.style.opacity = enabled ? '1' : '0.55'; btnOrder.style.pointerEvents = enabled ? 'auto' : 'none'; }
+    const tooltip = document.getElementById('btn-order-tooltip');
+    if (btnAcconto) { btnAcconto.style.opacity = orderEnabled ? '1' : '0.45'; btnAcconto.style.pointerEvents = orderEnabled ? 'auto' : 'none'; }
+    if (btnSaldo) { btnSaldo.style.opacity = orderEnabled ? '1' : '0.45'; btnSaldo.style.pointerEvents = orderEnabled ? 'auto' : 'none'; }
+    if (btnOrder) { btnOrder.style.opacity = orderEnabled ? '1' : '0.55'; btnOrder.style.pointerEvents = orderEnabled ? 'auto' : 'none'; }
+    if (tooltip && orderEnabled) { tooltip.style.opacity = '0'; }
   }
   checkLegal();
   document.getElementById('order-terms')?.addEventListener('change', checkLegal);
   document.getElementById('order-withdrawal')?.addEventListener('change', checkLegal);
+
+  // Tooltip on hover when order button is disabled (desktop only)
+  const orderWrapper = document.getElementById('btn-order-wrapper');
+  const orderTooltip = document.getElementById('btn-order-tooltip');
+  if (orderWrapper && orderTooltip) {
+    orderWrapper.addEventListener('mouseenter', () => {
+      if (!orderEnabled) orderTooltip.style.opacity = '1';
+    });
+    orderWrapper.addEventListener('mouseleave', () => {
+      orderTooltip.style.opacity = '0';
+    });
+  }
 
   // Order button
   document.getElementById('btn-order')?.addEventListener('click', () => {

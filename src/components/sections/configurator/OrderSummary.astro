@@ -58,7 +58,12 @@ const config = getConfiguratorContent();
       <button id="btn-saldo" class="config-action-btn px-4 py-4 md:px-8 md:py-6 border border-at-graphite bg-at-graphite text-white hover:bg-black transition text-xs font-bold uppercase tracking-widest">{config.buttons.saldo}</button>
     </div>
     <p class="text-xs md:text-sm text-at-text-muted italic text-center mb-4">Per poter ordinare Aether è necessario accettare entrambe le condizioni.</p>
-    <button id="btn-order" class="config-action-btn w-full py-6 text-base md:py-8 md:text-xl text-white font-light tracking-[0.2em] uppercase transition shadow-2xl bg-at-oak hover:bg-[#7a5a49]">{config.buttons.order}</button>
+    <div id="btn-order-wrapper" class="relative w-full">
+      <button id="btn-order" class="config-action-btn w-full py-6 text-base md:py-8 md:text-xl text-white font-light tracking-[0.2em] uppercase transition shadow-2xl bg-at-oak hover:bg-[#7a5a49]">{config.buttons.order}</button>
+      <span id="btn-order-tooltip" class="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-3 opacity-0 transition-opacity duration-200 bg-white border border-red-400 text-red-600 text-xs md:text-sm font-semibold px-4 py-2 rounded-lg shadow-lg whitespace-nowrap z-10">
+        Per poter ordinare Aether è necessario accettare entrambe le condizioni.
+      </span>
+    </div>
 
     <!-- Legal Disclaimer -->
     <div class="mt-8 mb-8 text-xs text-at-text-muted space-y-4 text-left max-w-2xl mx-auto">

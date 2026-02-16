@@ -44,6 +44,7 @@ export interface Material {
   textureNormal?: string;
   textureRoughness?: string;
   textureDisplacement?: string;
+  textureScaleY?: number;
   thumbnail: string;
   description: string;
   shortDescription: string;

@@ -3,18 +3,12 @@
  * Single Source of Truth for hardcoded values
  */
 
-// 3D Model Configuration — names extracted from Tavolo_lowpoly.glb
+// 3D Model Configuration — names extracted from tavololowpoly_versione2.glb
 export const TABLE_PARTS = {
-  glassLegs: ['Gamba _vetro_1', 'Gamba _vetro_2'],
-  woodPlanks: [
-    'Tavolo_asselegno_01', 'Tavolo_asselegno_02', 'Tavolo_asselegno_03',
-    'Tavolo_asselegno_04', 'Tavolo_asselegno_05', 'Tavolo_asselegno_06',
-    'Tavolo_asselegno_07', 'Tavolo_asselegno_08', 'Tavolo_asselegno_09',
-    'Tavolo_asselegno_10', 'Tavolo_asselegno_11', 'Tavolo_asselegno_12',
-    'Tavolo_asselegno_13', 'Tavolo_asselegno_14', 'Tavolo_asselegno_15',
-  ],
-  ledStrips: ['Led_strip_1', 'Led_strip_2'],
-  blockers: ['tappabuchi'],
+  glassLegs: ['Table_Legs'],
+  woodPlanks: ['Table_top'],
+  ledStrips: ['Table_LEDs'],
+  blockers: [],
 };
 
 // Camera Presets (from Blueprint Tecnico)
@@ -36,22 +30,22 @@ export const CAMERA_PRESETS = {
 export const TABLE_STATES = {
   PRELOADER: {
     scale: [0.9, 0.9, 0.9] as [number, number, number],
-    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
+    rotation: [0.1, 0, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   HERO_IDLE: {
     scale: [1.0, 1.0, 1.0] as [number, number, number],
-    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
+    rotation: [0.1, 0, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   PHILOSOPHY_ZOOM: {
     scale: [1.5, 1.5, 1.5] as [number, number, number],
-    rotation: [0.1, Math.PI / 2, 0] as [number, number, number],
+    rotation: [0.1, 0, 0] as [number, number, number],
     position: [0, 0, 0] as [number, number, number],
   },
   TECH_DARK: {
     scale: [2.5, 2.5, 2.5] as [number, number, number],
-    rotation: [-Math.PI / 2, Math.PI / 2, 0] as [number, number, number],
+    rotation: [-Math.PI / 2, 0, 0] as [number, number, number],
     position: [0, 0.5, 0] as [number, number, number],
   },
 };
@@ -106,7 +100,7 @@ export const SPACING = {
 
 // Model Paths
 export const MODEL_PATHS = {
-  TABLE_LOWPOLY: '/models/Tavolo_lowpoly.glb',
+  TABLE_LOWPOLY: '/models/tavololowpoly_versione2.glb',
   TABLE_HIGHRES: '/models/Tavolo_Aether_v2.glb',
 };
 

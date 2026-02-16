@@ -1,9 +1,12 @@
 /**
- * TableModel — The shared GLTF table model.
+ * TableModel — The shared GLTF table model (v2).
  * Used by both HeroScene and ConfiguratorScene (zero duplication).
  * Reads selectedMaterial and isDayMode from configStore for material switching.
  * Uses TABLE_PARTS from constants for semantic node mapping.
  * Textures are loaded dynamically from the selectedMaterial data (products.json).
+ *
+ * Model: tavololowpoly_versione2.glb
+ * Mesh hierarchy: Table_master > Table_top, Table_Legs, Table_LEDs
  */
 import { useRef, useMemo, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
@@ -14,21 +17,32 @@ import { TABLE_PARTS, MODEL_PATHS } from '../../lib/constants';
 
 // Color tints per wood type (multiplied on top of texture).
 // 0xffffff = no tint, texture renders at full brightness.
-// Lower values darken the texture — use sparingly.
 const WOOD_COLORS: Record<string, number> = {
-  rovere: 0xffffff,   // neutral — texture at full brightness
-  cipresso: 0xfcf8f0, // very subtle warm tint — Wood014 texture carries its own color
-  noce: 0xdecfbe,     // light warm tint — Wood018 texture is already naturally dark
+  rovere: 0xffffff,
+  cipresso: 0xfcf8f0,
+  noce: 0xdecfbe,
 };
 
 // Shared texture loader (reused across loads)
 const textureLoader = new THREE.TextureLoader();
 
-/** Load and configure a texture from a given path */
-function loadTexture(path: string): THREE.Texture {
+/**
+ * Load and configure a texture from a given path.
+ * @param path - URL to the texture image
+ * @param scaleY - optional V-axis repeat (corresponds to Blender Mapping Scale Y)
+ * @param isSRGB - whether to set SRGBColorSpace (true for Color maps, false for data maps)
+ */
+function loadTexture(path: string, scaleY?: number, isSRGB = true): THREE.Texture {
   const tex = textureLoader.load(path);
   tex.flipY = false;
-  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.LinearSRGBColorSpace;
+
+  if (scaleY && scaleY !== 1) {
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(1, scaleY);
+  }
+
   return tex;
 }
 
@@ -49,21 +63,22 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
 
   // Create materials once (wood texture set to default; updated dynamically via useEffect)
   const materials = useMemo(() => {
-    const defaultColor = loadTexture('/textures/wood_oak_color.jpg');
-    const defaultNormal = loadTexture('/textures/wood_oak_normal.jpg');
-    const defaultRough = loadTexture('/textures/wood_oak_roughness.jpg');
+    const defaultScaleY = 1.8; // Noce Canaletto default
+    const defaultColor = loadTexture('/textures/WoodFloor043_1K-JPG_Color.jpg', defaultScaleY, true);
+    const defaultNormal = loadTexture('/textures/WoodFloor043_1K-JPG_NormalGL.jpg', defaultScaleY, false);
+    const defaultRough = loadTexture('/textures/WoodFloor043_1K-JPG_Roughness.jpg', defaultScaleY, false);
     loadedTexturesRef.current = [defaultColor, defaultNormal, defaultRough];
 
     return {
       wood: new THREE.MeshStandardMaterial({
         map: defaultColor,
         normalMap: defaultNormal,
-        normalScale: new THREE.Vector2(1.5, 1.5), // Accentuate wood grain relief
+        normalScale: new THREE.Vector2(1.5, 1.5),
         roughnessMap: defaultRough,
-        roughness: 0.95,       // Very matte — real wood, not lacquered
-        metalness: 0.0,        // Zero metalness — no plastic sheen
+        roughness: 0.95,
+        metalness: 0.0,
         color: 0xffffff,
-        envMapIntensity: 0.3,  // Minimal environment reflections
+        envMapIntensity: 0.3,
       }),
       glass: new THREE.MeshPhysicalMaterial({
         color: 0xffffff,
@@ -80,14 +95,8 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         color: 0x111111,
         emissive: 0x000000,
         emissiveIntensity: 0,
-        toneMapped: false,  // Pure colors, not compressed by ACES — enables bloom trigger
-        roughness: 1,       // Max diffusion for soft glow
-      }),
-      blocker: new THREE.MeshStandardMaterial({
-        color: 0x6B5B4B,   // Warm dark wood tone — fills gaps seamlessly
-        roughness: 0.95,    // Very matte like the wood
-        metalness: 0.0,
-        envMapIntensity: 0.1,
+        toneMapped: false,
+        roughness: 1,
       }),
     };
   }, []);
@@ -114,19 +123,12 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         if (castShadow) mesh.castShadow = true;
         if (receiveShadow) mesh.receiveShadow = true;
 
-        if (TABLE_PARTS.woodPlanks.some(n => name.includes(n)) ||
-            name.toLowerCase().includes('asselegno') || name.toLowerCase().includes('legno') || name.toLowerCase().includes('tavolo')) {
+        if (TABLE_PARTS.woodPlanks.some(n => name.includes(n))) {
           mesh.material = materials.wood;
-        } else if (TABLE_PARTS.glassLegs.some(n => name.includes(n)) ||
-                   name.toLowerCase().includes('vetro') || name.toLowerCase().includes('glass') || name.toLowerCase().includes('gamba')) {
+        } else if (TABLE_PARTS.glassLegs.some(n => name.includes(n))) {
           mesh.material = materials.glass;
-        } else if (TABLE_PARTS.ledStrips.some(n => name.includes(n)) ||
-                   name.toLowerCase().includes('led') || name.toLowerCase().includes('strip')) {
+        } else if (TABLE_PARTS.ledStrips.some(n => name.includes(n))) {
           mesh.material = materials.led.clone();
-        } else if (TABLE_PARTS.blockers.some(n => name.includes(n)) ||
-                   name.toLowerCase().includes('tappa')) {
-          mesh.material = materials.blocker;
-          mesh.visible = true;
         } else {
           // Fallback: assign wood material to unknown meshes
           mesh.material = materials.wood;
@@ -140,11 +142,9 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
   // Cleanup: dispose textures, materials and cloned scene on unmount
   useEffect(() => {
     return () => {
-      // Dispose all dynamically loaded textures
       loadedTexturesRef.current.forEach(tex => tex.dispose());
       loadedTexturesRef.current = [];
 
-      // Dispose all base materials
       Object.values(materials).forEach(mat => mat.dispose());
 
       // Dispose cloned LED material instances
@@ -152,8 +152,7 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         if ((child as THREE.Mesh).isMesh) {
           const mesh = child as THREE.Mesh;
           if (mesh.material && mesh.material !== materials.wood &&
-              mesh.material !== materials.glass && mesh.material !== materials.led &&
-              mesh.material !== materials.blocker) {
+              mesh.material !== materials.glass && mesh.material !== materials.led) {
             (mesh.material as THREE.Material).dispose();
           }
         }
@@ -161,53 +160,47 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
     };
   }, [materials, clonedScene]);
 
-  // React to material changes: load new textures from data layer and apply color tint
+  // React to material changes: load new textures from data layer and apply color tint + UV scale
   useEffect(() => {
     if (!material) return;
 
-    // Apply color tint
     const color = WOOD_COLORS[material.id] || 0xffffff;
     materials.wood.color.set(color);
 
-    // Load textures defined in the material data (products.json)
+    const scaleY = material.textureScaleY || 1;
     const newTextures: THREE.Texture[] = [];
 
     if (material.texturePath) {
-      const colorTex = loadTexture(material.texturePath);
-      // Dispose previous color map
+      const colorTex = loadTexture(material.texturePath, scaleY, true);
       materials.wood.map?.dispose();
       materials.wood.map = colorTex;
       newTextures.push(colorTex);
     }
 
     if (material.textureNormal) {
-      const normalTex = loadTexture(material.textureNormal);
+      const normalTex = loadTexture(material.textureNormal, scaleY, false);
       materials.wood.normalMap?.dispose();
       materials.wood.normalMap = normalTex;
       newTextures.push(normalTex);
     }
 
     if (material.textureRoughness) {
-      const roughTex = loadTexture(material.textureRoughness);
+      const roughTex = loadTexture(material.textureRoughness, scaleY, false);
       (materials.wood as any).roughnessMap?.dispose();
       materials.wood.roughnessMap = roughTex;
       newTextures.push(roughTex);
     }
 
     materials.wood.needsUpdate = true;
-
-    // Track new textures for cleanup
     loadedTexturesRef.current = newTextures;
 
     return () => {
-      // Cleanup previous textures when material changes again
       newTextures.forEach(tex => tex.dispose());
     };
   }, [material, materials]);
 
   // React to day/night + LED hue changes (LED emissive color)
   useEffect(() => {
-    // Convert hue (0-360) to THREE.Color — saturation 0.9, lightness 0.6 for vivid glow
     const ledColor = new THREE.Color().setHSL(hue / 360, 0.9, 0.6);
 
     clonedScene.traverse((child) => {
@@ -216,11 +209,10 @@ export default function TableModel({ castShadow = false, receiveShadow = false }
         const mat = mesh.material as THREE.MeshStandardMaterial;
         if (!mat || !mat.emissive) return;
 
-        const isLed = TABLE_PARTS.ledStrips.some(n => mesh.name.includes(n)) ||
-          mesh.name.toLowerCase().includes('led') || mesh.name.toLowerCase().includes('strip');
+        const isLed = TABLE_PARTS.ledStrips.some(n => mesh.name.includes(n));
 
         if (isLed) {
-          mat.toneMapped = false; // Always keep LED colors pure
+          mat.toneMapped = false;
           if (dayMode) {
             mat.emissive.set(0x000000);
             mat.emissiveIntensity = 0;
