@@ -33,7 +33,11 @@ const currentLang = getLangFromPath(Astro.url.pathname);
       <p class="text-xs text-at-text-muted uppercase tracking-widest mb-8">{home.details.downloads.label}</p>
       <div class="flex flex-col md:flex-row gap-0 justify-center max-w-xl mx-auto mb-16 md:mb-32 border border-at-border">
         {home.details.downloads.buttons.map((button, index) => (
-          <button class={`flex-1 py-6 ${index === 0 ? 'border-r border-at-border' : ''} hover:bg-at-surface transition text-xs font-bold uppercase tracking-widest`}>{button}</button>
+          button === "Scheda Tecnica" ? (
+            <a href="/brochure" target="_blank" class={`flex-1 py-6 flex items-center justify-center ${index === 0 ? 'border-r border-at-border' : ''} hover:bg-at-surface transition text-xs font-bold uppercase tracking-widest text-inherit no-underline`}>{button}</a>
+          ) : (
+            <button class={`flex-1 py-6 ${index === 0 ? 'border-r border-at-border' : ''} hover:bg-at-surface transition text-xs font-bold uppercase tracking-widest`}>{button}</button>
+          )
         ))}
       </div>
       <div class="border-t border-b border-at-graphite/20 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 text-left">

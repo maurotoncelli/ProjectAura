@@ -18,14 +18,17 @@ export default function ConfiguratorScene() {
   const dayMode = useStore(isDayMode);
   const controlsRef = useRef<any>(null);
 
-  // Set camera to configurator preset on mount
+  // Set camera to configurator preset on mount, pulled back on narrow viewports
+  const { size } = useThree();
   useEffect(() => {
     const preset = CAMERA_PRESETS.CONFIGURATOR;
-    camera.position.set(...preset.position);
+    const isMobile = size.width < 768;
+    const zOffset = isMobile ? 2.0 : 0;
+    camera.position.set(preset.position[0], preset.position[1], preset.position[2] + zOffset);
     (camera as THREE.PerspectiveCamera).fov = preset.fov;
     (camera as THREE.PerspectiveCamera).updateProjectionMatrix();
     camera.lookAt(...preset.target);
-  }, [camera]);
+  }, [camera, size.width]);
 
   // Set scene background based on day/night — using design token colors
   const DAY_BG = 0xF2F0EB;   // at-stone

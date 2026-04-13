@@ -1,0 +1,288 @@
+---
+// src/pages/brochure.astro
+import '../styles/global.css';
+import { getHomeContent } from '../lib/data';
+import { getLangFromPath } from '../i18n/index';
+
+const home = getHomeContent();
+const currentLang = getLangFromPath(Astro.url.pathname);
+
+// ==========================================
+// CONFIGURAZIONE IMMAGINI BROCHURE
+// Modifica i percorsi qui sotto per cambiare 
+// le immagini in tutte le pagine della brochure
+// ==========================================
+const images = {
+  // Pagina 1: Sfondo copertina
+  copertina: "/textures/genesis-table.webp",
+  
+  // Pagina 2: Immagine sopra il testo della filosofia
+  filosofia: "/textures/spaces-villa-mare-terrazza.webp",
+  
+  // Pagina 3: Le 6 immagini della griglia ambienti
+  ambienti: [
+    "/textures/spaces-cena-convivio.webp",
+    "/textures/Villa_Brutalista_00000_copia-5d53380f-8c1a-4870-b428-65a4d7b20981.webp",
+    "/textures/spaces-villa-mare-terrazza.webp",
+    "/textures/Villa_Classica_00002_copia-604f53d3-9672-45f7-ac02-0c5648d87803.webp",
+    "/textures/MilanoOffice_light-690a74de-9976-442a-bb3c-6f42c877bc6e.webp",
+    "/textures/Villa_Giardino_00000_copia-afe82454-e7ed-4838-82e0-998af98d1244.webp"
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brochure - AETHER</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      /* Print-specific styles */
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-at-stone);
+        color: var(--color-at-text);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+        position: relative;
+        page-break-after: always;
+        background-color: var(--color-at-stone);
+        box-sizing: border-box;
+      }
+
+      /* Hide UI elements when printing */
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        .page {
+          page-break-after: always;
+          box-shadow: none;
+        }
+      }
+
+      /* Screen preview styles */
+      @media screen {
+        body {
+          background-color: #333;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 0;
+          gap: 2rem;
+        }
+        .page {
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+      }
+
+      /* Utility classes for brochure */
+      .full-bleed-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+
+      .content-overlay {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .qr-code {
+        width: 120px;
+        height: 120px;
+        background-color: white;
+        padding: 10px;
+      }
+      
+      .qr-code-large {
+        width: 160px;
+        height: 160px;
+        background-color: white;
+        padding: 15px;
+      }
+      
+      .blank-line {
+        border-bottom: 1px solid rgba(28, 27, 26, 0.3);
+        height: 1.5rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Print Button (Screen only) -->
+    <div class="no-print fixed top-8 right-8 z-50">
+      <button onclick="window.print()" class="px-6 py-3 bg-at-graphite text-white font-bold text-xs uppercase tracking-widest shadow-xl hover:bg-at-graphite/90 transition cursor-pointer">
+        Stampa / Salva PDF
+      </button>
+    </div>
+
+    <!-- PAGE 1: COPERTINA -->
+    <div class="page bg-at-graphite text-white">
+      <img src={images.copertina} alt="Aether Genesis" class="full-bleed-img opacity-80" />
+      <div class="content-overlay justify-end items-center text-center p-16 pb-24">
+        <h1 class="font-serif text-8xl font-light tracking-widest mb-4">AETHER</h1>
+        <p class="text-xl font-light tracking-widest uppercase opacity-80 mb-16">Legno Massello e Atmosfera Programmabile</p>
+        <div class="flex flex-col items-center gap-4 opacity-60">
+          <div class="w-12 h-[1px] bg-white"></div>
+          <p class="text-sm font-bold tracking-widest uppercase">Manifattura Italiana</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: FILOSOFIA + QR -->
+    <div class="page flex flex-col">
+      <div class="h-[55%] relative">
+        <img src={images.filosofia} alt="Aether in nature" class="w-full h-full object-cover" />
+      </div>
+      <div class="h-[45%] p-16 flex flex-col justify-between bg-at-stone">
+        <div>
+          <h2 class="font-serif italic text-5xl text-at-oak mb-8">Il silenzio della forma.</h2>
+          <p class="text-lg font-light leading-relaxed text-at-text/80 max-w-lg">
+            In un mondo che urla, AETHER sussurra. Un tavolo che sparisce per lasciare spazio a ciò che conta: la materia, la luce, il rituale. Rovere massello selezionato a mano. Gambe in vetro temperato invisibili. Un'anima LED intelligente che si sveglia al tramonto. Disegnato da AT Studio, realizzato a mano nel Workshop Segnobianco.
+          </p>
+        </div>
+        <div class="flex items-end justify-between">
+          <div class="pb-2 w-64">
+            <p class="text-sm font-bold uppercase tracking-widest text-at-text-muted mb-2">Scopri il video e configura il tuo</p>
+            <div class="blank-line mt-4"></div>
+          </div>
+          <div class="qr-code border border-at-border bg-white"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: AMBIENTI / SPACES -->
+    <div class="page p-16 bg-at-stone flex flex-col">
+      <h2 class="font-serif italic text-4xl text-at-oak mb-12 text-center">Ogni spazio merita il suo Aether.</h2>
+      
+      <div class="flex-1 grid grid-cols-2 grid-rows-3 gap-6">
+        {images.ambienti.map((imgSrc) => (
+          <div class="relative overflow-hidden bg-at-border">
+            <img src={imgSrc} alt="Aether Space" class="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- PAGE 4: PERSONALIZZAZIONI + CHIUSURA -->
+    <div class="page p-16 bg-at-stone flex flex-col justify-between">
+      <div>
+        <h2 class="font-serif italic text-4xl text-at-graphite mb-4">Oltre lo Standard.</h2>
+        <p class="text-sm text-at-text-muted mb-10 max-w-2xl leading-relaxed">
+          Le personalizzazioni e finiture mostrate di seguito non sono obbligate ma solo consigliate. Il tavolo AETHER è perfettamente personalizzabile su misura per adattarsi a ogni esigenza progettuale.
+        </p>
+        
+        <!-- Legni -->
+        <div class="mb-10">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-6 border-b border-at-border pb-2">I Materiali</h3>
+          <div class="grid grid-cols-3 gap-6">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-24 h-24 mb-4 overflow-hidden border border-at-border bg-at-surface">
+                <img src="/textures/Planks023B_1K-JPG_Color.jpg" alt="Rovere Antico" class="w-full h-full object-cover" />
+              </div>
+              <h4 class="font-bold text-sm uppercase tracking-wider mb-2">Rovere Antico</h4>
+              <p class="text-xs text-at-text-muted">La forza della persistenza. Venatura fiammata.</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <div class="w-24 h-24 mb-4 overflow-hidden border border-at-border bg-at-surface">
+                <img src="/textures/WoodFloor044_1K-JPG_Color.jpg" alt="Cipresso Toscano" class="w-full h-full object-cover" />
+              </div>
+              <h4 class="font-bold text-sm uppercase tracking-wider mb-2">Cipresso Toscano</h4>
+              <p class="text-xs text-at-text-muted">L'eleganza dell'unicità. Nodi come costellazioni.</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <div class="w-24 h-24 mb-4 overflow-hidden border border-at-border bg-at-surface">
+                <img src="/textures/WoodFloor043_1K-JPG_Color.jpg" alt="Noce Canaletto" class="w-full h-full object-cover" />
+              </div>
+              <h4 class="font-bold text-sm uppercase tracking-wider mb-2">Noce Canaletto</h4>
+              <p class="text-xs text-at-text-muted">Il prestigio dell'ombra. Riflessi cioccolato.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bespoke -->
+        <div class="mb-10">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-6 border-b border-at-border pb-2">Bespoke Inspirations</h3>
+          <div class="grid grid-cols-3 gap-6">
+            <div>
+              <img src="/textures/bespoke-01-cicatrici-preziose.webp" alt="Cicatrici" class="w-full h-24 object-cover mb-3" />
+              <h4 class="font-bold text-xs uppercase tracking-wider mb-1">Cicatrici preziose</h4>
+              <p class="text-[10px] text-at-text-muted">Crepe naturali esaltate con colate d'oro fuso.</p>
+            </div>
+            <div>
+              <img src="/textures/bespoke-04-ricarica-invisibile.webp" alt="Ricarica" class="w-full h-24 object-cover mb-3" />
+              <h4 class="font-bold text-xs uppercase tracking-wider mb-1">Ricarica invisibile</h4>
+              <p class="text-[10px] text-at-text-muted">Ricarica wireless e comandi touch nascosti nel legno.</p>
+            </div>
+            <div>
+              <img src="/textures/bespoke-05-gioielli-strutturali.webp" alt="Gioielli" class="w-full h-24 object-cover mb-3" />
+              <h4 class="font-bold text-xs uppercase tracking-wider mb-1">Gioielli strutturali</h4>
+              <p class="text-[10px] text-at-text-muted">Giunzioni a farfalla in metalli nobili lucidati.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Specifiche -->
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-at-text-muted mb-4 border-b border-at-border pb-2">Specifiche Tecniche</h3>
+          <div class="grid grid-cols-2 gap-4 text-xs text-at-text/80">
+            <p><strong>Modelli:</strong> 250 / 270 / 330 cm</p>
+            <p><strong>Prezzo:</strong> a partire da € 2.800</p>
+            <p><strong>Illuminazione:</strong> LED COB 2700K, 98 CRI</p>
+            <p><strong>Smart:</strong> Apple Home, Alexa, Google</p>
+            <p><strong>Vetro:</strong> Temperato extra-chiaro 20-25mm</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="mt-8 pt-8 border-t border-at-border flex items-end justify-between">
+        <div class="w-64">
+          <h4 class="font-bold text-sm uppercase tracking-widest mb-2">Configura il tuo AETHER</h4>
+          <div class="blank-line mt-4 mb-6"></div>
+          
+          <div class="space-y-4 mt-6">
+            <div class="blank-line"></div>
+            <div class="blank-line"></div>
+          </div>
+          
+          <div class="mt-8 flex gap-4 text-xs font-bold tracking-widest uppercase opacity-50">
+            <span>AT Studio</span>
+            <span>×</span>
+            <span>Segnobianco</span>
+          </div>
+        </div>
+        <div class="qr-code-large border border-at-border bg-white"></div>
+      </div>
+    </div>
+
+    <script is:inline>
+      window.addEventListener('load', () => {
+        // Rimuovi il commento qui sotto se vuoi che la stampa parta in automatico
+        // setTimeout(() => window.print(), 600);
+      });
+    </script>
+  </body>
+</html>
