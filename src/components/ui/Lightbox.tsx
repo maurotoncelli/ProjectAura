@@ -16,9 +16,11 @@ export default function Lightbox() {
   const [category, setCategory] = useState('Space');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const wasMultiTouch = useRef(false);
 
   const close = useCallback(() => {
     setIsOpen(false);
+    document.body.classList.remove('lightbox-active');
     const lenis = (window as any).lenis;
     if (lenis) lenis.start();
   }, []);
@@ -57,6 +59,7 @@ export default function Lightbox() {
       const idx = allItems.indexOf(element);
       setCurrentIndex(idx >= 0 ? idx : 0);
       setIsOpen(true);
+      document.body.classList.add('lightbox-active');
       const lenis = (window as any).lenis;
       if (lenis) lenis.stop();
     };
@@ -79,10 +82,19 @@ export default function Lightbox() {
   }, [isOpen, close, navigate]);
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    wasMultiTouch.current = e.touches.length > 1;
     touchStartX.current = e.touches[0].clientX;
   }, []);
 
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length > 1) wasMultiTouch.current = true;
+  }, []);
+
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (wasMultiTouch.current) {
+      wasMultiTouch.current = false;
+      return;
+    }
     touchEndX.current = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX.current;
     if (Math.abs(diff) > 50) {
@@ -95,6 +107,7 @@ export default function Lightbox() {
       id="lightbox-overlay"
       className={isOpen ? 'active' : ''}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <button

@@ -838,6 +838,14 @@ body.active-night .toggle-thumb { transform: translateX(22px); }
 }
 
 /* ==========================================
+   LIGHTBOX — hide navbar & hamburger when active
+   ========================================== */
+body.lightbox-active nav,
+body.lightbox-active .md\\:hidden[aria-label="Menu"] {
+  display: none !important;
+}
+
+/* ==========================================
    LIGHTBOX
    ========================================== */
 #lightbox-overlay {
