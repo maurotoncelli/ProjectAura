@@ -65,19 +65,27 @@ const images = {
         height: 297mm;
         overflow: hidden;
         position: relative;
-        page-break-after: always;
         background-color: var(--color-at-stone);
         box-sizing: border-box;
       }
 
-      /* Hide UI elements when printing */
+      /* Clean print logic */
       @media print {
-        .no-print {
-          display: none !important;
+        html, body {
+          margin: 0 !important;
+          padding: 0 !important;
+          height: auto !important;
+          overflow: visible !important;
         }
         .page {
-          page-break-after: always;
-          box-shadow: none;
+          break-after: page;
+          box-shadow: none !important;
+        }
+        .page:last-child {
+          break-after: avoid;
+        }
+        .no-print {
+          display: none !important;
         }
       }
 
