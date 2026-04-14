@@ -52,6 +52,12 @@ const images = {
         color: var(--color-at-text);
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        cursor: auto !important; /* Restore native cursor on this page */
+      }
+
+      /* Ensure all interactive elements show the cursor */
+      a, button, [role="button"], .cursor-pointer {
+        cursor: pointer !important;
       }
 
       .page {
